@@ -22,9 +22,11 @@ type Meta struct {
 
 	// created
 	// Format: date-time
+	// Format: date-time
 	Created strfmt.DateTime `json:"created,omitempty"`
 
 	// last modified
+	// Format: date-time
 	// Format: date-time
 	LastModified strfmt.DateTime `json:"lastModified,omitempty"`
 

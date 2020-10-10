@@ -11,7 +11,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// ResourceOperations resource operations
+// ResourceOperations ResourceOperations resource operations
 //
 // swagger:model ResourceOperations
 type ResourceOperations struct {

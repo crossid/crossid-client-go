@@ -9,7 +9,7 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// ResourceOperation resource operation
+// ResourceOperation ResourceOperation resource operation
 //
 // swagger:model ResourceOperation
 type ResourceOperation map[string]interface{}

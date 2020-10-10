@@ -10,8 +10,6 @@ import (
 	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/crossid/crossid-client-go/client/api_tokens"
-	"github.com/crossid/crossid-client-go/client/apps"
 	"github.com/crossid/crossid-client-go/client/health"
 )
 
@@ -57,8 +55,6 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *CrossID {
 
 	cli := new(CrossID)
 	cli.Transport = transport
-	cli.APITokens = api_tokens.New(transport, formats)
-	cli.Apps = apps.New(transport, formats)
 	cli.Health = health.New(transport, formats)
 	return cli
 }
@@ -104,10 +100,6 @@ func (cfg *TransportConfig) WithSchemes(schemes []string) *TransportConfig {
 
 // CrossID is a client for cross ID
 type CrossID struct {
-	APITokens api_tokens.ClientService
-
-	Apps apps.ClientService
-
 	Health health.ClientService
 
 	Transport runtime.ClientTransport
@@ -116,7 +108,5 @@ type CrossID struct {
 // SetTransport changes the transport on the client and all its subresources
 func (c *CrossID) SetTransport(transport runtime.ClientTransport) {
 	c.Transport = transport
-	c.APITokens.SetTransport(transport)
-	c.Apps.SetTransport(transport)
 	c.Health.SetTransport(transport)
 }

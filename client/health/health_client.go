@@ -37,11 +37,11 @@ type ClientService interface {
 }
 
 /*
-  Alive checks liveness
+  Alive checks aliveness
 
-  This endpoint returns an ok status (200) if the node is healthy or service unavailable (503) otherwise
+  This endpoint returns an ok status (200) if the node is healthy or service unavailable (503) otherwise.
 
-> This endpoint does not check the aliveness of a cluster rather a single node
+This endpoint does not check the aliveness of a cluster rather a single node.
 */
 func (a *Client) Alive(params *AliveParams, authInfo runtime.ClientAuthInfoWriter) (*AliveOK, error) {
 	// TODO: Validate the params before sending

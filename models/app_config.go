@@ -9,7 +9,7 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// AppConfig app config
+// AppConfig AppConfig app config
 //
 // swagger:model AppConfig
 type AppConfig map[string]interface{}

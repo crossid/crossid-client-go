@@ -12,9 +12,9 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// APIToken ApiToken is a secret used by non human clients to interact with API
+// APIToken APIToken ApiToken is a secret used by non human clients to interact with API
 //
-// swagger:model ApiToken
+// swagger:model APIToken
 type APIToken struct {
 
 	// active
@@ -25,6 +25,7 @@ type APIToken struct {
 	DisplayName string `json:"displayName,omitempty"`
 
 	// expires at
+	// Format: date-time
 	// Format: date-time
 	ExpiresAt strfmt.DateTime `json:"expiresAt,omitempty"`
 
@@ -38,7 +39,7 @@ type APIToken struct {
 	Meta *Meta `json:"meta,omitempty"`
 }
 
-// Validate validates this Api token
+// Validate validates this API token
 func (m *APIToken) Validate(formats strfmt.Registry) error {
 	var res []error
 

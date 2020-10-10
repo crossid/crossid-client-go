@@ -10,25 +10,22 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// ResTypeSchemaExt ResTypeSchemaExt res type schema ext
+// HealthOK returned when node is healthy.
 //
-// swagger:model ResTypeSchemaExt
-type ResTypeSchemaExt struct {
+// swagger:model healthOK
+type HealthOK struct {
 
-	// required
-	Required bool `json:"required,omitempty"`
-
-	// schema
-	Schema string `json:"schema,omitempty"`
+	// Status of the health check is always set to "OK"
+	Status string `json:"status,omitempty"`
 }
 
-// Validate validates this res type schema ext
-func (m *ResTypeSchemaExt) Validate(formats strfmt.Registry) error {
+// Validate validates this health o k
+func (m *HealthOK) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
 // MarshalBinary interface implementation
-func (m *ResTypeSchemaExt) MarshalBinary() ([]byte, error) {
+func (m *HealthOK) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -36,8 +33,8 @@ func (m *ResTypeSchemaExt) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *ResTypeSchemaExt) UnmarshalBinary(b []byte) error {
-	var res ResTypeSchemaExt
+func (m *HealthOK) UnmarshalBinary(b []byte) error {
+	var res HealthOK
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

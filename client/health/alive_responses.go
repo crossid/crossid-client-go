@@ -48,23 +48,23 @@ func NewAliveOK() *AliveOK {
 
 /*AliveOK handles this case with default header values.
 
-healthStatus
+returned when healthy
 */
 type AliveOK struct {
-	Payload *models.HealthStatus
+	Payload *models.HealthOK
 }
 
 func (o *AliveOK) Error() string {
 	return fmt.Sprintf("[GET /health/alive][%d] aliveOK  %+v", 200, o.Payload)
 }
 
-func (o *AliveOK) GetPayload() *models.HealthStatus {
+func (o *AliveOK) GetPayload() *models.HealthOK {
 	return o.Payload
 }
 
 func (o *AliveOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.HealthStatus)
+	o.Payload = new(models.HealthOK)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -81,23 +81,23 @@ func NewAliveServiceUnavailable() *AliveServiceUnavailable {
 
 /*AliveServiceUnavailable handles this case with default header values.
 
-healthStatus
+returned when unhealthy
 */
 type AliveServiceUnavailable struct {
-	Payload *models.HealthStatus
+	Payload *models.HealthFailure
 }
 
 func (o *AliveServiceUnavailable) Error() string {
 	return fmt.Sprintf("[GET /health/alive][%d] aliveServiceUnavailable  %+v", 503, o.Payload)
 }
 
-func (o *AliveServiceUnavailable) GetPayload() *models.HealthStatus {
+func (o *AliveServiceUnavailable) GetPayload() *models.HealthFailure {
 	return o.Payload
 }
 
 func (o *AliveServiceUnavailable) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.HealthStatus)
+	o.Payload = new(models.HealthFailure)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// AppManifest A definition of an app manifest.
+// AppManifest AppManifest A definition of an app manifest.
 //
 // The app manifest describes every piece of detail related to a managed app.
 // This includes details such communication (how to communicate with the app), credentials (how to authenticate the app)

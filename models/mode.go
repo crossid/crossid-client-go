@@ -9,9 +9,9 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// Mode mode
+// Mode Mode mode
 //
-// swagger:model mode
+// swagger:model Mode
 type Mode string
 
 // Validate validates this mode
