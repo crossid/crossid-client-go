@@ -53,17 +53,19 @@ type APIClient struct {
 
 	AppsApi *AppsApiService
 
+	AuditApi *AuditApiService
+
+	AuthErrorsApi *AuthErrorsApiService
+
 	ChangesApi *ChangesApiService
-
-	CommitsApi *CommitsApiService
-
-	ErrorsApi *ErrorsApiService
 
 	FiltersApi *FiltersApiService
 
 	FlowsApi *FlowsApiService
 
 	HealthApi *HealthApiService
+
+	InsightsApi *InsightsApiService
 
 	InternalApi *InternalApiService
 
@@ -72,6 +74,8 @@ type APIClient struct {
 	LoginApi *LoginApiService
 
 	MappersApi *MappersApiService
+
+	MiningApi *MiningApiService
 
 	PortalApi *PortalApiService
 
@@ -106,16 +110,18 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	// API Services
 	c.ApiTokensApi = (*ApiTokensApiService)(&c.common)
 	c.AppsApi = (*AppsApiService)(&c.common)
+	c.AuditApi = (*AuditApiService)(&c.common)
+	c.AuthErrorsApi = (*AuthErrorsApiService)(&c.common)
 	c.ChangesApi = (*ChangesApiService)(&c.common)
-	c.CommitsApi = (*CommitsApiService)(&c.common)
-	c.ErrorsApi = (*ErrorsApiService)(&c.common)
 	c.FiltersApi = (*FiltersApiService)(&c.common)
 	c.FlowsApi = (*FlowsApiService)(&c.common)
 	c.HealthApi = (*HealthApiService)(&c.common)
+	c.InsightsApi = (*InsightsApiService)(&c.common)
 	c.InternalApi = (*InternalApiService)(&c.common)
 	c.JobsApi = (*JobsApiService)(&c.common)
 	c.LoginApi = (*LoginApiService)(&c.common)
 	c.MappersApi = (*MappersApiService)(&c.common)
+	c.MiningApi = (*MiningApiService)(&c.common)
 	c.PortalApi = (*PortalApiService)(&c.common)
 	c.ResourceTypesApi = (*ResourceTypesApiService)(&c.common)
 	c.ResourcesApi = (*ResourcesApiService)(&c.common)
@@ -428,7 +434,7 @@ func (c *APIClient) decode(v interface{}, b []byte, contentType string) (err err
 					return err
 				}
 			} else {
-				errors.New("Unknown type with GetActualInstance but no unmarshalObj.UnmarshalJSON defined")
+				return errors.New("Unknown type with GetActualInstance but no unmarshalObj.UnmarshalJSON defined")
 			}
 		} else if err = json.Unmarshal(b, v); err != nil { // simple model
 			return err

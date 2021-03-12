@@ -4,10 +4,10 @@ All URIs are relative to *http://dev.local.crossid.io:8000/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateResourceType**](ResourceTypesApi.md#CreateResourceType) | **Post** /resource-types/ | Create a resource type
-[**GetResourceType**](ResourceTypesApi.md#GetResourceType) | **Get** /resource-types/{id} | Info for a specific resource type.
-[**ListResourceTypes**](ResourceTypesApi.md#ListResourceTypes) | **Get** /resource-types/ | List resource types.
-[**ReplaceResourceType**](ResourceTypesApi.md#ReplaceResourceType) | **Put** /resource-types/{id} | Replace an existing resource type
+[**CreateResourceType**](ResourceTypesApi.md#CreateResourceType) | **Post** /resource-types/ | Create a Resource Type
+[**GetResourceType**](ResourceTypesApi.md#GetResourceType) | **Get** /resource-types/{id} | Get a Resource Type
+[**ListResourceTypes**](ResourceTypesApi.md#ListResourceTypes) | **Get** /resource-types/ | List Resource Types
+[**ReplaceResourceType**](ResourceTypesApi.md#ReplaceResourceType) | **Put** /resource-types/{id} | Replace a Resource Type
 
 
 
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 > ResourceType CreateResourceType(ctx).Reason(reason).ResourceType(resourceType).Execute()
 
-Create a resource type
+Create a Resource Type
 
 ### Example
 
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 > ResourceType GetResourceType(ctx, id).Execute()
 
-Info for a specific resource type.
+Get a Resource Type
 
 ### Example
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 > ResourceTypesList ListResourceTypes(ctx).Filter(filter).Count(count).StartIndex(startIndex).SortBy(sortBy).SortOrder(sortOrder).Attributes(attributes).ExcludedAttributes(excludedAttributes).ForTime(forTime).Execute()
 
-List resource types.
+List Resource Types
 
 ### Example
 
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 
 > ResourceType ReplaceResourceType(ctx, id).Reason(reason).ResourceType(resourceType).Execute()
 
-Replace an existing resource type
+Replace a Resource Type
 
 ### Example
 

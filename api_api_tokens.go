@@ -12,6 +12,7 @@
 package cidclient
 
 import (
+	"bytes"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -48,7 +49,7 @@ func (r ApiCreateAPITokenRequest) Execute() (ApiToken, *_nethttp.Response, error
 }
 
 /*
- * CreateAPIToken Insert a new API token.
+ * CreateAPIToken Insert an API Token
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiCreateAPITokenRequest
  */
@@ -118,6 +119,7 @@ func (a *ApiTokensApiService) CreateAPITokenExecute(r ApiCreateAPITokenRequest) 
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -208,7 +210,7 @@ func (r ApiDeleteAPITokenRequest) Execute() (*_nethttp.Response, error) {
 }
 
 /*
- * DeleteAPIToken Delete an API token.
+ * DeleteAPIToken Delete an API token
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The id of the API token to delete.
  * @return ApiDeleteAPITokenRequest
@@ -277,6 +279,7 @@ func (a *ApiTokensApiService) DeleteAPITokenExecute(r ApiDeleteAPITokenRequest) 
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}
@@ -367,7 +370,7 @@ func (r ApiListAPITokensRequest) Execute() (ApiTokensList, *_nethttp.Response, e
 }
 
 /*
- * ListAPITokens List API tokens that belongs to the authenticated user.
+ * ListAPITokens List API Tokens belonging to the authenticated user
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiListAPITokensRequest
  */
@@ -441,6 +444,7 @@ func (a *ApiTokensApiService) ListAPITokensExecute(r ApiListAPITokensRequest) (A
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}

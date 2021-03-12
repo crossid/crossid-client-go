@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Password** | Pointer to [**LoginFlowMethod**](LoginFlowMethod.md) |  | [optional] 
 **Spnego** | Pointer to [**LoginFlowMethod**](LoginFlowMethod.md) |  | [optional] 
+**Webauthn** | Pointer to [**LoginFlowMethod**](LoginFlowMethod.md) |  | [optional] 
 
 ## Methods
 
@@ -75,6 +76,31 @@ SetSpnego sets Spnego field to given value.
 `func (o *LoginFlowMethods) HasSpnego() bool`
 
 HasSpnego returns a boolean if a field has been set.
+
+### GetWebauthn
+
+`func (o *LoginFlowMethods) GetWebauthn() LoginFlowMethod`
+
+GetWebauthn returns the Webauthn field if non-nil, zero value otherwise.
+
+### GetWebauthnOk
+
+`func (o *LoginFlowMethods) GetWebauthnOk() (*LoginFlowMethod, bool)`
+
+GetWebauthnOk returns a tuple with the Webauthn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWebauthn
+
+`func (o *LoginFlowMethods) SetWebauthn(v LoginFlowMethod)`
+
+SetWebauthn sets Webauthn field to given value.
+
+### HasWebauthn
+
+`func (o *LoginFlowMethods) HasWebauthn() bool`
+
+HasWebauthn returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

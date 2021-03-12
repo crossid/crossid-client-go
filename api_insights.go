@@ -12,6 +12,7 @@
 package cidclient
 
 import (
+	"bytes"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -23,31 +24,26 @@ var (
 	_ _context.Context
 )
 
-// ErrorsApiService ErrorsApi service
-type ErrorsApiService service
+// InsightsApiService InsightsApi service
+type InsightsApiService service
 
-type ApiGetErrorsRequest struct {
+type ApiInsightDiscoveryRequest struct {
 	ctx _context.Context
-	ApiService *ErrorsApiService
-	error_ *string
+	ApiService *InsightsApiService
 }
 
-func (r ApiGetErrorsRequest) Error_(error_ string) ApiGetErrorsRequest {
-	r.error_ = &error_
-	return r
-}
 
-func (r ApiGetErrorsRequest) Execute() (AuthErrors, *_nethttp.Response, error) {
-	return r.ApiService.GetErrorsExecute(r)
+func (r ApiInsightDiscoveryRequest) Execute() (InsightList, *_nethttp.Response, error) {
+	return r.ApiService.InsightDiscoveryExecute(r)
 }
 
 /*
- * GetErrors Info for a specific errors.
+ * InsightDiscovery Send classication data to ML server.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGetErrorsRequest
+ * @return ApiInsightDiscoveryRequest
  */
-func (a *ErrorsApiService) GetErrors(ctx _context.Context) ApiGetErrorsRequest {
-	return ApiGetErrorsRequest{
+func (a *InsightsApiService) InsightDiscovery(ctx _context.Context) ApiInsightDiscoveryRequest {
+	return ApiInsightDiscoveryRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -55,33 +51,29 @@ func (a *ErrorsApiService) GetErrors(ctx _context.Context) ApiGetErrorsRequest {
 
 /*
  * Execute executes the request
- * @return AuthErrors
+ * @return InsightList
  */
-func (a *ErrorsApiService) GetErrorsExecute(r ApiGetErrorsRequest) (AuthErrors, *_nethttp.Response, error) {
+func (a *InsightsApiService) InsightDiscoveryExecute(r ApiInsightDiscoveryRequest) (InsightList, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  AuthErrors
+		localVarReturnValue  InsightList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ErrorsApiService.GetErrors")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InsightsApiService.InsightDiscovery")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/errors/"
+	localVarPath := localBasePath + "/insights/discover"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
-	if r.error_ == nil {
-		return localVarReturnValue, nil, reportError("error_ is required and must be specified")
-	}
 
-	localVarQueryParams.Add("error", parameterToString(*r.error_, ""))
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -111,6 +103,7 @@ func (a *ErrorsApiService) GetErrorsExecute(r ApiGetErrorsRequest) (AuthErrors, 
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -121,6 +114,26 @@ func (a *ErrorsApiService) GetErrorsExecute(r ApiGetErrorsRequest) (AuthErrors, 
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

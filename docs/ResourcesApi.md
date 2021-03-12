@@ -4,23 +4,23 @@ All URIs are relative to *http://dev.local.crossid.io:8000/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CorrelateResources**](ResourcesApi.md#CorrelateResources) | **Post** /resources/.correlate | correlate resources.
-[**CreateResource**](ResourcesApi.md#CreateResource) | **Post** /resources/{appID}/{resourceTypes} | Create a new resource.
-[**CreateResourceAsync**](ResourcesApi.md#CreateResourceAsync) | **Post** /resources/{appID}/{resourceTypes}/.async | Create a single resource asynchonously.
-[**DeleteResourceById**](ResourcesApi.md#DeleteResourceById) | **Delete** /resources/{appID}/{resourceTypes}/{id} | Delete a single resource.
-[**DeleteResourceByIdAsync**](ResourcesApi.md#DeleteResourceByIdAsync) | **Delete** /resources/{appID}/{resourceTypes}/{id}/.async | Delete a single resource asynchonously.
-[**DesiredResource**](ResourcesApi.md#DesiredResource) | **Get** /resources/{appID}/{resourceTypes}/{id}/.desired/ | Get a desired state of a resource, taking into account roles and business rules.
-[**DiffResources**](ResourcesApi.md#DiffResources) | **Post** /resources/ | Diffing resources
-[**GetResourceById**](ResourcesApi.md#GetResourceById) | **Get** /resources/{appID}/{resourceTypes}/{id} | Info for a specific resource.
-[**ListResources**](ResourcesApi.md#ListResources) | **Get** /resources/ | Listing resources.
-[**ListResourcesByAppAndType**](ResourcesApi.md#ListResourcesByAppAndType) | **Get** /resources/{appID}/{resourceTypes} | Listing resources for a specific type.
-[**MapResources**](ResourcesApi.md#MapResources) | **Post** /resources/.map | map resources.
-[**PatchResource**](ResourcesApi.md#PatchResource) | **Patch** /resources/{appID}/{resourceTypes}/{id} | Patch an existing resource.
-[**PatchResourceAsync**](ResourcesApi.md#PatchResourceAsync) | **Patch** /resources/{appID}/{resourceTypes}/{id}/.async | Patch a single resource asynchonously.
-[**ReplaceResource**](ResourcesApi.md#ReplaceResource) | **Put** /resources/{appID}/{resourceTypes}/{id} | Replace an existing resource.
-[**ReplaceResourceAsync**](ResourcesApi.md#ReplaceResourceAsync) | **Put** /resources/{appID}/{resourceTypes}/{id}/.async | Replace a single resource asynchonously.
-[**ResourceRules**](ResourcesApi.md#ResourceRules) | **Post** /resources/{appID}/{resourceTypes}/{id}/.rules | get all rules that match a filter and also apply on a resource, if all requested patches were applied.
-[**TestResource**](ResourcesApi.md#TestResource) | **Get** /resources/{appID}/{resourceTypes}/{id}/.test | test a resource against a filter
+[**CorrelateResources**](ResourcesApi.md#CorrelateResources) | **Post** /resources/.correlate | Correlate Resources
+[**CreateResource**](ResourcesApi.md#CreateResource) | **Post** /resources/{appID}/{resourceTypes} | Create a Resource
+[**CreateResourceAsync**](ResourcesApi.md#CreateResourceAsync) | **Post** /resources/{appID}/{resourceTypes}/.async | Create a Resource Asynchonously
+[**DeleteResourceById**](ResourcesApi.md#DeleteResourceById) | **Delete** /resources/{appID}/{resourceTypes}/{id} | Delete a Resource
+[**DeleteResourceByIdAsync**](ResourcesApi.md#DeleteResourceByIdAsync) | **Delete** /resources/{appID}/{resourceTypes}/{id}/.async | Delete a Resource Asynchonously
+[**DesiredResource**](ResourcesApi.md#DesiredResource) | **Get** /resources/{appID}/{resourceTypes}/{id}/.desired/ | Get Desired Resource
+[**DiffResources**](ResourcesApi.md#DiffResources) | **Post** /resources/ | Diffing Resources
+[**GetResourceById**](ResourcesApi.md#GetResourceById) | **Get** /resources/{appID}/{resourceTypes}/{id} | Get a Resource
+[**ListResources**](ResourcesApi.md#ListResources) | **Get** /resources/ | List Resources
+[**ListResourcesByAppAndType**](ResourcesApi.md#ListResourcesByAppAndType) | **Get** /resources/{appID}/{resourceTypes} | List Resources for a Type
+[**MapResources**](ResourcesApi.md#MapResources) | **Post** /resources/.map | Map Resources
+[**PatchResource**](ResourcesApi.md#PatchResource) | **Patch** /resources/{appID}/{resourceTypes}/{id} | Update a Resource
+[**PatchResourceAsync**](ResourcesApi.md#PatchResourceAsync) | **Patch** /resources/{appID}/{resourceTypes}/{id}/.async | Update a Resource Asynchonously
+[**ReplaceResource**](ResourcesApi.md#ReplaceResource) | **Put** /resources/{appID}/{resourceTypes}/{id} | Replace a Resource
+[**ReplaceResourceAsync**](ResourcesApi.md#ReplaceResourceAsync) | **Put** /resources/{appID}/{resourceTypes}/{id}/.async | Replace a Resource Asynchonously
+[**ResourceRules**](ResourcesApi.md#ResourceRules) | **Post** /resources/{appID}/{resourceTypes}/{id}/.rules | List rules applying on a Resource
+[**TestResource**](ResourcesApi.md#TestResource) | **Get** /resources/{appID}/{resourceTypes}/{id}/.test | Test a Resource Against a Filter
 
 
 
@@ -28,7 +28,7 @@ Method | HTTP request | Description
 
 > ChangeLog CorrelateResources(ctx).Reason(reason).Correlation(correlation).CorrelateResource(correlateResource).Execute()
 
-correlate resources.
+Correlate Resources
 
 
 
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 
 > Resource CreateResource(ctx, appID, resourceTypes).Reason(reason).Correlation(correlation).Resource(resource).Execute()
 
-Create a new resource.
+Create a Resource
 
 
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 > Job CreateResourceAsync(ctx, appID, resourceTypes).NotBefore(notBefore).Reason(reason).Correlation(correlation).Resource(resource).Execute()
 
-Create a single resource asynchonously.
+Create a Resource Asynchonously
 
 ### Example
 
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 
 > DeleteResourceById(ctx, appID, resourceTypes, id).Reason(reason).Correlation(correlation).Execute()
 
-Delete a single resource.
+Delete a Resource
 
 ### Example
 
@@ -333,7 +333,7 @@ Name | Type | Description  | Notes
 
 > Job DeleteResourceByIdAsync(ctx, appID, resourceTypes, id).Reason(reason).NotBefore(notBefore).Correlation(correlation).Execute()
 
-Delete a single resource asynchonously.
+Delete a Resource Asynchonously
 
 ### Example
 
@@ -414,7 +414,9 @@ Name | Type | Description  | Notes
 
 > Resource DesiredResource(ctx, appID, resourceTypes, id).Execute()
 
-Get a desired state of a resource, taking into account roles and business rules.
+Get Desired Resource
+
+
 
 ### Example
 
@@ -488,7 +490,7 @@ Name | Type | Description  | Notes
 
 > ResourceDiffRes DiffResources(ctx).ResourceDiffReq(resourceDiffReq).Execute()
 
-Diffing resources
+Diffing Resources
 
 
 
@@ -554,7 +556,7 @@ Name | Type | Description  | Notes
 
 > Resource GetResourceById(ctx, appID, resourceTypes, id).ForTime(forTime).Live(live).Execute()
 
-Info for a specific resource.
+Get a Resource
 
 ### Example
 
@@ -633,7 +635,7 @@ Name | Type | Description  | Notes
 
 > ResourcesList ListResources(ctx).Filter(filter).Count(count).StartIndex(startIndex).SortBy(sortBy).SortOrder(sortOrder).Attributes(attributes).ExcludedAttributes(excludedAttributes).ForTime(forTime).Execute()
 
-Listing resources.
+List Resources
 
 
 
@@ -714,7 +716,7 @@ Name | Type | Description  | Notes
 
 > ResourcesList ListResourcesByAppAndType(ctx, appID, resourceTypes).Filter(filter).Count(count).StartIndex(startIndex).SortBy(sortBy).SortOrder(sortOrder).Attributes(attributes).ExcludedAttributes(excludedAttributes).ForTime(forTime).Execute()
 
-Listing resources for a specific type.
+List Resources for a Type
 
 
 
@@ -804,7 +806,7 @@ Name | Type | Description  | Notes
 
 > ChangeLog MapResources(ctx).Reason(reason).Correlation(correlation).MapResource(mapResource).Execute()
 
-map resources.
+Map Resources
 
 
 
@@ -874,7 +876,7 @@ Name | Type | Description  | Notes
 
 > Resource PatchResource(ctx, appID, resourceTypes, id).PatchRequest(patchRequest).Reason(reason).Correlation(correlation).Execute()
 
-Patch an existing resource.
+Update a Resource
 
 
 
@@ -956,7 +958,7 @@ Name | Type | Description  | Notes
 
 > Job PatchResourceAsync(ctx, appID, resourceTypes, id).PatchRequest(patchRequest).Reason(reason).NotBefore(notBefore).Correlation(correlation).Execute()
 
-Patch a single resource asynchonously.
+Update a Resource Asynchonously
 
 ### Example
 
@@ -1039,7 +1041,7 @@ Name | Type | Description  | Notes
 
 > Resource ReplaceResource(ctx, appID, resourceTypes, id).Reason(reason).Correlation(correlation).Resource(resource).Execute()
 
-Replace an existing resource.
+Replace a Resource
 
 
 
@@ -1121,7 +1123,7 @@ Name | Type | Description  | Notes
 
 > Job ReplaceResourceAsync(ctx, appID, resourceTypes, id).Reason(reason).NotBefore(notBefore).Correlation(correlation).Resource(resource).Execute()
 
-Replace a single resource asynchonously.
+Replace a Resource Asynchonously
 
 ### Example
 
@@ -1204,7 +1206,9 @@ Name | Type | Description  | Notes
 
 > RulesList ResourceRules(ctx, appID, resourceTypes, id).ResourceRules(resourceRules).Execute()
 
-get all rules that match a filter and also apply on a resource, if all requested patches were applied.
+List rules applying on a Resource
+
+
 
 ### Example
 
@@ -1280,7 +1284,7 @@ Name | Type | Description  | Notes
 
 > InlineResponse2002 TestResource(ctx, appID, resourceTypes, id).Filter(filter).Execute()
 
-test a resource against a filter
+Test a Resource Against a Filter
 
 ### Example
 

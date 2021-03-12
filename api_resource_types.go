@@ -12,6 +12,7 @@
 package cidclient
 
 import (
+	"bytes"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -50,7 +51,7 @@ func (r ApiCreateResourceTypeRequest) Execute() (ResourceType, *_nethttp.Respons
 }
 
 /*
- * CreateResourceType Create a resource type
+ * CreateResourceType Create a Resource Type
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiCreateResourceTypeRequest
  */
@@ -120,6 +121,7 @@ func (a *ResourceTypesApiService) CreateResourceTypeExecute(r ApiCreateResourceT
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -205,7 +207,7 @@ func (r ApiGetResourceTypeRequest) Execute() (ResourceType, *_nethttp.Response, 
 }
 
 /*
- * GetResourceType Info for a specific resource type.
+ * GetResourceType Get a Resource Type
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The id of the resource type to retrieve.
  * @return ApiGetResourceTypeRequest
@@ -273,6 +275,7 @@ func (a *ResourceTypesApiService) GetResourceTypeExecute(r ApiGetResourceTypeReq
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -397,7 +400,7 @@ func (r ApiListResourceTypesRequest) Execute() (ResourceTypesList, *_nethttp.Res
 }
 
 /*
- * ListResourceTypes List resource types.
+ * ListResourceTypes List Resource Types
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiListResourceTypesRequest
  */
@@ -502,6 +505,7 @@ func (a *ResourceTypesApiService) ListResourceTypesExecute(r ApiListResourceType
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -587,7 +591,7 @@ func (r ApiReplaceResourceTypeRequest) Execute() (ResourceType, *_nethttp.Respon
 }
 
 /*
- * ReplaceResourceType Replace an existing resource type
+ * ReplaceResourceType Replace a Resource Type
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The id of the resource type to replace.
  * @return ApiReplaceResourceTypeRequest
@@ -660,6 +664,7 @@ func (a *ResourceTypesApiService) ReplaceResourceTypeExecute(r ApiReplaceResourc
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}

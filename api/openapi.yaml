@@ -29,53 +29,52 @@ servers:
 security:
 - bearerAuth: []
 tags:
-- description: Portal Endpoints
-  name: portal
-- description: rules Endpoints
-  name: rules
-- description: Applications Endpoints
-  name: apps
-- description: Sessions Endpoints
-  name: sessions
-- description: API Tokens Endpoints
-  name: apiTokens
-- description: Errors Endpoints
-  name: errors
-- description: Login Endpoints
-  name: login
-- description: Desired resource Endpoints
-  name: desired
-- description: Node Health Endpoints
-  name: health
-- description: Schemas Endpoints
-  name: schemas
-- description: Mappers Endpoints
-  name: mappers
-- description: SCIM Schemas Endpoints
-  name: SCIM schemas
-- description: Changes Endpoints
-  name: changes
-- description: Commits Endpoints
-  name: commits
-- description: Secrets Endpoints
-  name: secrets
-- description: Jobs Endpoints
-  name: jobs
-- description: Resource References Endpoints
-  name: refs
-- description: Resources Endpoints
-  name: resources
-- description: Resource Types Endpoints
-  name: resourceTypes
 - description: Audit Endpoints
   name: audit
 - description: Filters Endpoints
   name: filters
+- description: Node Health Endpoints
+  name: health
+- description: Data mining and role clustering Endpoints
+  name: mining
+- description: Insight discovery and resolution Endpoints
+  name: insights
+- description: Resources Endpoints
+  name: resources
+- description: rules Endpoints
+  name: rules
+- description: Sessions Endpoints
+  name: sessions
+- description: API Tokens Endpoints
+  name: apiTokens
+- description: Authentication Errors Endpoints
+  name: authErrors
+- description: Login Endpoints
+  name: login
 - description: Flows and Tasks endpoints
   name: flows
+- description: Jobs Endpoints
+  name: jobs
+- description: Schemas Endpoints
+  name: schemas
+- description: Secrets Endpoints
+  name: secrets
+- description: Changes Endpoints
+  name: changes
+- description: Applications Endpoints
+  name: apps
+- description: Mappers Endpoints
+  name: mappers
+- description: Portal Endpoints
+  name: portal
+- description: Resource References Endpoints
+  name: refs
+- description: Resource Types Endpoints
+  name: resourceTypes
 paths:
   /apps/:
     get:
+      description: This endpoint can be used to retrieve Applications.
       operationId: listApps
       parameters:
       - description: |
@@ -219,9 +218,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: List applications.
+      summary: List Applications
       tags:
       - apps
+      x-order: 10
     post:
       operationId: createApp
       parameters:
@@ -241,7 +241,7 @@ paths:
             schema:
               $ref: '#/components/schemas/App'
       responses:
-        "200":
+        "201":
           content:
             application/json:
               schema:
@@ -297,9 +297,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Create an app
+      summary: Create an App
       tags:
       - apps
+      x-order: 30
   /apps/.changes:
     post:
       description: |
@@ -375,9 +376,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Discover applications changes.
+      summary: Discover App Changes
       tags:
       - apps
+      x-order: 60
   /apps/.import:
     post:
       description: |
@@ -453,9 +455,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Import changes from applications into store.
+      summary: Discover and Import App Changes Into Store
       tags:
       - apps
+      x-order: 50
   /apps/{appId}:
     get:
       operationId: getApp
@@ -525,9 +528,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Info for a specific application.
+      summary: Get an App
       tags:
       - apps
+      x-order: 20
     put:
       operationId: replaceApp
       parameters:
@@ -621,9 +625,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Replace an app
+      summary: Replace an App
       tags:
       - apps
+      x-order: 40
   /apps/{appId}/.ping:
     post:
       description: Typically connectivity and authentication checks.
@@ -697,9 +702,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: The application is unavailable.
-      summary: Check application health
+      summary: Check App Health
       tags:
       - apps
+      x-order: 70
   /audit/commits:
     get:
       operationId: listCommits
@@ -834,9 +840,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: List commits.
+      summary: List Commits
       tags:
-      - commits
+      - audit
+      x-order: 10
   /audit/commits/{id}:
     get:
       operationId: getCommit
@@ -906,9 +913,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Info for a specific commit.
+      summary: Get a Commit
       tags:
-      - commits
+      - audit
+      x-order: 20
   /auth/api-tokens/:
     get:
       operationId: listAPITokens
@@ -992,9 +1000,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: List API tokens that belongs to the authenticated user.
+      summary: List API Tokens belonging to the authenticated user
       tags:
-      - api-tokens
+      - apiTokens
+      x-order: 10
     post:
       operationId: createAPIToken
       parameters:
@@ -1070,9 +1079,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Insert a new API token.
+      summary: Insert an API Token
       tags:
       - apiTokens
+      x-order: 20
   /auth/api-tokens/{id}:
     delete:
       operationId: deleteAPIToken
@@ -1148,10 +1158,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Delete an API token.
+      summary: Delete an API token
       tags:
       - apiTokens
-  /auth/errors/:
+      x-order: 30
+  /auth/auth-errors/:
     get:
       operationId: getErrors
       parameters:
@@ -1202,7 +1213,7 @@ paths:
           description: An internal error has occured.
       summary: Info for a specific errors.
       tags:
-      - errors
+      - authErrors
   /auth/self-service/login/flows:
     get:
       operationId: getLoginFlow
@@ -1284,6 +1295,7 @@ paths:
       summary: Invalidates a session
       tags:
       - sessions
+      x-order: 20
   /auth/sessions/whoami:
     get:
       operationId: whoami
@@ -1329,9 +1341,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Check who the current HTTP session belongs to.
+      summary: Check who the current HTTP session belongs to
       tags:
       - sessions
+      x-order: 10
   /changes/:
     get:
       operationId: listChangeLogs
@@ -1477,7 +1490,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: List change logs.
+      summary: List Change Logs.
       tags:
       - changes
   /changes/{id}:
@@ -1549,7 +1562,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Info for a specific change log.
+      summary: Get a Change-Log.
       tags:
       - changes
   /changes/{id}/.apply:
@@ -1638,7 +1651,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Apply a specific ChangeLog.
+      summary: Apply a ChangeLog
       tags:
       - changes
   /changes/{id}/.cancel:
@@ -1722,7 +1735,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Cancel a specific ChangeLog.
+      summary: Cancel a ChangeLog.
       tags:
       - changes
   /changes/adds:
@@ -1863,7 +1876,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: List insertions in change logs.
+      summary: List insertions in change logs
       tags:
       - changes
   /changes/deletes:
@@ -2004,7 +2017,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: List deletions in change logs.
+      summary: List deletions in change logs
       tags:
       - changes
   /changes/patches:
@@ -2145,7 +2158,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: List patches in change logs.
+      summary: List patches in change logs
       tags:
       - changes
   /changes/replaces:
@@ -2286,7 +2299,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: List replaces in change logs.
+      summary: List replaces in change logs
       tags:
       - changes
   /filters/:
@@ -2434,9 +2447,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: List filters.
+      summary: List Filters
       tags:
       - filters
+      x-order: 10
     post:
       operationId: createFilter
       parameters:
@@ -2512,9 +2526,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Insert a new filter.
+      summary: Create a Filter
       tags:
       - filters
+      x-order: 30
   /filters/.valid:
     post:
       description: Test if the given filter syntax is valid.
@@ -2568,9 +2583,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Check filter validty
+      summary: Check Filter Validity
       tags:
       - filters
+      x-order: 60
   /filters/{id}:
     delete:
       operationId: deleteFilter
@@ -2646,9 +2662,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Delete a Filter.
+      summary: Delete a Filter
       tags:
       - filters
+      x-order: 50
     get:
       operationId: getFilter
       parameters:
@@ -2717,9 +2734,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Info for a specific filter.
+      summary: Get a Filter
       tags:
       - filters
+      x-order: 20
     put:
       operationId: replaceFilter
       parameters:
@@ -2810,9 +2828,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Replace a filter
+      summary: Replace a Filter
       tags:
       - filters
+      x-order: 40
   /flows/:
     get:
       operationId: listFlowInstances
@@ -2958,9 +2977,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: List Flow Instances.
+      summary: List Flow Instances
       tags:
       - flows
+      x-order: 10
   /flows/{flowInstanceId}:
     get:
       operationId: getFlowInstance
@@ -3030,9 +3050,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Get Flow Instance.
+      summary: Get Flow Instance
       tags:
       - flows
+      x-order: 20
   /flows/{flowInstanceId}/.cancel:
     post:
       operationId: cancelFlowInstance
@@ -3131,9 +3152,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Cancel Flow Instance.
+      summary: Cancel Flow Instance
       tags:
       - flows
+      x-order: 30
   /flows/tasks:
     get:
       operationId: listTasks
@@ -3279,9 +3301,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: List Tasks.
+      summary: List Tasks
       tags:
       - flows
+      x-order: 60
     post:
       operationId: createTask
       parameters:
@@ -3364,7 +3387,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Create a task.
+      summary: Create a Task
       tags:
       - flows
   /flows/tasks/{taskId}:
@@ -3436,9 +3459,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Get Task
+      summary: Get a Task
       tags:
       - flows
+      x-order: 70
   /flows/tasks/{taskId}/.cancel:
     post:
       operationId: cancelTask
@@ -3539,6 +3563,7 @@ paths:
       summary: Cancel a Task
       tags:
       - flows
+      x-order: 90
   /flows/tasks/{taskId}/.complete:
     post:
       operationId: completeTask
@@ -3643,6 +3668,7 @@ paths:
       summary: Complete a Task
       tags:
       - flows
+      x-order: 80
   /health/alive:
     get:
       description: |
@@ -3738,6 +3764,69 @@ paths:
       summary: Check readiness
       tags:
       - health
+  /insights/discover:
+    post:
+      operationId: insightDiscovery
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/insightList'
+          description: The data was posted to the ML server successfuly
+        "400":
+          content:
+            application/json:
+              example:
+                code: "400"
+                message: 'Bad Request: Invalid argument (invalid request payload).'
+                status: Bad Request
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: The submitted request is invalid.
+        "401":
+          content:
+            application/json:
+              example:
+                code: "401"
+                message: client is not authenticated.
+                status: Unauthorized
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Client is not authenticated.
+        "403":
+          content:
+            application/json:
+              example:
+                code: "403"
+                message: the request action is forbidden.
+                status: Forbidden
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Client is not authorized to perform the requested action.
+        "404":
+          content:
+            application/json:
+              example:
+                code: "404"
+                message: the requested resource could not be found.
+                status: Not Found
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: The specified resource was not found.
+        "500":
+          content:
+            application/json:
+              example:
+                code: "500"
+                message: an internal error has occurred.
+                status: Internal Error
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: An internal error has occured.
+      summary: Send classication data to ML server.
+      tags:
+      - insights
   /internal/internal/remove-broken-refs:
     post:
       operationId: removeBrokenRefs
@@ -4035,9 +4124,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: List jobs.
+      summary: List Jobs
       tags:
       - jobs
+      x-order: 10
   /jobs/{id}:
     get:
       operationId: getJob
@@ -4107,9 +4197,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Info for a specific job.
+      summary: Get a Job
       tags:
       - jobs
+      x-order: 20
     patch:
       operationId: patchJob
       parameters:
@@ -4190,9 +4281,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Patch (update) a specific job.
+      summary: Update a Job
       tags:
       - jobs
+      x-order: 30
   /json-schemas/:
     post:
       operationId: createJSONSchema
@@ -4269,9 +4361,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: create JSON Schema.
+      summary: Create JSON Schema
       tags:
       - schemas
+      x-order: 60
   /json-schemas/{id}:
     get:
       operationId: getJSONSchema
@@ -4341,9 +4434,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Info for a specific JSON Schema.
+      summary: Get a JSON Schema
       tags:
       - schemas
+      x-order: 50
     put:
       operationId: replaceJSONSchema
       parameters:
@@ -4427,9 +4521,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: replace specific JSON Schema.
+      summary: replace a JSON Schema
       tags:
       - schemas
+      x-order: 70
   /mappers/:
     get:
       operationId: listMappers
@@ -4575,9 +4670,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: List mappers.
+      summary: List Mappers
       tags:
       - mappers
+      x-order: 10
     post:
       operationId: createMapper
       parameters:
@@ -4722,9 +4818,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Info for a specific mapper.
+      summary: Get a Mapper
       tags:
       - mappers
+      x-order: 20
     patch:
       operationId: patchMapper
       parameters:
@@ -4805,9 +4902,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Patch (update) a specific mapper.
+      summary: Update a Mapper
       tags:
       - mappers
+      x-order: 40
     put:
       operationId: replaceMapper
       parameters:
@@ -4898,9 +4996,69 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Replace a mapper
+      summary: Replace a Mapper
       tags:
       - mappers
+      x-order: 30
+  /mining/export-classification-data:
+    post:
+      operationId: exportClassificationData
+      responses:
+        "200":
+          description: The data was posted to the ML server successfuly
+        "400":
+          content:
+            application/json:
+              example:
+                code: "400"
+                message: 'Bad Request: Invalid argument (invalid request payload).'
+                status: Bad Request
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: The submitted request is invalid.
+        "401":
+          content:
+            application/json:
+              example:
+                code: "401"
+                message: client is not authenticated.
+                status: Unauthorized
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Client is not authenticated.
+        "403":
+          content:
+            application/json:
+              example:
+                code: "403"
+                message: the request action is forbidden.
+                status: Forbidden
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Client is not authorized to perform the requested action.
+        "404":
+          content:
+            application/json:
+              example:
+                code: "404"
+                message: the requested resource could not be found.
+                status: Not Found
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: The specified resource was not found.
+        "500":
+          content:
+            application/json:
+              example:
+                code: "500"
+                message: an internal error has occurred.
+                status: Internal Error
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: An internal error has occured.
+      summary: Send classication data to ML server.
+      tags:
+      - mining
   /portal/.gsearch:
     post:
       operationId: portalFindRequest
@@ -5178,9 +5336,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: List resource types.
+      summary: List Resource Types
       tags:
       - resourceTypes
+      x-order: 10
     post:
       operationId: createResourceType
       parameters:
@@ -5256,9 +5415,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Create a resource type
+      summary: Create a Resource Type
       tags:
       - resourceTypes
+      x-order: 30
   /resource-types/{id}:
     get:
       operationId: getResourceType
@@ -5328,9 +5488,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Info for a specific resource type.
+      summary: Get a Resource Type
       tags:
       - resourceTypes
+      x-order: 20
     put:
       operationId: replaceResourceType
       parameters:
@@ -5424,9 +5585,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Replace an existing resource type
+      summary: Replace a Resource Type
       tags:
       - resourceTypes
+      x-order: 40
   /resources/:
     get:
       description: This endpoint queries against resources across all applications
@@ -5574,9 +5736,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Listing resources.
+      summary: List Resources
       tags:
       - resources
+      x-order: 10
     post:
       description: This endpoint diffs resource
       operationId: diffResources
@@ -5629,9 +5792,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Diffing resources
+      summary: Diffing Resources
       tags:
       - resources
+      x-order: 65
   /resources/.correlate:
     post:
       description: Correlate resources into other resources by filter
@@ -5706,9 +5870,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: correlate resources.
+      summary: Correlate Resources
       tags:
       - resources
+      x-order: 70
   /resources/.map:
     post:
       description: Map resources into other resources by filter
@@ -5783,9 +5948,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: map resources.
+      summary: Map Resources
       tags:
       - resources
+      x-order: 80
   /resources/{appID}/{resourceTypes}:
     get:
       description: This endpoint queries against resources of a specific resources
@@ -5951,9 +6117,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Listing resources for a specific type.
+      summary: List Resources for a Type
       tags:
       - resources
+      x-order: 12
     post:
       description: |
         This endpoint creates a new resource. The resource may be created locally on store or provisioned to the remote app, depends on application configuration.
@@ -6049,9 +6216,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Create a new resource.
+      summary: Create a Resource
       tags:
       - resources
+      x-order: 20
   /resources/{appID}/{resourceTypes}/.async:
     post:
       operationId: createResourceAsync
@@ -6163,9 +6331,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Create a single resource asynchonously.
+      summary: Create a Resource Asynchonously
       tags:
       - resources
+      x-order: 22
   /resources/{appID}/{resourceTypes}/{id}:
     delete:
       operationId: deleteResourceById
@@ -6270,9 +6439,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Delete a single resource.
+      summary: Delete a Resource
       tags:
       - resources
+      x-order: 50
     get:
       operationId: getResourceById
       parameters:
@@ -6380,9 +6550,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Info for a specific resource.
+      summary: Get a Resource
       tags:
       - resources
+      x-order: 15
     patch:
       description: |
         This endpoint patches an existing resource.
@@ -6484,9 +6655,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Patch an existing resource.
+      summary: Update a Resource
       tags:
       - resources
+      x-order: 40
     put:
       description: |
         This endpoint replaces an existing resource.
@@ -6591,9 +6763,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Replace an existing resource.
+      summary: Replace a Resource
       tags:
       - resources
+      x-order: 30
   /resources/{appID}/{resourceTypes}/{id}/.async:
     delete:
       operationId: deleteResourceByIdAsync
@@ -6712,9 +6885,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Delete a single resource asynchonously.
+      summary: Delete a Resource Asynchonously
       tags:
       - resources
+      x-order: 55
     patch:
       operationId: patchResourceAsync
       parameters:
@@ -6834,9 +7008,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Patch a single resource asynchonously.
+      summary: Update a Resource Asynchonously
       tags:
       - resources
+      x-order: 42
     put:
       operationId: replaceResourceAsync
       parameters:
@@ -6956,11 +7131,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Replace a single resource asynchonously.
+      summary: Replace a Resource Asynchonously
       tags:
       - resources
+      x-order: 32
   /resources/{appID}/{resourceTypes}/{id}/.desired/:
     get:
+      description: Get a desired state of a resource, taking into account roles and
+        business rules.
       operationId: desiredResource
       parameters:
       - description: The id of the app the resource belongs to.
@@ -7047,8 +7225,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Get a desired state of a resource, taking into account roles and business
-        rules.
+      summary: Get Desired Resource
       tags:
       - resources
   /resources/{appID}/{resourceTypes}/{id}/.evaluate:
@@ -7155,6 +7332,8 @@ paths:
       - internal
   /resources/{appID}/{resourceTypes}/{id}/.rules:
     post:
+      description: |
+        List rules matching a filter and also apply on a Resource, if all requested patches were applied.
       operationId: resourceRules
       parameters:
       - description: The id of the app the resource belongs to.
@@ -7243,10 +7422,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: get all rules that match a filter and also apply on a resource, if
-        all requested patches were applied.
+      summary: List rules applying on a Resource
       tags:
       - resources
+      x-order: 13
   /resources/{appID}/{resourceTypes}/{id}/.test:
     get:
       operationId: testResource
@@ -7345,9 +7524,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: test a resource against a filter
+      summary: Test a Resource Against a Filter
       tags:
       - resources
+      x-order: 60
   /rules/:
     get:
       operationId: listRules
@@ -7493,9 +7673,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: List rules.
+      summary: List Rules
       tags:
       - rules
+      x-order: 10
     post:
       operationId: createRule
       parameters:
@@ -7568,9 +7749,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Create a rule
+      summary: Create a Rule
       tags:
       - rules
+      x-order: 30
   /rules/{id}:
     delete:
       operationId: deleteRule
@@ -7646,9 +7828,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Delete a Rule.
+      summary: Delete a Rule
       tags:
       - rules
+      x-order: 50
     get:
       operationId: getRule
       parameters:
@@ -7717,9 +7900,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Info for a specific Rule.
+      summary: Get a Rule
       tags:
       - rules
+      x-order: 20
     put:
       operationId: replaceRule
       parameters:
@@ -7800,9 +7984,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Replace a specific Rule.
+      summary: Replace a Rule
       tags:
       - rules
+      x-order: 40
   /scim-schemas/:
     post:
       operationId: createSCIMSchema
@@ -7882,6 +8067,7 @@ paths:
       summary: Create a SCIM Schema
       tags:
       - schemas
+      x-order: 10
   /scim-schemas/{id}:
     get:
       operationId: getSCIMSchema
@@ -7951,9 +8137,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Info for a specific SCIM Schema.
+      summary: Get a SCIM Schema
       tags:
       - schemas
+      x-order: 20
     put:
       operationId: replaceSCIMSchema
       parameters:
@@ -8047,9 +8234,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Replace an existing SCIM Schema
+      summary: Replace a SCIM Schema
       tags:
       - schemas
+      x-order: 40
   /secrets/{path}:
     get:
       operationId: getSecret
@@ -8127,9 +8315,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Info for a specific secret.
+      summary: Get a Secret
       tags:
       - secrets
+      x-order: 10
     put:
       operationId: putSecret
       parameters:
@@ -8200,9 +8389,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: An internal error has occured.
-      summary: Insert or replace a secret.
+      summary: Put a Secret
       tags:
       - secrets
+      x-order: 20
 components:
   parameters:
     attributes:
@@ -8579,6 +8769,9 @@ components:
     App:
       example:
         appLogic: appLogic
+        keywords:
+        - keywords
+        - keywords
         displayName: displayName
         meta:
           created: 2000-01-23T04:56:07.000+00:00
@@ -8604,6 +8797,10 @@ components:
           type: string
         id:
           type: string
+        keywords:
+          items:
+            type: string
+          type: array
         logoURL:
           type: string
         meta:
@@ -8614,11 +8811,12 @@ components:
       example:
         mode: full
         appIds:
-        - appIds
-        - appIds
+        - '["myapp"]'
+        - '["myapp"]'
       properties:
         appIds:
           items:
+            example: '["myapp"]'
             type: string
           type: array
         mode:
@@ -9057,6 +9255,46 @@ components:
       required:
       - status
       type: object
+    Insight:
+      properties:
+        actions:
+          items:
+            $ref: '#/components/schemas/Insight_actions'
+          type: array
+        displayName:
+          type: string
+        id:
+          type: string
+        insightId:
+          type: string
+        insightModelType:
+          type: string
+        kind:
+          type: string
+        meta:
+          $ref: '#/components/schemas/ApiToken_meta'
+        modelIds:
+          items:
+            type: string
+          type: array
+        payload: {}
+        readBy:
+          items:
+            type: string
+          type: array
+        severity:
+          format: int64
+          type: integer
+        snoozeUntil:
+          format: date-time
+          type: string
+        status:
+          type: string
+        tags:
+          items:
+            type: string
+          type: array
+      type: object
     JSONSchema:
       additionalProperties: true
       example:
@@ -9184,6 +9422,43 @@ components:
                 value: value
                 required: true
           spnego:
+            method: method
+            config:
+              method: method
+              action: action
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              fields:
+              - name: name
+                messages:
+                - id: 0
+                  text: text
+                  type: info
+                - id: 0
+                  text: text
+                  type: info
+                disabled: true
+                type: type
+                value: value
+                required: true
+              - name: name
+                messages:
+                - id: 0
+                  text: text
+                  type: info
+                - id: 0
+                  text: text
+                  type: info
+                disabled: true
+                type: type
+                value: value
+                required: true
+          webauthn:
             method: method
             config:
               method: method
@@ -9759,14 +10034,15 @@ components:
       example:
         authAt: 2000-01-23T04:56:07.000+00:00
         identity:
-          displayName: displayName
-        identityId: identityId
+          displayName: Eric Crose
+        identityId: 8KCibRUhRDsaz5CmaAbmWB
         active: true
-        id: id
+        id: QE8WQvyqF7WTfABCq5mhRi
         issuedAt: 2000-01-23T04:56:07.000+00:00
         expiresAt: 2000-01-23T04:56:07.000+00:00
       properties:
         active:
+          example: true
           type: boolean
         authAt:
           format: date-time
@@ -9775,10 +10051,12 @@ components:
           format: date-time
           type: string
         id:
+          example: QE8WQvyqF7WTfABCq5mhRi
           type: string
         identity:
           $ref: '#/components/schemas/Session_identity'
         identityId:
+          example: 8KCibRUhRDsaz5CmaAbmWB
           type: string
         issuedAt:
           format: date-time
@@ -9931,6 +10209,10 @@ components:
       allOf:
       - $ref: '#/components/schemas/list'
       - $ref: '#/components/schemas/flowInstancesList_allOf'
+    insightList:
+      items:
+        $ref: '#/components/schemas/Insight'
+      type: array
     jobsList:
       allOf:
       - $ref: '#/components/schemas/list'
@@ -10090,7 +10372,7 @@ components:
           title: the time took for the ping action to complete.
           type: integer
         message:
-          title: an optional message retruned part of a successful health check.
+          title: an optional message returned part of a successful health check.
           type: string
       type: object
     inline_object:
@@ -10204,6 +10486,13 @@ components:
           format: int64
           type: integer
       type: object
+    Insight_actions:
+      properties:
+        description:
+          type: string
+        id:
+          type: string
+      type: object
     LoginFlow_methods:
       example:
         password:
@@ -10280,10 +10569,49 @@ components:
               type: type
               value: value
               required: true
+        webauthn:
+          method: method
+          config:
+            method: method
+            action: action
+            messages:
+            - id: 0
+              text: text
+              type: info
+            - id: 0
+              text: text
+              type: info
+            fields:
+            - name: name
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              disabled: true
+              type: type
+              value: value
+              required: true
+            - name: name
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              disabled: true
+              type: type
+              value: value
+              required: true
       properties:
         password:
           $ref: '#/components/schemas/LoginFlowMethod'
         spnego:
+          $ref: '#/components/schemas/LoginFlowMethod'
+        webauthn:
           $ref: '#/components/schemas/LoginFlowMethod'
       type: object
     LoginFlowMethod_config_fields:
@@ -10425,9 +10753,10 @@ components:
       type: object
     Session_identity:
       example:
-        displayName: displayName
+        displayName: Eric Crose
       properties:
         displayName:
+          example: Eric Crose
           type: string
       type: object
     Task_flow:

@@ -12,6 +12,7 @@
 package cidclient
 
 import (
+	"bytes"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -56,7 +57,7 @@ func (r ApiApplyChangeLogRequest) Execute() (ApplyChangeLogResponse, *_nethttp.R
 }
 
 /*
- * ApplyChangeLog Apply a specific ChangeLog.
+ * ApplyChangeLog Apply a ChangeLog
  * Use apply in order to apply discovered changes.
 
 The discovered changes may be applied directly on store or via jobs.
@@ -140,6 +141,7 @@ func (a *ChangesApiService) ApplyChangeLogExecute(r ApiApplyChangeLogRequest) (A
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -230,7 +232,7 @@ func (r ApiCancelChangeLogRequest) Execute() (ChangeLog, *_nethttp.Response, err
 }
 
 /*
- * CancelChangeLog Cancel a specific ChangeLog.
+ * CancelChangeLog Cancel a ChangeLog.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The id of the changeLog to cancel.
  * @return ApiCancelChangeLogRequest
@@ -309,6 +311,7 @@ func (a *ChangesApiService) CancelChangeLogExecute(r ApiCancelChangeLogRequest) 
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -384,7 +387,7 @@ func (r ApiGetChangeLogRequest) Execute() (ChangeLog, *_nethttp.Response, error)
 }
 
 /*
- * GetChangeLog Info for a specific change log.
+ * GetChangeLog Get a Change-Log.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The id of the changeLog to retrieve
  * @return ApiGetChangeLogRequest
@@ -452,6 +455,7 @@ func (a *ChangesApiService) GetChangeLogExecute(r ApiGetChangeLogRequest) (Chang
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -571,7 +575,7 @@ func (r ApiListAddChangesRequest) Execute() (ResourceList, *_nethttp.Response, e
 }
 
 /*
- * ListAddChanges List insertions in change logs.
+ * ListAddChanges List insertions in change logs
  * The list is invoked across all change logs.
 
 To retrieve insertions for a specific change log, use filter (e.g., `meta.logId eq "id-of-changelog"`)
@@ -677,6 +681,7 @@ func (a *ChangesApiService) ListAddChangesExecute(r ApiListAddChangesRequest) (R
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -791,7 +796,7 @@ func (r ApiListChangeLogsRequest) Execute() (ChangeLogsList, *_nethttp.Response,
 }
 
 /*
- * ListChangeLogs List change logs.
+ * ListChangeLogs List Change Logs.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiListChangeLogsRequest
  */
@@ -896,6 +901,7 @@ func (a *ChangesApiService) ListChangeLogsExecute(r ApiListChangeLogsRequest) (C
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -1005,7 +1011,7 @@ func (r ApiListDeleteChangesRequest) Execute() (ResourceList, *_nethttp.Response
 }
 
 /*
- * ListDeleteChanges List deletions in change logs.
+ * ListDeleteChanges List deletions in change logs
  * The list is invoked across all change logs.
 
 To retrieve deletions for a specific change log, use filter (e.g., `meta.logId eq "id-of-changelog"`)
@@ -1111,6 +1117,7 @@ func (a *ChangesApiService) ListDeleteChangesExecute(r ApiListDeleteChangesReque
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -1220,7 +1227,7 @@ func (r ApiListPatchChangesRequest) Execute() (PatchesList, *_nethttp.Response, 
 }
 
 /*
- * ListPatchChanges List patches in change logs.
+ * ListPatchChanges List patches in change logs
  * The list is invoked across all change logs.
 
 To retrieve patches for a specific change log, use filter (e.g., `meta.logId eq "id-of-changelog"`)
@@ -1326,6 +1333,7 @@ func (a *ChangesApiService) ListPatchChangesExecute(r ApiListPatchChangesRequest
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -1435,7 +1443,7 @@ func (r ApiListReplaceChangesRequest) Execute() (ResourceList, *_nethttp.Respons
 }
 
 /*
- * ListReplaceChanges List replaces in change logs.
+ * ListReplaceChanges List replaces in change logs
  * The list is invoked across all change logs.
 
 To retrieve insertions for a specific change log, use filter (e.g., `meta.logId eq "id-of-changelog"`)
@@ -1541,6 +1549,7 @@ func (a *ChangesApiService) ListReplaceChangesExecute(r ApiListReplaceChangesReq
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}

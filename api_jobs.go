@@ -12,6 +12,7 @@
 package cidclient
 
 import (
+	"bytes"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -41,7 +42,7 @@ func (r ApiGetJobRequest) Execute() (Job, *_nethttp.Response, error) {
 }
 
 /*
- * GetJob Info for a specific job.
+ * GetJob Get a Job
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The id of the job to retrieve.
  * @return ApiGetJobRequest
@@ -109,6 +110,7 @@ func (a *JobsApiService) GetJobExecute(r ApiGetJobRequest) (Job, *_nethttp.Respo
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -233,7 +235,7 @@ func (r ApiListJobsRequest) Execute() (JobsList, *_nethttp.Response, error) {
 }
 
 /*
- * ListJobs List jobs.
+ * ListJobs List Jobs
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiListJobsRequest
  */
@@ -338,6 +340,7 @@ func (a *JobsApiService) ListJobsExecute(r ApiListJobsRequest) (JobsList, *_neth
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -423,7 +426,7 @@ func (r ApiPatchJobRequest) Execute() (Job, *_nethttp.Response, error) {
 }
 
 /*
- * PatchJob Patch (update) a specific job.
+ * PatchJob Update a Job
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The id of the job to patch.
  * @return ApiPatchJobRequest
@@ -499,6 +502,7 @@ func (a *JobsApiService) PatchJobExecute(r ApiPatchJobRequest) (Job, *_nethttp.R
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}

@@ -4,14 +4,14 @@ All URIs are relative to *http://dev.local.crossid.io:8000/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CancelFlowInstance**](FlowsApi.md#CancelFlowInstance) | **Post** /flows/{flowInstanceId}/.cancel | Cancel Flow Instance.
+[**CancelFlowInstance**](FlowsApi.md#CancelFlowInstance) | **Post** /flows/{flowInstanceId}/.cancel | Cancel Flow Instance
 [**CancelTask**](FlowsApi.md#CancelTask) | **Post** /flows/tasks/{taskId}/.cancel | Cancel a Task
 [**CompleteTask**](FlowsApi.md#CompleteTask) | **Post** /flows/tasks/{taskId}/.complete | Complete a Task
-[**CreateTask**](FlowsApi.md#CreateTask) | **Post** /flows/tasks | Create a task.
-[**GetFlowInstance**](FlowsApi.md#GetFlowInstance) | **Get** /flows/{flowInstanceId} | Get Flow Instance.
-[**GetTask**](FlowsApi.md#GetTask) | **Get** /flows/tasks/{taskId} | Get Task
-[**ListFlowInstances**](FlowsApi.md#ListFlowInstances) | **Get** /flows/ | List Flow Instances.
-[**ListTasks**](FlowsApi.md#ListTasks) | **Get** /flows/tasks | List Tasks.
+[**CreateTask**](FlowsApi.md#CreateTask) | **Post** /flows/tasks | Create a Task
+[**GetFlowInstance**](FlowsApi.md#GetFlowInstance) | **Get** /flows/{flowInstanceId} | Get Flow Instance
+[**GetTask**](FlowsApi.md#GetTask) | **Get** /flows/tasks/{taskId} | Get a Task
+[**ListFlowInstances**](FlowsApi.md#ListFlowInstances) | **Get** /flows/ | List Flow Instances
+[**ListTasks**](FlowsApi.md#ListTasks) | **Get** /flows/tasks | List Tasks
 
 
 
@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 > FlowCancel CancelFlowInstance(ctx, flowInstanceId).CancelFlowInstanceRequest(cancelFlowInstanceRequest).Reason(reason).Correlation(correlation).Execute()
 
-Cancel Flow Instance.
+Cancel Flow Instance
 
 ### Example
 
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 
 > Task CreateTask(ctx).Reason(reason).Correlation(correlation).Task(task).Execute()
 
-Create a task.
+Create a Task
 
 ### Example
 
@@ -309,7 +309,7 @@ Name | Type | Description  | Notes
 
 > FlowInstance GetFlowInstance(ctx, flowInstanceId).Execute()
 
-Get Flow Instance.
+Get Flow Instance
 
 ### Example
 
@@ -377,7 +377,7 @@ Name | Type | Description  | Notes
 
 > Task GetTask(ctx, taskId).Execute()
 
-Get Task
+Get a Task
 
 ### Example
 
@@ -445,7 +445,7 @@ Name | Type | Description  | Notes
 
 > FlowInstancesList ListFlowInstances(ctx).Filter(filter).Count(count).StartIndex(startIndex).SortBy(sortBy).SortOrder(sortOrder).Attributes(attributes).ExcludedAttributes(excludedAttributes).ForTime(forTime).Execute()
 
-List Flow Instances.
+List Flow Instances
 
 ### Example
 
@@ -524,7 +524,7 @@ Name | Type | Description  | Notes
 
 > TasksList ListTasks(ctx).Filter(filter).Count(count).StartIndex(startIndex).SortBy(sortBy).SortOrder(sortOrder).Attributes(attributes).ExcludedAttributes(excludedAttributes).ForTime(forTime).Execute()
 
-List Tasks.
+List Tasks
 
 ### Example
 

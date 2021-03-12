@@ -24,31 +24,31 @@ var (
 	_ _context.Context
 )
 
-// LoginApiService LoginApi service
-type LoginApiService service
+// AuthErrorsApiService AuthErrorsApi service
+type AuthErrorsApiService service
 
-type ApiGetLoginFlowRequest struct {
+type ApiGetErrorsRequest struct {
 	ctx _context.Context
-	ApiService *LoginApiService
-	id *string
+	ApiService *AuthErrorsApiService
+	error_ *string
 }
 
-func (r ApiGetLoginFlowRequest) Id(id string) ApiGetLoginFlowRequest {
-	r.id = &id
+func (r ApiGetErrorsRequest) Error_(error_ string) ApiGetErrorsRequest {
+	r.error_ = &error_
 	return r
 }
 
-func (r ApiGetLoginFlowRequest) Execute() (LoginFlow, *_nethttp.Response, error) {
-	return r.ApiService.GetLoginFlowExecute(r)
+func (r ApiGetErrorsRequest) Execute() (AuthErrors, *_nethttp.Response, error) {
+	return r.ApiService.GetErrorsExecute(r)
 }
 
 /*
- * GetLoginFlow Info for a specific login flow.
+ * GetErrors Info for a specific errors.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGetLoginFlowRequest
+ * @return ApiGetErrorsRequest
  */
-func (a *LoginApiService) GetLoginFlow(ctx _context.Context) ApiGetLoginFlowRequest {
-	return ApiGetLoginFlowRequest{
+func (a *AuthErrorsApiService) GetErrors(ctx _context.Context) ApiGetErrorsRequest {
+	return ApiGetErrorsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -56,33 +56,33 @@ func (a *LoginApiService) GetLoginFlow(ctx _context.Context) ApiGetLoginFlowRequ
 
 /*
  * Execute executes the request
- * @return LoginFlow
+ * @return AuthErrors
  */
-func (a *LoginApiService) GetLoginFlowExecute(r ApiGetLoginFlowRequest) (LoginFlow, *_nethttp.Response, error) {
+func (a *AuthErrorsApiService) GetErrorsExecute(r ApiGetErrorsRequest) (AuthErrors, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  LoginFlow
+		localVarReturnValue  AuthErrors
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LoginApiService.GetLoginFlow")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthErrorsApiService.GetErrors")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/self-service/login/flows"
+	localVarPath := localBasePath + "/auth/auth-errors/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
-	if r.id == nil {
-		return localVarReturnValue, nil, reportError("id is required and must be specified")
+	if r.error_ == nil {
+		return localVarReturnValue, nil, reportError("error_ is required and must be specified")
 	}
 
-	localVarQueryParams.Add("id", parameterToString(*r.id, ""))
+	localVarQueryParams.Add("error", parameterToString(*r.error_, ""))
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

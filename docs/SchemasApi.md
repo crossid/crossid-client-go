@@ -4,12 +4,12 @@ All URIs are relative to *http://dev.local.crossid.io:8000/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateJSONSchema**](SchemasApi.md#CreateJSONSchema) | **Post** /json-schemas/ | create JSON Schema.
+[**CreateJSONSchema**](SchemasApi.md#CreateJSONSchema) | **Post** /json-schemas/ | Create JSON Schema
 [**CreateSCIMSchema**](SchemasApi.md#CreateSCIMSchema) | **Post** /scim-schemas/ | Create a SCIM Schema
-[**GetJSONSchema**](SchemasApi.md#GetJSONSchema) | **Get** /json-schemas/{id} | Info for a specific JSON Schema.
-[**GetSCIMSchema**](SchemasApi.md#GetSCIMSchema) | **Get** /scim-schemas/{id} | Info for a specific SCIM Schema.
-[**ReplaceJSONSchema**](SchemasApi.md#ReplaceJSONSchema) | **Put** /json-schemas/{id} | replace specific JSON Schema.
-[**ReplaceSCIMSchema**](SchemasApi.md#ReplaceSCIMSchema) | **Put** /scim-schemas/{id} | Replace an existing SCIM Schema
+[**GetJSONSchema**](SchemasApi.md#GetJSONSchema) | **Get** /json-schemas/{id} | Get a JSON Schema
+[**GetSCIMSchema**](SchemasApi.md#GetSCIMSchema) | **Get** /scim-schemas/{id} | Get a SCIM Schema
+[**ReplaceJSONSchema**](SchemasApi.md#ReplaceJSONSchema) | **Put** /json-schemas/{id} | replace a JSON Schema
+[**ReplaceSCIMSchema**](SchemasApi.md#ReplaceSCIMSchema) | **Put** /scim-schemas/{id} | Replace a SCIM Schema
 
 
 
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 > JSONSchema CreateJSONSchema(ctx).Reason(reason).JSONSchema(jSONSchema).Execute()
 
-create JSON Schema.
+Create JSON Schema
 
 ### Example
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 > JSONSchema GetJSONSchema(ctx, id).Execute()
 
-Info for a specific JSON Schema.
+Get a JSON Schema
 
 ### Example
 
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 
 > SCIMSchema GetSCIMSchema(ctx, id).Execute()
 
-Info for a specific SCIM Schema.
+Get a SCIM Schema
 
 ### Example
 
@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
 
 > JSONSchema ReplaceJSONSchema(ctx, id).Reason(reason).JSONSchema(jSONSchema).Execute()
 
-replace specific JSON Schema.
+replace a JSON Schema
 
 ### Example
 
@@ -357,7 +357,7 @@ Name | Type | Description  | Notes
 
 > SCIMSchema ReplaceSCIMSchema(ctx, id).Reason(reason).SCIMSchema(sCIMSchema).Execute()
 
-Replace an existing SCIM Schema
+Replace a SCIM Schema
 
 ### Example
 

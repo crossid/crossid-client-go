@@ -4,8 +4,8 @@ All URIs are relative to *http://dev.local.crossid.io:8000/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetSecret**](SecretsApi.md#GetSecret) | **Get** /secrets/{path} | Info for a specific secret.
-[**PutSecret**](SecretsApi.md#PutSecret) | **Put** /secrets/{path} | Insert or replace a secret.
+[**GetSecret**](SecretsApi.md#GetSecret) | **Get** /secrets/{path} | Get a Secret
+[**PutSecret**](SecretsApi.md#PutSecret) | **Put** /secrets/{path} | Put a Secret
 
 
 
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 > Secret GetSecret(ctx, path).Ciphertext(ciphertext).Execute()
 
-Info for a specific secret.
+Get a Secret
 
 ### Example
 
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 
 > Secret PutSecret(ctx, path).Body(body).Execute()
 
-Insert or replace a secret.
+Put a Secret
 
 ### Example
 

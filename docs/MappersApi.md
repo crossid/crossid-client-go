@@ -5,10 +5,10 @@ All URIs are relative to *http://dev.local.crossid.io:8000/api/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateMapper**](MappersApi.md#CreateMapper) | **Post** /mappers/ | Create a mapper
-[**GetMapper**](MappersApi.md#GetMapper) | **Get** /mappers/{id} | Info for a specific mapper.
-[**ListMappers**](MappersApi.md#ListMappers) | **Get** /mappers/ | List mappers.
-[**PatchMapper**](MappersApi.md#PatchMapper) | **Patch** /mappers/{id} | Patch (update) a specific mapper.
-[**ReplaceMapper**](MappersApi.md#ReplaceMapper) | **Put** /mappers/{id} | Replace a mapper
+[**GetMapper**](MappersApi.md#GetMapper) | **Get** /mappers/{id} | Get a Mapper
+[**ListMappers**](MappersApi.md#ListMappers) | **Get** /mappers/ | List Mappers
+[**PatchMapper**](MappersApi.md#PatchMapper) | **Patch** /mappers/{id} | Update a Mapper
+[**ReplaceMapper**](MappersApi.md#ReplaceMapper) | **Put** /mappers/{id} | Replace a Mapper
 
 
 
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 > Mapper GetMapper(ctx, id).Execute()
 
-Info for a specific mapper.
+Get a Mapper
 
 ### Example
 
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 > MappersList ListMappers(ctx).Filter(filter).Count(count).StartIndex(startIndex).SortBy(sortBy).SortOrder(sortOrder).Attributes(attributes).ExcludedAttributes(excludedAttributes).ForTime(forTime).Execute()
 
-List mappers.
+List Mappers
 
 ### Example
 
@@ -229,7 +229,7 @@ Name | Type | Description  | Notes
 
 > Mapper PatchMapper(ctx, id).Reason(reason).Mapper(mapper).Execute()
 
-Patch (update) a specific mapper.
+Update a Mapper
 
 ### Example
 
@@ -301,7 +301,7 @@ Name | Type | Description  | Notes
 
 > Mapper ReplaceMapper(ctx, id).Reason(reason).Mapper(mapper).Execute()
 
-Replace a mapper
+Replace a Mapper
 
 ### Example
 

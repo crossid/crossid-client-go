@@ -4,11 +4,11 @@ All URIs are relative to *http://dev.local.crossid.io:8000/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateRule**](RulesApi.md#CreateRule) | **Post** /rules/ | Create a rule
-[**DeleteRule**](RulesApi.md#DeleteRule) | **Delete** /rules/{id} | Delete a Rule.
-[**GetRule**](RulesApi.md#GetRule) | **Get** /rules/{id} | Info for a specific Rule.
-[**ListRules**](RulesApi.md#ListRules) | **Get** /rules/ | List rules.
-[**ReplaceRule**](RulesApi.md#ReplaceRule) | **Put** /rules/{id} | Replace a specific Rule.
+[**CreateRule**](RulesApi.md#CreateRule) | **Post** /rules/ | Create a Rule
+[**DeleteRule**](RulesApi.md#DeleteRule) | **Delete** /rules/{id} | Delete a Rule
+[**GetRule**](RulesApi.md#GetRule) | **Get** /rules/{id} | Get a Rule
+[**ListRules**](RulesApi.md#ListRules) | **Get** /rules/ | List Rules
+[**ReplaceRule**](RulesApi.md#ReplaceRule) | **Put** /rules/{id} | Replace a Rule
 
 
 
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 > Rule CreateRule(ctx).Reason(reason).Rule(rule).Execute()
 
-Create a rule
+Create a Rule
 
 ### Example
 
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 > DeleteRule(ctx, id).Reason(reason).Execute()
 
-Delete a Rule.
+Delete a Rule
 
 ### Example
 
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 > Rule GetRule(ctx, id).Execute()
 
-Info for a specific Rule.
+Get a Rule
 
 ### Example
 
@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 
 > RulesList ListRules(ctx).Filter(filter).Count(count).StartIndex(startIndex).SortBy(sortBy).SortOrder(sortOrder).Attributes(attributes).ExcludedAttributes(excludedAttributes).ForTime(forTime).Execute()
 
-List rules.
+List Rules
 
 ### Example
 
@@ -297,7 +297,7 @@ Name | Type | Description  | Notes
 
 > Rule ReplaceRule(ctx, id).Reason(reason).Rule(rule).Execute()
 
-Replace a specific Rule.
+Replace a Rule
 
 ### Example
 

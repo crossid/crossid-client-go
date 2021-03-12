@@ -1,20 +1,19 @@
-# \JobsApi
+# \AuditApi
 
 All URIs are relative to *http://dev.local.crossid.io:8000/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetJob**](JobsApi.md#GetJob) | **Get** /jobs/{id} | Get a Job
-[**ListJobs**](JobsApi.md#ListJobs) | **Get** /jobs/ | List Jobs
-[**PatchJob**](JobsApi.md#PatchJob) | **Patch** /jobs/{id} | Update a Job
+[**GetCommit**](AuditApi.md#GetCommit) | **Get** /audit/commits/{id} | Get a Commit
+[**ListCommits**](AuditApi.md#ListCommits) | **Get** /audit/commits | List Commits
 
 
 
-## GetJob
+## GetCommit
 
-> Job GetJob(ctx, id).Execute()
+> Commit GetCommit(ctx, id).Execute()
 
-Get a Job
+Get a Commit
 
 ### Example
 
@@ -29,17 +28,17 @@ import (
 )
 
 func main() {
-    id := "id_example" // string | The id of the job to retrieve.
+    id := "id_example" // string | The id of the commit to retrieve
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.JobsApi.GetJob(context.Background(), id).Execute()
+    resp, r, err := api_client.AuditApi.GetCommit(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `JobsApi.GetJob``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AuditApi.GetCommit``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetJob`: Job
-    fmt.Fprintf(os.Stdout, "Response from `JobsApi.GetJob`: %v\n", resp)
+    // response from `GetCommit`: Commit
+    fmt.Fprintf(os.Stdout, "Response from `AuditApi.GetCommit`: %v\n", resp)
 }
 ```
 
@@ -49,11 +48,11 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | The id of the job to retrieve. | 
+**id** | **string** | The id of the commit to retrieve | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetJobRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetCommitRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -62,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Job**](Job.md)
+[**Commit**](Commit.md)
 
 ### Authorization
 
@@ -78,11 +77,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ListJobs
+## ListCommits
 
-> JobsList ListJobs(ctx).Filter(filter).Count(count).StartIndex(startIndex).SortBy(sortBy).SortOrder(sortOrder).Attributes(attributes).ExcludedAttributes(excludedAttributes).ForTime(forTime).Execute()
+> CommitsList ListCommits(ctx).Filter(filter).Count(count).StartIndex(startIndex).SortBy(sortBy).SortOrder(sortOrder).Attributes(attributes).ExcludedAttributes(excludedAttributes).Execute()
 
-List Jobs
+List Commits
 
 ### Example
 
@@ -93,7 +92,6 @@ import (
     "context"
     "fmt"
     "os"
-    "time"
     openapiclient "./openapi"
 )
 
@@ -105,17 +103,16 @@ func main() {
     sortOrder := "ascending" // string | A string indicating the order in which the \"sortBy\" parameter is applied.  Allowed values are \"ascending\" and \"descending\". (optional)
     attributes := []string{"Inner_example"} // []string | A multi-valued list of strings indicating the names of resource attributes to return in the response, overriding the set of attributes that would be returned by default.  (optional)
     excludedAttributes := []string{"Inner_example"} // []string | A multi-valued list of strings indicating the names of resource attributes to be removed from the default set of attributes to return.  This parameter SHALL have no effect on attributes whose schema \"returned\" setting is \"always\".  (optional)
-    forTime := time.Now() // time.Time | a date time indicating that the requested resources should be retrieved from history as how they looked for the specified time.  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.JobsApi.ListJobs(context.Background()).Filter(filter).Count(count).StartIndex(startIndex).SortBy(sortBy).SortOrder(sortOrder).Attributes(attributes).ExcludedAttributes(excludedAttributes).ForTime(forTime).Execute()
+    resp, r, err := api_client.AuditApi.ListCommits(context.Background()).Filter(filter).Count(count).StartIndex(startIndex).SortBy(sortBy).SortOrder(sortOrder).Attributes(attributes).ExcludedAttributes(excludedAttributes).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `JobsApi.ListJobs``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AuditApi.ListCommits``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListJobs`: JobsList
-    fmt.Fprintf(os.Stdout, "Response from `JobsApi.ListJobs`: %v\n", resp)
+    // response from `ListCommits`: CommitsList
+    fmt.Fprintf(os.Stdout, "Response from `AuditApi.ListCommits`: %v\n", resp)
 }
 ```
 
@@ -125,7 +122,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListJobsRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListCommitsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -137,11 +134,10 @@ Name | Type | Description  | Notes
  **sortOrder** | **string** | A string indicating the order in which the \&quot;sortBy\&quot; parameter is applied.  Allowed values are \&quot;ascending\&quot; and \&quot;descending\&quot;. | 
  **attributes** | **[]string** | A multi-valued list of strings indicating the names of resource attributes to return in the response, overriding the set of attributes that would be returned by default.  | 
  **excludedAttributes** | **[]string** | A multi-valued list of strings indicating the names of resource attributes to be removed from the default set of attributes to return.  This parameter SHALL have no effect on attributes whose schema \&quot;returned\&quot; setting is \&quot;always\&quot;.  | 
- **forTime** | **time.Time** | a date time indicating that the requested resources should be retrieved from history as how they looked for the specified time.  | 
 
 ### Return type
 
-[**JobsList**](jobsList.md)
+[**CommitsList**](commitsList.md)
 
 ### Authorization
 
@@ -150,78 +146,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## PatchJob
-
-> Job PatchJob(ctx, id).PatchRequest(patchRequest).Reason(reason).Execute()
-
-Update a Job
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    id := "id_example" // string | The id of the job to patch.
-    patchRequest := *openapiclient.NewPatchRequest() // PatchRequest | a request to patch (update) a single model
-    reason := "required due to..." // string | a descriptive reason of the change  (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.JobsApi.PatchJob(context.Background(), id).PatchRequest(patchRequest).Reason(reason).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `JobsApi.PatchJob``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `PatchJob`: Job
-    fmt.Fprintf(os.Stdout, "Response from `JobsApi.PatchJob`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | The id of the job to patch. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiPatchJobRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **patchRequest** | [**PatchRequest**](PatchRequest.md) | a request to patch (update) a single model | 
- **reason** | **string** | a descriptive reason of the change  | 
-
-### Return type
-
-[**Job**](Job.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

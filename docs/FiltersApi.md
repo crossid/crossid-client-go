@@ -4,12 +4,12 @@ All URIs are relative to *http://dev.local.crossid.io:8000/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateFilter**](FiltersApi.md#CreateFilter) | **Post** /filters/ | Insert a new filter.
-[**DeleteFilter**](FiltersApi.md#DeleteFilter) | **Delete** /filters/{id} | Delete a Filter.
-[**GetFilter**](FiltersApi.md#GetFilter) | **Get** /filters/{id} | Info for a specific filter.
-[**ListFilters**](FiltersApi.md#ListFilters) | **Get** /filters/ | List filters.
-[**ReplaceFilter**](FiltersApi.md#ReplaceFilter) | **Put** /filters/{id} | Replace a filter
-[**ValidFilter**](FiltersApi.md#ValidFilter) | **Post** /filters/.valid | Check filter validty
+[**CreateFilter**](FiltersApi.md#CreateFilter) | **Post** /filters/ | Create a Filter
+[**DeleteFilter**](FiltersApi.md#DeleteFilter) | **Delete** /filters/{id} | Delete a Filter
+[**GetFilter**](FiltersApi.md#GetFilter) | **Get** /filters/{id} | Get a Filter
+[**ListFilters**](FiltersApi.md#ListFilters) | **Get** /filters/ | List Filters
+[**ReplaceFilter**](FiltersApi.md#ReplaceFilter) | **Put** /filters/{id} | Replace a Filter
+[**ValidFilter**](FiltersApi.md#ValidFilter) | **Post** /filters/.valid | Check Filter Validity
 
 
 
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 > Filter CreateFilter(ctx).Reason(reason).Filter(filter).Execute()
 
-Insert a new filter.
+Create a Filter
 
 ### Example
 
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 
 > DeleteFilter(ctx, id).Reason(reason).Execute()
 
-Delete a Filter.
+Delete a Filter
 
 ### Example
 
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 > Filter GetFilter(ctx, id).Execute()
 
-Info for a specific filter.
+Get a Filter
 
 ### Example
 
@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
 
 > FiltersList ListFilters(ctx).Filter(filter).Count(count).StartIndex(startIndex).SortBy(sortBy).SortOrder(sortOrder).Attributes(attributes).ExcludedAttributes(excludedAttributes).ForTime(forTime).Execute()
 
-List filters.
+List Filters
 
 ### Example
 
@@ -298,7 +298,7 @@ Name | Type | Description  | Notes
 
 > Filter ReplaceFilter(ctx, id).Reason(reason).Filter(filter).Execute()
 
-Replace a filter
+Replace a Filter
 
 ### Example
 
@@ -370,7 +370,7 @@ Name | Type | Description  | Notes
 
 > InlineResponse2001 ValidFilter(ctx).Execute()
 
-Check filter validty
+Check Filter Validity
 
 
 

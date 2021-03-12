@@ -4,9 +4,9 @@ All URIs are relative to *http://dev.local.crossid.io:8000/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateAPIToken**](ApiTokensApi.md#CreateAPIToken) | **Post** /auth/api-tokens/ | Insert a new API token.
-[**DeleteAPIToken**](ApiTokensApi.md#DeleteAPIToken) | **Delete** /auth/api-tokens/{id} | Delete an API token.
-[**ListAPITokens**](ApiTokensApi.md#ListAPITokens) | **Get** /auth/api-tokens/ | List API tokens that belongs to the authenticated user.
+[**CreateAPIToken**](ApiTokensApi.md#CreateAPIToken) | **Post** /auth/api-tokens/ | Insert an API Token
+[**DeleteAPIToken**](ApiTokensApi.md#DeleteAPIToken) | **Delete** /auth/api-tokens/{id} | Delete an API token
+[**ListAPITokens**](ApiTokensApi.md#ListAPITokens) | **Get** /auth/api-tokens/ | List API Tokens belonging to the authenticated user
 
 
 
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 > ApiToken CreateAPIToken(ctx).Reason(reason).ApiToken(apiToken).Execute()
 
-Insert a new API token.
+Insert an API Token
 
 ### Example
 
@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 > DeleteAPIToken(ctx, id).Reason(reason).Execute()
 
-Delete an API token.
+Delete an API token
 
 ### Example
 
@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 
 > ApiTokensList ListAPITokens(ctx).Filter(filter).Count(count).StartIndex(startIndex).Execute()
 
-List API tokens that belongs to the authenticated user.
+List API Tokens belonging to the authenticated user
 
 ### Example
 
