@@ -12,6 +12,7 @@
 package cidclient
 
 import (
+	"bytes"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -55,7 +56,7 @@ func (r ApiChangesAppsRequest) Execute() (Job, *_nethttp.Response, error) {
 }
 
 /*
- * ChangesApps Discover applications changes.
+ * ChangesApps Discover App Changes
  * Read applications data, compare it to the stored state and produce the delta as a changelog. The produced changelog could then be observed and applied.
 
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -133,6 +134,7 @@ func (a *AppsApiService) ChangesAppsExecute(r ApiChangesAppsRequest) (Job, *_net
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -217,7 +219,7 @@ func (r ApiCreateAppRequest) Execute() (App, *_nethttp.Response, error) {
 }
 
 /*
- * CreateApp Create an app
+ * CreateApp Create an App
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiCreateAppRequest
  */
@@ -287,6 +289,7 @@ func (a *AppsApiService) CreateAppExecute(r ApiCreateAppRequest) (App, *_nethttp
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -372,7 +375,7 @@ func (r ApiGetAppRequest) Execute() (App, *_nethttp.Response, error) {
 }
 
 /*
- * GetApp Info for a specific application.
+ * GetApp Get an App
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param appId The id of the app to retrieve
  * @return ApiGetAppRequest
@@ -440,6 +443,7 @@ func (a *AppsApiService) GetAppExecute(r ApiGetAppRequest) (App, *_nethttp.Respo
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -539,7 +543,7 @@ func (r ApiImportAppsRequest) Execute() (Job, *_nethttp.Response, error) {
 }
 
 /*
- * ImportApps Import changes from applications into store.
+ * ImportApps Discover and Import App Changes Into Store
  * Read applications data, compare it to the stored state and produce the delta as a changelog. As opposed to `.changes` endpoint, the produced changelog is then applied immediately.
 
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -617,6 +621,7 @@ func (a *AppsApiService) ImportAppsExecute(r ApiImportAppsRequest) (Job, *_netht
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -731,7 +736,8 @@ func (r ApiListAppsRequest) Execute() (AppsList, *_nethttp.Response, error) {
 }
 
 /*
- * ListApps List applications.
+ * ListApps List Applications
+ * This endpoint can be used to retrieve Applications.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiListAppsRequest
  */
@@ -836,6 +842,7 @@ func (a *AppsApiService) ListAppsExecute(r ApiListAppsRequest) (AppsList, *_neth
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -911,7 +918,7 @@ func (r ApiPingAppRequest) Execute() (InlineResponse200, *_nethttp.Response, err
 }
 
 /*
- * PingApp Check application health
+ * PingApp Check App Health
  * Typically connectivity and authentication checks.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param appId The id of the app to ping
@@ -980,6 +987,7 @@ func (a *AppsApiService) PingAppExecute(r ApiPingAppRequest) (InlineResponse200,
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -1075,7 +1083,7 @@ func (r ApiReplaceAppRequest) Execute() (App, *_nethttp.Response, error) {
 }
 
 /*
- * ReplaceApp Replace an app
+ * ReplaceApp Replace an App
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param appId The id of the app to replace
  * @return ApiReplaceAppRequest
@@ -1148,6 +1156,7 @@ func (a *AppsApiService) ReplaceAppExecute(r ApiReplaceAppRequest) (App, *_netht
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}

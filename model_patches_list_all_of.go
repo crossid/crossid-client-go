@@ -24,7 +24,7 @@ type PatchesListAllOf struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPatchesListAllOf(resources []DocPatch, ) *PatchesListAllOf {
+func NewPatchesListAllOf(resources []DocPatch) *PatchesListAllOf {
 	this := PatchesListAllOf{}
 	this.Resources = resources
 	return &this
@@ -40,7 +40,7 @@ func NewPatchesListAllOfWithDefaults() *PatchesListAllOf {
 
 // GetResources returns the Resources field value
 func (o *PatchesListAllOf) GetResources() []DocPatch {
-	if o == nil  {
+	if o == nil {
 		var ret []DocPatch
 		return ret
 	}

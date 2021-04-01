@@ -12,6 +12,7 @@
 package cidclient
 
 import (
+	"bytes"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -48,7 +49,7 @@ func (r ApiCreateJSONSchemaRequest) Execute() (JSONSchema, *_nethttp.Response, e
 }
 
 /*
- * CreateJSONSchema create JSON Schema.
+ * CreateJSONSchema Create JSON Schema
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiCreateJSONSchemaRequest
  */
@@ -118,6 +119,7 @@ func (a *SchemasApiService) CreateJSONSchemaExecute(r ApiCreateJSONSchemaRequest
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -282,6 +284,7 @@ func (a *SchemasApiService) CreateSCIMSchemaExecute(r ApiCreateSCIMSchemaRequest
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -367,7 +370,7 @@ func (r ApiGetJSONSchemaRequest) Execute() (JSONSchema, *_nethttp.Response, erro
 }
 
 /*
- * GetJSONSchema Info for a specific JSON Schema.
+ * GetJSONSchema Get a JSON Schema
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The id of the schema to retrieve.
  * @return ApiGetJSONSchemaRequest
@@ -435,6 +438,7 @@ func (a *SchemasApiService) GetJSONSchemaExecute(r ApiGetJSONSchemaRequest) (JSO
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -520,7 +524,7 @@ func (r ApiGetSCIMSchemaRequest) Execute() (SCIMSchema, *_nethttp.Response, erro
 }
 
 /*
- * GetSCIMSchema Info for a specific SCIM Schema.
+ * GetSCIMSchema Get a SCIM Schema
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The id of the schema to retrieve.
  * @return ApiGetSCIMSchemaRequest
@@ -588,6 +592,7 @@ func (a *SchemasApiService) GetSCIMSchemaExecute(r ApiGetSCIMSchemaRequest) (SCI
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -683,7 +688,7 @@ func (r ApiReplaceJSONSchemaRequest) Execute() (JSONSchema, *_nethttp.Response, 
 }
 
 /*
- * ReplaceJSONSchema replace specific JSON Schema.
+ * ReplaceJSONSchema replace a JSON Schema
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The id of the schema to replace.
  * @return ApiReplaceJSONSchemaRequest
@@ -756,6 +761,7 @@ func (a *SchemasApiService) ReplaceJSONSchemaExecute(r ApiReplaceJSONSchemaReque
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -851,7 +857,7 @@ func (r ApiReplaceSCIMSchemaRequest) Execute() (SCIMSchema, *_nethttp.Response, 
 }
 
 /*
- * ReplaceSCIMSchema Replace an existing SCIM Schema
+ * ReplaceSCIMSchema Replace a SCIM Schema
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The id of the schema to replace.
  * @return ApiReplaceSCIMSchemaRequest
@@ -924,6 +930,7 @@ func (a *SchemasApiService) ReplaceSCIMSchemaExecute(r ApiReplaceSCIMSchemaReque
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}

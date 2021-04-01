@@ -12,6 +12,7 @@
 package cidclient
 
 import (
+	"bytes"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -25,12 +26,12 @@ var (
 	_ _context.Context
 )
 
-// CommitsApiService CommitsApi service
-type CommitsApiService service
+// AuditApiService AuditApi service
+type AuditApiService service
 
 type ApiGetCommitRequest struct {
 	ctx _context.Context
-	ApiService *CommitsApiService
+	ApiService *AuditApiService
 	id string
 }
 
@@ -40,12 +41,12 @@ func (r ApiGetCommitRequest) Execute() (Commit, *_nethttp.Response, error) {
 }
 
 /*
- * GetCommit Info for a specific commit.
+ * GetCommit Get a Commit
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The id of the commit to retrieve
  * @return ApiGetCommitRequest
  */
-func (a *CommitsApiService) GetCommit(ctx _context.Context, id string) ApiGetCommitRequest {
+func (a *AuditApiService) GetCommit(ctx _context.Context, id string) ApiGetCommitRequest {
 	return ApiGetCommitRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -57,7 +58,7 @@ func (a *CommitsApiService) GetCommit(ctx _context.Context, id string) ApiGetCom
  * Execute executes the request
  * @return Commit
  */
-func (a *CommitsApiService) GetCommitExecute(r ApiGetCommitRequest) (Commit, *_nethttp.Response, error) {
+func (a *AuditApiService) GetCommitExecute(r ApiGetCommitRequest) (Commit, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -67,7 +68,7 @@ func (a *CommitsApiService) GetCommitExecute(r ApiGetCommitRequest) (Commit, *_n
 		localVarReturnValue  Commit
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CommitsApiService.GetCommit")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuditApiService.GetCommit")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -108,6 +109,7 @@ func (a *CommitsApiService) GetCommitExecute(r ApiGetCommitRequest) (Commit, *_n
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -183,7 +185,7 @@ func (a *CommitsApiService) GetCommitExecute(r ApiGetCommitRequest) (Commit, *_n
 
 type ApiListCommitsRequest struct {
 	ctx _context.Context
-	ApiService *CommitsApiService
+	ApiService *AuditApiService
 	filter *string
 	count *int64
 	startIndex *int64
@@ -227,11 +229,11 @@ func (r ApiListCommitsRequest) Execute() (CommitsList, *_nethttp.Response, error
 }
 
 /*
- * ListCommits List commits.
+ * ListCommits List Commits
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiListCommitsRequest
  */
-func (a *CommitsApiService) ListCommits(ctx _context.Context) ApiListCommitsRequest {
+func (a *AuditApiService) ListCommits(ctx _context.Context) ApiListCommitsRequest {
 	return ApiListCommitsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -242,7 +244,7 @@ func (a *CommitsApiService) ListCommits(ctx _context.Context) ApiListCommitsRequ
  * Execute executes the request
  * @return CommitsList
  */
-func (a *CommitsApiService) ListCommitsExecute(r ApiListCommitsRequest) (CommitsList, *_nethttp.Response, error) {
+func (a *AuditApiService) ListCommitsExecute(r ApiListCommitsRequest) (CommitsList, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -252,7 +254,7 @@ func (a *CommitsApiService) ListCommitsExecute(r ApiListCommitsRequest) (Commits
 		localVarReturnValue  CommitsList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CommitsApiService.ListCommits")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuditApiService.ListCommits")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -329,6 +331,7 @@ func (a *CommitsApiService) ListCommitsExecute(r ApiListCommitsRequest) (Commits
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}

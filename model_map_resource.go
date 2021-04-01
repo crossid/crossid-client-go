@@ -29,7 +29,7 @@ type MapResource struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMapResource(corrId string, filter string, mapperId string, ) *MapResource {
+func NewMapResource(corrId string, filter string, mapperId string) *MapResource {
 	this := MapResource{}
 	this.CorrId = corrId
 	this.Filter = filter
@@ -47,7 +47,7 @@ func NewMapResourceWithDefaults() *MapResource {
 
 // GetCorrId returns the CorrId field value
 func (o *MapResource) GetCorrId() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -71,7 +71,7 @@ func (o *MapResource) SetCorrId(v string) {
 
 // GetFilter returns the Filter field value
 func (o *MapResource) GetFilter() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -95,7 +95,7 @@ func (o *MapResource) SetFilter(v string) {
 
 // GetMapperId returns the MapperId field value
 func (o *MapResource) GetMapperId() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

@@ -12,6 +12,7 @@
 package cidclient
 
 import (
+	"bytes"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -50,7 +51,7 @@ func (r ApiCreateFilterRequest) Execute() (Filter, *_nethttp.Response, error) {
 }
 
 /*
- * CreateFilter Insert a new filter.
+ * CreateFilter Create a Filter
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiCreateFilterRequest
  */
@@ -120,6 +121,7 @@ func (a *FiltersApiService) CreateFilterExecute(r ApiCreateFilterRequest) (Filte
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -210,7 +212,7 @@ func (r ApiDeleteFilterRequest) Execute() (*_nethttp.Response, error) {
 }
 
 /*
- * DeleteFilter Delete a Filter.
+ * DeleteFilter Delete a Filter
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The id of the filter to delete.
  * @return ApiDeleteFilterRequest
@@ -279,6 +281,7 @@ func (a *FiltersApiService) DeleteFilterExecute(r ApiDeleteFilterRequest) (*_net
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}
@@ -355,7 +358,7 @@ func (r ApiGetFilterRequest) Execute() (Filter, *_nethttp.Response, error) {
 }
 
 /*
- * GetFilter Info for a specific filter.
+ * GetFilter Get a Filter
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The id of the filter to retrieve
  * @return ApiGetFilterRequest
@@ -423,6 +426,7 @@ func (a *FiltersApiService) GetFilterExecute(r ApiGetFilterRequest) (Filter, *_n
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -547,7 +551,7 @@ func (r ApiListFiltersRequest) Execute() (FiltersList, *_nethttp.Response, error
 }
 
 /*
- * ListFilters List filters.
+ * ListFilters List Filters
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiListFiltersRequest
  */
@@ -652,6 +656,7 @@ func (a *FiltersApiService) ListFiltersExecute(r ApiListFiltersRequest) (Filters
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -737,7 +742,7 @@ func (r ApiReplaceFilterRequest) Execute() (Filter, *_nethttp.Response, error) {
 }
 
 /*
- * ReplaceFilter Replace a filter
+ * ReplaceFilter Replace a Filter
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The id of the filter to replace.
  * @return ApiReplaceFilterRequest
@@ -810,6 +815,7 @@ func (a *FiltersApiService) ReplaceFilterExecute(r ApiReplaceFilterRequest) (Fil
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -904,7 +910,7 @@ func (r ApiValidFilterRequest) Execute() (InlineResponse2001, *_nethttp.Response
 }
 
 /*
- * ValidFilter Check filter validty
+ * ValidFilter Check Filter Validity
  * Test if the given filter syntax is valid.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiValidFilterRequest
@@ -970,6 +976,7 @@ func (a *FiltersApiService) ValidFilterExecute(r ApiValidFilterRequest) (InlineR
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}

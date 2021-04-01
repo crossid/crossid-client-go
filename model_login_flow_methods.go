@@ -19,6 +19,7 @@ import (
 type LoginFlowMethods struct {
 	Password *LoginFlowMethod `json:"password,omitempty"`
 	Spnego *LoginFlowMethod `json:"spnego,omitempty"`
+	Webauthn *LoginFlowMethod `json:"webauthn,omitempty"`
 }
 
 // NewLoginFlowMethods instantiates a new LoginFlowMethods object
@@ -102,6 +103,38 @@ func (o *LoginFlowMethods) SetSpnego(v LoginFlowMethod) {
 	o.Spnego = &v
 }
 
+// GetWebauthn returns the Webauthn field value if set, zero value otherwise.
+func (o *LoginFlowMethods) GetWebauthn() LoginFlowMethod {
+	if o == nil || o.Webauthn == nil {
+		var ret LoginFlowMethod
+		return ret
+	}
+	return *o.Webauthn
+}
+
+// GetWebauthnOk returns a tuple with the Webauthn field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *LoginFlowMethods) GetWebauthnOk() (*LoginFlowMethod, bool) {
+	if o == nil || o.Webauthn == nil {
+		return nil, false
+	}
+	return o.Webauthn, true
+}
+
+// HasWebauthn returns a boolean if a field has been set.
+func (o *LoginFlowMethods) HasWebauthn() bool {
+	if o != nil && o.Webauthn != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWebauthn gets a reference to the given LoginFlowMethod and assigns it to the Webauthn field.
+func (o *LoginFlowMethods) SetWebauthn(v LoginFlowMethod) {
+	o.Webauthn = &v
+}
+
 func (o LoginFlowMethods) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Password != nil {
@@ -109,6 +142,9 @@ func (o LoginFlowMethods) MarshalJSON() ([]byte, error) {
 	}
 	if o.Spnego != nil {
 		toSerialize["spnego"] = o.Spnego
+	}
+	if o.Webauthn != nil {
+		toSerialize["webauthn"] = o.Webauthn
 	}
 	return json.Marshal(toSerialize)
 }

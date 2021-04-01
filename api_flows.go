@@ -12,6 +12,7 @@
 package cidclient
 
 import (
+	"bytes"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -56,7 +57,7 @@ func (r ApiCancelFlowInstanceRequest) Execute() (FlowCancel, *_nethttp.Response,
 }
 
 /*
- * CancelFlowInstance Cancel Flow Instance.
+ * CancelFlowInstance Cancel Flow Instance
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param flowInstanceId The id of the flow instance to cancel
  * @return ApiCancelFlowInstanceRequest
@@ -135,6 +136,7 @@ func (a *FlowsApiService) CancelFlowInstanceExecute(r ApiCancelFlowInstanceReque
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -314,6 +316,7 @@ func (a *FlowsApiService) CancelTaskExecute(r ApiCancelTaskRequest) (Task, *_net
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -493,6 +496,7 @@ func (a *FlowsApiService) CompleteTaskExecute(r ApiCompleteTaskRequest) (Task, *
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -592,7 +596,7 @@ func (r ApiCreateTaskRequest) Execute() (Task, *_nethttp.Response, error) {
 }
 
 /*
- * CreateTask Create a task.
+ * CreateTask Create a Task
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiCreateTaskRequest
  */
@@ -665,6 +669,7 @@ func (a *FlowsApiService) CreateTaskExecute(r ApiCreateTaskRequest) (Task, *_net
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -750,7 +755,7 @@ func (r ApiGetFlowInstanceRequest) Execute() (FlowInstance, *_nethttp.Response, 
 }
 
 /*
- * GetFlowInstance Get Flow Instance.
+ * GetFlowInstance Get Flow Instance
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param flowInstanceId The id of the flow instance to retrieve
  * @return ApiGetFlowInstanceRequest
@@ -818,6 +823,7 @@ func (a *FlowsApiService) GetFlowInstanceExecute(r ApiGetFlowInstanceRequest) (F
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -903,7 +909,7 @@ func (r ApiGetTaskRequest) Execute() (Task, *_nethttp.Response, error) {
 }
 
 /*
- * GetTask Get Task
+ * GetTask Get a Task
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param taskId The id of the task instance to retrieve
  * @return ApiGetTaskRequest
@@ -971,6 +977,7 @@ func (a *FlowsApiService) GetTaskExecute(r ApiGetTaskRequest) (Task, *_nethttp.R
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -1095,7 +1102,7 @@ func (r ApiListFlowInstancesRequest) Execute() (FlowInstancesList, *_nethttp.Res
 }
 
 /*
- * ListFlowInstances List Flow Instances.
+ * ListFlowInstances List Flow Instances
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiListFlowInstancesRequest
  */
@@ -1200,6 +1207,7 @@ func (a *FlowsApiService) ListFlowInstancesExecute(r ApiListFlowInstancesRequest
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -1314,7 +1322,7 @@ func (r ApiListTasksRequest) Execute() (TasksList, *_nethttp.Response, error) {
 }
 
 /*
- * ListTasks List Tasks.
+ * ListTasks List Tasks
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiListTasksRequest
  */
@@ -1419,6 +1427,7 @@ func (a *FlowsApiService) ListTasksExecute(r ApiListTasksRequest) (TasksList, *_
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}

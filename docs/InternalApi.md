@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResourceEval**](resourceEval.md)
+[**ResourceEval**](ResourceEval.md)
 
 ### Authorization
 

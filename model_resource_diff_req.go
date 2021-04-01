@@ -27,7 +27,7 @@ type ResourceDiffReq struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewResourceDiffReq(current Resource, desired Resource, location string, ) *ResourceDiffReq {
+func NewResourceDiffReq(current Resource, desired Resource, location string) *ResourceDiffReq {
 	this := ResourceDiffReq{}
 	this.Current = current
 	this.Desired = desired
@@ -45,7 +45,7 @@ func NewResourceDiffReqWithDefaults() *ResourceDiffReq {
 
 // GetCurrent returns the Current field value
 func (o *ResourceDiffReq) GetCurrent() Resource {
-	if o == nil  {
+	if o == nil {
 		var ret Resource
 		return ret
 	}
@@ -69,7 +69,7 @@ func (o *ResourceDiffReq) SetCurrent(v Resource) {
 
 // GetDesired returns the Desired field value
 func (o *ResourceDiffReq) GetDesired() Resource {
-	if o == nil  {
+	if o == nil {
 		var ret Resource
 		return ret
 	}
@@ -125,7 +125,7 @@ func (o *ResourceDiffReq) SetIgnoreKeys(v []string) {
 
 // GetLocation returns the Location field value
 func (o *ResourceDiffReq) GetLocation() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

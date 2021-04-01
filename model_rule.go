@@ -32,7 +32,7 @@ type Rule struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRule(displayName string, id string, result RuleResult, ) *Rule {
+func NewRule(displayName string, id string, result RuleResult) *Rule {
 	this := Rule{}
 	this.DisplayName = displayName
 	this.Id = id
@@ -82,7 +82,7 @@ func (o *Rule) SetActive(v bool) {
 
 // GetDisplayName returns the DisplayName field value
 func (o *Rule) GetDisplayName() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -138,7 +138,7 @@ func (o *Rule) SetFilter(v string) {
 
 // GetId returns the Id field value
 func (o *Rule) GetId() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -290,7 +290,7 @@ func (o *Rule) SetModelType(v string) {
 
 // GetResult returns the Result field value
 func (o *Rule) GetResult() RuleResult {
-	if o == nil  {
+	if o == nil {
 		var ret RuleResult
 		return ret
 	}

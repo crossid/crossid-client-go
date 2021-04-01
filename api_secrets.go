@@ -12,6 +12,7 @@
 package cidclient
 
 import (
+	"bytes"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -44,7 +45,7 @@ func (r ApiGetSecretRequest) Execute() (Secret, *_nethttp.Response, error) {
 }
 
 /*
- * GetSecret Info for a specific secret.
+ * GetSecret Get a Secret
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param path The path to the secret
  * @return ApiGetSecretRequest
@@ -115,6 +116,7 @@ func (a *SecretsApiService) GetSecretExecute(r ApiGetSecretRequest) (Secret, *_n
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -205,7 +207,7 @@ func (r ApiPutSecretRequest) Execute() (Secret, *_nethttp.Response, error) {
 }
 
 /*
- * PutSecret Insert or replace a secret.
+ * PutSecret Put a Secret
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param path The path to the secret
  * @return ApiPutSecretRequest
@@ -278,6 +280,7 @@ func (a *SecretsApiService) PutSecretExecute(r ApiPutSecretRequest) (Secret, *_n
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** |  | [optional] 
 **Endpoint** | Pointer to **string** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
-**Meta** | Pointer to [**ApiTokenMeta**](ApiToken_meta.md) |  | [optional] 
+**Meta** | Pointer to [**ApiTokenMeta**](ApiTokenMeta.md) |  | [optional] 
 **Mode** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Schema** | Pointer to **string** |  | [optional] 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **SchemaInterfaces** | Pointer to [**[]ResourceTypeSchemaExtensions**](ResourceTypeSchemaExtensions.md) |  | [optional] 
 **ToApp** | Pointer to **string** |  | [optional] 
 **ToStore** | Pointer to **string** |  | [optional] 
-**Ui** | Pointer to [**ResourceTypeUi**](ResourceType_ui.md) |  | [optional] 
+**Ui** | Pointer to [**ResourceTypeUi**](ResourceTypeUi.md) |  | [optional] 
 
 ## Methods
 

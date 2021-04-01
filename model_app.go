@@ -22,6 +22,7 @@ type App struct {
 	Config interface{} `json:"config,omitempty"`
 	DisplayName *string `json:"displayName,omitempty"`
 	Id *string `json:"id,omitempty"`
+	Keywords *[]string `json:"keywords,omitempty"`
 	LogoURL *string `json:"logoURL,omitempty"`
 	Meta *ApiTokenMeta `json:"meta,omitempty"`
 }
@@ -204,6 +205,38 @@ func (o *App) SetId(v string) {
 	o.Id = &v
 }
 
+// GetKeywords returns the Keywords field value if set, zero value otherwise.
+func (o *App) GetKeywords() []string {
+	if o == nil || o.Keywords == nil {
+		var ret []string
+		return ret
+	}
+	return *o.Keywords
+}
+
+// GetKeywordsOk returns a tuple with the Keywords field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *App) GetKeywordsOk() (*[]string, bool) {
+	if o == nil || o.Keywords == nil {
+		return nil, false
+	}
+	return o.Keywords, true
+}
+
+// HasKeywords returns a boolean if a field has been set.
+func (o *App) HasKeywords() bool {
+	if o != nil && o.Keywords != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetKeywords gets a reference to the given []string and assigns it to the Keywords field.
+func (o *App) SetKeywords(v []string) {
+	o.Keywords = &v
+}
+
 // GetLogoURL returns the LogoURL field value if set, zero value otherwise.
 func (o *App) GetLogoURL() string {
 	if o == nil || o.LogoURL == nil {
@@ -284,6 +317,9 @@ func (o App) MarshalJSON() ([]byte, error) {
 	}
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
+	}
+	if o.Keywords != nil {
+		toSerialize["keywords"] = o.Keywords
 	}
 	if o.LogoURL != nil {
 		toSerialize["logoURL"] = o.LogoURL

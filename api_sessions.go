@@ -12,6 +12,7 @@
 package cidclient
 
 import (
+	"bytes"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -107,6 +108,7 @@ func (a *SessionsApiService) SessionRevokeExecute(r ApiSessionRevokeRequest) (*_
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}
@@ -152,7 +154,7 @@ func (r ApiWhoamiRequest) Execute() (Session, *_nethttp.Response, error) {
 }
 
 /*
- * Whoami Check who the current HTTP session belongs to.
+ * Whoami Check who the current HTTP session belongs to
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiWhoamiRequest
  */
@@ -223,6 +225,7 @@ func (a *SessionsApiService) WhoamiExecute(r ApiWhoamiRequest) (Session, *_netht
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}

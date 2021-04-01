@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** |  | [optional] 
 **Kind** | Pointer to **string** |  | [optional] 
 **LastExecutedAt** | Pointer to **time.Time** |  | [optional] 
-**Meta** | Pointer to [**ApiTokenMeta**](ApiToken_meta.md) |  | [optional] 
+**Meta** | Pointer to [**ApiTokenMeta**](ApiTokenMeta.md) |  | [optional] 
 **NotBefore** | Pointer to **time.Time** |  | [optional] 
 **Payload** | Pointer to **interface{}** |  | [optional] 
 **Reason** | Pointer to **string** |  | [optional] 

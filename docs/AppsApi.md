@@ -4,13 +4,13 @@ All URIs are relative to *http://dev.local.crossid.io:8000/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ChangesApps**](AppsApi.md#ChangesApps) | **Post** /apps/.changes | Discover applications changes.
-[**CreateApp**](AppsApi.md#CreateApp) | **Post** /apps/ | Create an app
-[**GetApp**](AppsApi.md#GetApp) | **Get** /apps/{appId} | Info for a specific application.
-[**ImportApps**](AppsApi.md#ImportApps) | **Post** /apps/.import | Import changes from applications into store.
-[**ListApps**](AppsApi.md#ListApps) | **Get** /apps/ | List applications.
-[**PingApp**](AppsApi.md#PingApp) | **Post** /apps/{appId}/.ping | Check application health
-[**ReplaceApp**](AppsApi.md#ReplaceApp) | **Put** /apps/{appId} | Replace an app
+[**ChangesApps**](AppsApi.md#ChangesApps) | **Post** /apps/.changes | Discover App Changes
+[**CreateApp**](AppsApi.md#CreateApp) | **Post** /apps/ | Create an App
+[**GetApp**](AppsApi.md#GetApp) | **Get** /apps/{appId} | Get an App
+[**ImportApps**](AppsApi.md#ImportApps) | **Post** /apps/.import | Discover and Import App Changes Into Store
+[**ListApps**](AppsApi.md#ListApps) | **Get** /apps/ | List Applications
+[**PingApp**](AppsApi.md#PingApp) | **Post** /apps/{appId}/.ping | Check App Health
+[**ReplaceApp**](AppsApi.md#ReplaceApp) | **Put** /apps/{appId} | Replace an App
 
 
 
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 > Job ChangesApps(ctx).AppChangesBody(appChangesBody).Reason(reason).Correlation(correlation).Execute()
 
-Discover applications changes.
+Discover App Changes
 
 
 
@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
 
 > App CreateApp(ctx).Reason(reason).App(app).Execute()
 
-Create an app
+Create an App
 
 ### Example
 
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 > App GetApp(ctx, appId).Execute()
 
-Info for a specific application.
+Get an App
 
 ### Example
 
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 
 > Job ImportApps(ctx).AppChangesBody(appChangesBody).Reason(reason).Correlation(correlation).Execute()
 
-Import changes from applications into store.
+Discover and Import App Changes Into Store
 
 
 
@@ -292,7 +292,9 @@ Name | Type | Description  | Notes
 
 > AppsList ListApps(ctx).Filter(filter).Count(count).StartIndex(startIndex).SortBy(sortBy).SortOrder(sortOrder).Attributes(attributes).ExcludedAttributes(excludedAttributes).ForTime(forTime).Execute()
 
-List applications.
+List Applications
+
+
 
 ### Example
 
@@ -351,7 +353,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AppsList**](appsList.md)
+[**AppsList**](AppsList.md)
 
 ### Authorization
 
@@ -371,7 +373,7 @@ Name | Type | Description  | Notes
 
 > InlineResponse200 PingApp(ctx, appId).Execute()
 
-Check application health
+Check App Health
 
 
 
@@ -421,7 +423,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](inline_response_200.md)
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 
@@ -441,7 +443,7 @@ Name | Type | Description  | Notes
 
 > App ReplaceApp(ctx, appId).Reason(reason).App(app).Execute()
 
-Replace an app
+Replace an App
 
 ### Example
 

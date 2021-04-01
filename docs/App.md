@@ -9,8 +9,9 @@ Name | Type | Description | Notes
 **Config** | Pointer to **interface{}** |  | [optional] 
 **DisplayName** | Pointer to **string** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
+**Keywords** | Pointer to **[]string** |  | [optional] 
 **LogoURL** | Pointer to **string** |  | [optional] 
-**Meta** | Pointer to [**ApiTokenMeta**](ApiToken_meta.md) |  | [optional] 
+**Meta** | Pointer to [**ApiTokenMeta**](ApiTokenMeta.md) |  | [optional] 
 
 ## Methods
 
@@ -165,6 +166,31 @@ SetId sets Id field to given value.
 `func (o *App) HasId() bool`
 
 HasId returns a boolean if a field has been set.
+
+### GetKeywords
+
+`func (o *App) GetKeywords() []string`
+
+GetKeywords returns the Keywords field if non-nil, zero value otherwise.
+
+### GetKeywordsOk
+
+`func (o *App) GetKeywordsOk() (*[]string, bool)`
+
+GetKeywordsOk returns a tuple with the Keywords field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKeywords
+
+`func (o *App) SetKeywords(v []string)`
+
+SetKeywords sets Keywords field to given value.
+
+### HasKeywords
+
+`func (o *App) HasKeywords() bool`
+
+HasKeywords returns a boolean if a field has been set.
 
 ### GetLogoURL
 

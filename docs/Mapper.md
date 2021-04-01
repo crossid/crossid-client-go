@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** |  | [optional] 
 **Lang** | Pointer to **string** |  | [optional] 
 **Mapper** | Pointer to **interface{}** |  | [optional] 
-**Meta** | Pointer to [**ApiTokenMeta**](ApiToken_meta.md) |  | [optional] 
+**Meta** | Pointer to [**ApiTokenMeta**](ApiTokenMeta.md) |  | [optional] 
 **Variables** | Pointer to [**[]MapperVariables**](MapperVariables.md) |  | [optional] 
 
 ## Methods

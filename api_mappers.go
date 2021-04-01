@@ -12,6 +12,7 @@
 package cidclient
 
 import (
+	"bytes"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -120,6 +121,7 @@ func (a *MappersApiService) CreateMapperExecute(r ApiCreateMapperRequest) (Mappe
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -205,7 +207,7 @@ func (r ApiGetMapperRequest) Execute() (Mapper, *_nethttp.Response, error) {
 }
 
 /*
- * GetMapper Info for a specific mapper.
+ * GetMapper Get a Mapper
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The id of the mappers to retrieve.
  * @return ApiGetMapperRequest
@@ -273,6 +275,7 @@ func (a *MappersApiService) GetMapperExecute(r ApiGetMapperRequest) (Mapper, *_n
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -397,7 +400,7 @@ func (r ApiListMappersRequest) Execute() (MappersList, *_nethttp.Response, error
 }
 
 /*
- * ListMappers List mappers.
+ * ListMappers List Mappers
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiListMappersRequest
  */
@@ -502,6 +505,7 @@ func (a *MappersApiService) ListMappersExecute(r ApiListMappersRequest) (Mappers
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -587,7 +591,7 @@ func (r ApiPatchMapperRequest) Execute() (Mapper, *_nethttp.Response, error) {
 }
 
 /*
- * PatchMapper Patch (update) a specific mapper.
+ * PatchMapper Update a Mapper
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The id of the mapper to patch.
  * @return ApiPatchMapperRequest
@@ -660,6 +664,7 @@ func (a *MappersApiService) PatchMapperExecute(r ApiPatchMapperRequest) (Mapper,
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -755,7 +760,7 @@ func (r ApiReplaceMapperRequest) Execute() (Mapper, *_nethttp.Response, error) {
 }
 
 /*
- * ReplaceMapper Replace a mapper
+ * ReplaceMapper Replace a Mapper
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The id of the mappers to replace.
  * @return ApiReplaceMapperRequest
@@ -828,6 +833,7 @@ func (a *MappersApiService) ReplaceMapperExecute(r ApiReplaceMapperRequest) (Map
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}

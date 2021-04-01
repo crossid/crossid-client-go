@@ -12,6 +12,7 @@
 package cidclient
 
 import (
+	"bytes"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -50,7 +51,7 @@ func (r ApiCreateRuleRequest) Execute() (Rule, *_nethttp.Response, error) {
 }
 
 /*
- * CreateRule Create a rule
+ * CreateRule Create a Rule
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiCreateRuleRequest
  */
@@ -120,6 +121,7 @@ func (a *RulesApiService) CreateRuleExecute(r ApiCreateRuleRequest) (Rule, *_net
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -210,7 +212,7 @@ func (r ApiDeleteRuleRequest) Execute() (*_nethttp.Response, error) {
 }
 
 /*
- * DeleteRule Delete a Rule.
+ * DeleteRule Delete a Rule
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The id of the rule to delete.
  * @return ApiDeleteRuleRequest
@@ -279,6 +281,7 @@ func (a *RulesApiService) DeleteRuleExecute(r ApiDeleteRuleRequest) (*_nethttp.R
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}
@@ -355,7 +358,7 @@ func (r ApiGetRuleRequest) Execute() (Rule, *_nethttp.Response, error) {
 }
 
 /*
- * GetRule Info for a specific Rule.
+ * GetRule Get a Rule
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The id of the rules to retrieve.
  * @return ApiGetRuleRequest
@@ -423,6 +426,7 @@ func (a *RulesApiService) GetRuleExecute(r ApiGetRuleRequest) (Rule, *_nethttp.R
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -547,7 +551,7 @@ func (r ApiListRulesRequest) Execute() (RulesList, *_nethttp.Response, error) {
 }
 
 /*
- * ListRules List rules.
+ * ListRules List Rules
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiListRulesRequest
  */
@@ -652,6 +656,7 @@ func (a *RulesApiService) ListRulesExecute(r ApiListRulesRequest) (RulesList, *_
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -737,7 +742,7 @@ func (r ApiReplaceRuleRequest) Execute() (Rule, *_nethttp.Response, error) {
 }
 
 /*
- * ReplaceRule Replace a specific Rule.
+ * ReplaceRule Replace a Rule
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The id of the rule to replace.
  * @return ApiReplaceRuleRequest
@@ -810,6 +815,7 @@ func (a *RulesApiService) ReplaceRuleExecute(r ApiReplaceRuleRequest) (Rule, *_n
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}

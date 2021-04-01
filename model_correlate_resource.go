@@ -29,7 +29,7 @@ type CorrelateResource struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCorrelateResource(corrId string, filter string, refPath string, ) *CorrelateResource {
+func NewCorrelateResource(corrId string, filter string, refPath string) *CorrelateResource {
 	this := CorrelateResource{}
 	this.CorrId = corrId
 	this.Filter = filter
@@ -47,7 +47,7 @@ func NewCorrelateResourceWithDefaults() *CorrelateResource {
 
 // GetCorrId returns the CorrId field value
 func (o *CorrelateResource) GetCorrId() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -71,7 +71,7 @@ func (o *CorrelateResource) SetCorrId(v string) {
 
 // GetFilter returns the Filter field value
 func (o *CorrelateResource) GetFilter() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -95,7 +95,7 @@ func (o *CorrelateResource) SetFilter(v string) {
 
 // GetRefPath returns the RefPath field value
 func (o *CorrelateResource) GetRefPath() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

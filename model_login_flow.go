@@ -21,6 +21,7 @@ type LoginFlow struct {
 	Id *string `json:"id,omitempty"`
 	Method *string `json:"method,omitempty"`
 	Methods *LoginFlowMethods `json:"methods,omitempty"`
+	SsoChallenge *string `json:"ssoChallenge,omitempty"`
 }
 
 // NewLoginFlow instantiates a new LoginFlow object
@@ -168,6 +169,38 @@ func (o *LoginFlow) SetMethods(v LoginFlowMethods) {
 	o.Methods = &v
 }
 
+// GetSsoChallenge returns the SsoChallenge field value if set, zero value otherwise.
+func (o *LoginFlow) GetSsoChallenge() string {
+	if o == nil || o.SsoChallenge == nil {
+		var ret string
+		return ret
+	}
+	return *o.SsoChallenge
+}
+
+// GetSsoChallengeOk returns a tuple with the SsoChallenge field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *LoginFlow) GetSsoChallengeOk() (*string, bool) {
+	if o == nil || o.SsoChallenge == nil {
+		return nil, false
+	}
+	return o.SsoChallenge, true
+}
+
+// HasSsoChallenge returns a boolean if a field has been set.
+func (o *LoginFlow) HasSsoChallenge() bool {
+	if o != nil && o.SsoChallenge != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSsoChallenge gets a reference to the given string and assigns it to the SsoChallenge field.
+func (o *LoginFlow) SetSsoChallenge(v string) {
+	o.SsoChallenge = &v
+}
+
 func (o LoginFlow) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Forced != nil {
@@ -181,6 +214,9 @@ func (o LoginFlow) MarshalJSON() ([]byte, error) {
 	}
 	if o.Methods != nil {
 		toSerialize["methods"] = o.Methods
+	}
+	if o.SsoChallenge != nil {
+		toSerialize["ssoChallenge"] = o.SsoChallenge
 	}
 	return json.Marshal(toSerialize)
 }

@@ -24,7 +24,7 @@ type CommitsListAllOf struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommitsListAllOf(resources []Commit, ) *CommitsListAllOf {
+func NewCommitsListAllOf(resources []Commit) *CommitsListAllOf {
 	this := CommitsListAllOf{}
 	this.Resources = resources
 	return &this
@@ -40,7 +40,7 @@ func NewCommitsListAllOfWithDefaults() *CommitsListAllOf {
 
 // GetResources returns the Resources field value
 func (o *CommitsListAllOf) GetResources() []Commit {
-	if o == nil  {
+	if o == nil {
 		var ret []Commit
 		return ret
 	}

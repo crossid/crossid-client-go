@@ -4,9 +4,9 @@ All URIs are relative to *http://dev.local.crossid.io:8000/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetJob**](JobsApi.md#GetJob) | **Get** /jobs/{id} | Info for a specific job.
-[**ListJobs**](JobsApi.md#ListJobs) | **Get** /jobs/ | List jobs.
-[**PatchJob**](JobsApi.md#PatchJob) | **Patch** /jobs/{id} | Patch (update) a specific job.
+[**GetJob**](JobsApi.md#GetJob) | **Get** /jobs/{id} | Get a Job
+[**ListJobs**](JobsApi.md#ListJobs) | **Get** /jobs/ | List Jobs
+[**PatchJob**](JobsApi.md#PatchJob) | **Patch** /jobs/{id} | Update a Job
 
 
 
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 > Job GetJob(ctx, id).Execute()
 
-Info for a specific job.
+Get a Job
 
 ### Example
 
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 > JobsList ListJobs(ctx).Filter(filter).Count(count).StartIndex(startIndex).SortBy(sortBy).SortOrder(sortOrder).Attributes(attributes).ExcludedAttributes(excludedAttributes).ForTime(forTime).Execute()
 
-List jobs.
+List Jobs
 
 ### Example
 
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**JobsList**](jobsList.md)
+[**JobsList**](JobsList.md)
 
 ### Authorization
 
@@ -161,7 +161,7 @@ Name | Type | Description  | Notes
 
 > Job PatchJob(ctx, id).PatchRequest(patchRequest).Reason(reason).Execute()
 
-Patch (update) a specific job.
+Update a Job
 
 ### Example
 

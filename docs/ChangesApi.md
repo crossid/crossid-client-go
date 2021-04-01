@@ -4,14 +4,14 @@ All URIs are relative to *http://dev.local.crossid.io:8000/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApplyChangeLog**](ChangesApi.md#ApplyChangeLog) | **Post** /changes/{id}/.apply | Apply a specific ChangeLog.
-[**CancelChangeLog**](ChangesApi.md#CancelChangeLog) | **Post** /changes/{id}/.cancel | Cancel a specific ChangeLog.
-[**GetChangeLog**](ChangesApi.md#GetChangeLog) | **Get** /changes/{id} | Info for a specific change log.
-[**ListAddChanges**](ChangesApi.md#ListAddChanges) | **Get** /changes/adds | List insertions in change logs.
-[**ListChangeLogs**](ChangesApi.md#ListChangeLogs) | **Get** /changes/ | List change logs.
-[**ListDeleteChanges**](ChangesApi.md#ListDeleteChanges) | **Get** /changes/deletes | List deletions in change logs.
-[**ListPatchChanges**](ChangesApi.md#ListPatchChanges) | **Get** /changes/patches | List patches in change logs.
-[**ListReplaceChanges**](ChangesApi.md#ListReplaceChanges) | **Get** /changes/replaces | List replaces in change logs.
+[**ApplyChangeLog**](ChangesApi.md#ApplyChangeLog) | **Post** /changes/{id}/.apply | Apply a ChangeLog
+[**CancelChangeLog**](ChangesApi.md#CancelChangeLog) | **Post** /changes/{id}/.cancel | Cancel a ChangeLog.
+[**GetChangeLog**](ChangesApi.md#GetChangeLog) | **Get** /changes/{id} | Get a Change-Log.
+[**ListAddChanges**](ChangesApi.md#ListAddChanges) | **Get** /changes/adds | List insertions in change logs
+[**ListChangeLogs**](ChangesApi.md#ListChangeLogs) | **Get** /changes/ | List Change Logs.
+[**ListDeleteChanges**](ChangesApi.md#ListDeleteChanges) | **Get** /changes/deletes | List deletions in change logs
+[**ListPatchChanges**](ChangesApi.md#ListPatchChanges) | **Get** /changes/patches | List patches in change logs
+[**ListReplaceChanges**](ChangesApi.md#ListReplaceChanges) | **Get** /changes/replaces | List replaces in change logs
 
 
 
@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 > ApplyChangeLogResponse ApplyChangeLog(ctx, id).ApplyChangeLogRequest(applyChangeLogRequest).Reason(reason).Correlation(correlation).Execute()
 
-Apply a specific ChangeLog.
+Apply a ChangeLog
 
 
 
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 
 > ChangeLog CancelChangeLog(ctx, id).CancelChangeLogRequest(cancelChangeLogRequest).Reason(reason).Correlation(correlation).Execute()
 
-Cancel a specific ChangeLog.
+Cancel a ChangeLog.
 
 ### Example
 
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 
 > ChangeLog GetChangeLog(ctx, id).Execute()
 
-Info for a specific change log.
+Get a Change-Log.
 
 ### Example
 
@@ -237,7 +237,7 @@ Name | Type | Description  | Notes
 
 > ResourceList ListAddChanges(ctx).Filter(filter).Count(count).StartIndex(startIndex).SortBy(sortBy).SortOrder(sortOrder).Attributes(attributes).ExcludedAttributes(excludedAttributes).Execute()
 
-List insertions in change logs.
+List insertions in change logs
 
 
 
@@ -295,7 +295,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResourceList**](resourceList.md)
+[**ResourceList**](ResourceList.md)
 
 ### Authorization
 
@@ -315,7 +315,7 @@ Name | Type | Description  | Notes
 
 > ChangeLogsList ListChangeLogs(ctx).Filter(filter).Count(count).StartIndex(startIndex).SortBy(sortBy).SortOrder(sortOrder).Attributes(attributes).ExcludedAttributes(excludedAttributes).ForTime(forTime).Execute()
 
-List change logs.
+List Change Logs.
 
 ### Example
 
@@ -374,7 +374,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ChangeLogsList**](changeLogsList.md)
+[**ChangeLogsList**](ChangeLogsList.md)
 
 ### Authorization
 
@@ -394,7 +394,7 @@ Name | Type | Description  | Notes
 
 > ResourceList ListDeleteChanges(ctx).Filter(filter).Count(count).StartIndex(startIndex).SortBy(sortBy).SortOrder(sortOrder).Attributes(attributes).ExcludedAttributes(excludedAttributes).Execute()
 
-List deletions in change logs.
+List deletions in change logs
 
 
 
@@ -452,7 +452,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResourceList**](resourceList.md)
+[**ResourceList**](ResourceList.md)
 
 ### Authorization
 
@@ -472,7 +472,7 @@ Name | Type | Description  | Notes
 
 > PatchesList ListPatchChanges(ctx).Filter(filter).Count(count).StartIndex(startIndex).SortBy(sortBy).SortOrder(sortOrder).Attributes(attributes).ExcludedAttributes(excludedAttributes).Execute()
 
-List patches in change logs.
+List patches in change logs
 
 
 
@@ -530,7 +530,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PatchesList**](patchesList.md)
+[**PatchesList**](PatchesList.md)
 
 ### Authorization
 
@@ -550,7 +550,7 @@ Name | Type | Description  | Notes
 
 > ResourceList ListReplaceChanges(ctx).Filter(filter).Count(count).StartIndex(startIndex).SortBy(sortBy).SortOrder(sortOrder).Attributes(attributes).ExcludedAttributes(excludedAttributes).Execute()
 
-List replaces in change logs.
+List replaces in change logs
 
 
 
@@ -608,7 +608,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResourceList**](resourceList.md)
+[**ResourceList**](ResourceList.md)
 
 ### Authorization
 

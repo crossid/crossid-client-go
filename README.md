@@ -80,93 +80,97 @@ All URIs are relative to *http://dev.local.crossid.io:8000/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ApiTokensApi* | [**CreateAPIToken**](docs/ApiTokensApi.md#createapitoken) | **Post** /auth/api-tokens/ | Insert a new API token.
-*ApiTokensApi* | [**DeleteAPIToken**](docs/ApiTokensApi.md#deleteapitoken) | **Delete** /auth/api-tokens/{id} | Delete an API token.
-*ApiTokensApi* | [**ListAPITokens**](docs/ApiTokensApi.md#listapitokens) | **Get** /auth/api-tokens/ | List API tokens that belongs to the authenticated user.
-*AppsApi* | [**ChangesApps**](docs/AppsApi.md#changesapps) | **Post** /apps/.changes | Discover applications changes.
-*AppsApi* | [**CreateApp**](docs/AppsApi.md#createapp) | **Post** /apps/ | Create an app
-*AppsApi* | [**GetApp**](docs/AppsApi.md#getapp) | **Get** /apps/{appId} | Info for a specific application.
-*AppsApi* | [**ImportApps**](docs/AppsApi.md#importapps) | **Post** /apps/.import | Import changes from applications into store.
-*AppsApi* | [**ListApps**](docs/AppsApi.md#listapps) | **Get** /apps/ | List applications.
-*AppsApi* | [**PingApp**](docs/AppsApi.md#pingapp) | **Post** /apps/{appId}/.ping | Check application health
-*AppsApi* | [**ReplaceApp**](docs/AppsApi.md#replaceapp) | **Put** /apps/{appId} | Replace an app
-*ChangesApi* | [**ApplyChangeLog**](docs/ChangesApi.md#applychangelog) | **Post** /changes/{id}/.apply | Apply a specific ChangeLog.
-*ChangesApi* | [**CancelChangeLog**](docs/ChangesApi.md#cancelchangelog) | **Post** /changes/{id}/.cancel | Cancel a specific ChangeLog.
-*ChangesApi* | [**GetChangeLog**](docs/ChangesApi.md#getchangelog) | **Get** /changes/{id} | Info for a specific change log.
-*ChangesApi* | [**ListAddChanges**](docs/ChangesApi.md#listaddchanges) | **Get** /changes/adds | List insertions in change logs.
-*ChangesApi* | [**ListChangeLogs**](docs/ChangesApi.md#listchangelogs) | **Get** /changes/ | List change logs.
-*ChangesApi* | [**ListDeleteChanges**](docs/ChangesApi.md#listdeletechanges) | **Get** /changes/deletes | List deletions in change logs.
-*ChangesApi* | [**ListPatchChanges**](docs/ChangesApi.md#listpatchchanges) | **Get** /changes/patches | List patches in change logs.
-*ChangesApi* | [**ListReplaceChanges**](docs/ChangesApi.md#listreplacechanges) | **Get** /changes/replaces | List replaces in change logs.
-*CommitsApi* | [**GetCommit**](docs/CommitsApi.md#getcommit) | **Get** /audit/commits/{id} | Info for a specific commit.
-*CommitsApi* | [**ListCommits**](docs/CommitsApi.md#listcommits) | **Get** /audit/commits | List commits.
-*ErrorsApi* | [**GetErrors**](docs/ErrorsApi.md#geterrors) | **Get** /auth/errors/ | Info for a specific errors.
-*FiltersApi* | [**CreateFilter**](docs/FiltersApi.md#createfilter) | **Post** /filters/ | Insert a new filter.
-*FiltersApi* | [**DeleteFilter**](docs/FiltersApi.md#deletefilter) | **Delete** /filters/{id} | Delete a Filter.
-*FiltersApi* | [**GetFilter**](docs/FiltersApi.md#getfilter) | **Get** /filters/{id} | Info for a specific filter.
-*FiltersApi* | [**ListFilters**](docs/FiltersApi.md#listfilters) | **Get** /filters/ | List filters.
-*FiltersApi* | [**ReplaceFilter**](docs/FiltersApi.md#replacefilter) | **Put** /filters/{id} | Replace a filter
-*FiltersApi* | [**ValidFilter**](docs/FiltersApi.md#validfilter) | **Post** /filters/.valid | Check filter validty
-*FlowsApi* | [**CancelFlowInstance**](docs/FlowsApi.md#cancelflowinstance) | **Post** /flows/{flowInstanceId}/.cancel | Cancel Flow Instance.
+*ApiTokensApi* | [**CreateAPIToken**](docs/ApiTokensApi.md#createapitoken) | **Post** /auth/api-tokens/ | Insert an API Token
+*ApiTokensApi* | [**DeleteAPIToken**](docs/ApiTokensApi.md#deleteapitoken) | **Delete** /auth/api-tokens/{id} | Delete an API token
+*ApiTokensApi* | [**ListAPITokens**](docs/ApiTokensApi.md#listapitokens) | **Get** /auth/api-tokens/ | List API Tokens belonging to the authenticated user
+*AppsApi* | [**ChangesApps**](docs/AppsApi.md#changesapps) | **Post** /apps/.changes | Discover App Changes
+*AppsApi* | [**CreateApp**](docs/AppsApi.md#createapp) | **Post** /apps/ | Create an App
+*AppsApi* | [**GetApp**](docs/AppsApi.md#getapp) | **Get** /apps/{appId} | Get an App
+*AppsApi* | [**ImportApps**](docs/AppsApi.md#importapps) | **Post** /apps/.import | Discover and Import App Changes Into Store
+*AppsApi* | [**ListApps**](docs/AppsApi.md#listapps) | **Get** /apps/ | List Applications
+*AppsApi* | [**PingApp**](docs/AppsApi.md#pingapp) | **Post** /apps/{appId}/.ping | Check App Health
+*AppsApi* | [**ReplaceApp**](docs/AppsApi.md#replaceapp) | **Put** /apps/{appId} | Replace an App
+*AuditApi* | [**GetCommit**](docs/AuditApi.md#getcommit) | **Get** /audit/commits/{id} | Get a Commit
+*AuditApi* | [**ListCommits**](docs/AuditApi.md#listcommits) | **Get** /audit/commits | List Commits
+*AuthErrorsApi* | [**GetErrors**](docs/AuthErrorsApi.md#geterrors) | **Get** /auth/auth-errors/ | Info for a specific errors.
+*ChangesApi* | [**ApplyChangeLog**](docs/ChangesApi.md#applychangelog) | **Post** /changes/{id}/.apply | Apply a ChangeLog
+*ChangesApi* | [**CancelChangeLog**](docs/ChangesApi.md#cancelchangelog) | **Post** /changes/{id}/.cancel | Cancel a ChangeLog.
+*ChangesApi* | [**GetChangeLog**](docs/ChangesApi.md#getchangelog) | **Get** /changes/{id} | Get a Change-Log.
+*ChangesApi* | [**ListAddChanges**](docs/ChangesApi.md#listaddchanges) | **Get** /changes/adds | List insertions in change logs
+*ChangesApi* | [**ListChangeLogs**](docs/ChangesApi.md#listchangelogs) | **Get** /changes/ | List Change Logs.
+*ChangesApi* | [**ListDeleteChanges**](docs/ChangesApi.md#listdeletechanges) | **Get** /changes/deletes | List deletions in change logs
+*ChangesApi* | [**ListPatchChanges**](docs/ChangesApi.md#listpatchchanges) | **Get** /changes/patches | List patches in change logs
+*ChangesApi* | [**ListReplaceChanges**](docs/ChangesApi.md#listreplacechanges) | **Get** /changes/replaces | List replaces in change logs
+*FiltersApi* | [**CreateFilter**](docs/FiltersApi.md#createfilter) | **Post** /filters/ | Create a Filter
+*FiltersApi* | [**DeleteFilter**](docs/FiltersApi.md#deletefilter) | **Delete** /filters/{id} | Delete a Filter
+*FiltersApi* | [**GetFilter**](docs/FiltersApi.md#getfilter) | **Get** /filters/{id} | Get a Filter
+*FiltersApi* | [**ListFilters**](docs/FiltersApi.md#listfilters) | **Get** /filters/ | List Filters
+*FiltersApi* | [**ReplaceFilter**](docs/FiltersApi.md#replacefilter) | **Put** /filters/{id} | Replace a Filter
+*FiltersApi* | [**ValidFilter**](docs/FiltersApi.md#validfilter) | **Post** /filters/.valid | Check Filter Validity
+*FlowsApi* | [**CancelFlowInstance**](docs/FlowsApi.md#cancelflowinstance) | **Post** /flows/{flowInstanceId}/.cancel | Cancel Flow Instance
 *FlowsApi* | [**CancelTask**](docs/FlowsApi.md#canceltask) | **Post** /flows/tasks/{taskId}/.cancel | Cancel a Task
 *FlowsApi* | [**CompleteTask**](docs/FlowsApi.md#completetask) | **Post** /flows/tasks/{taskId}/.complete | Complete a Task
-*FlowsApi* | [**CreateTask**](docs/FlowsApi.md#createtask) | **Post** /flows/tasks | Create a task.
-*FlowsApi* | [**GetFlowInstance**](docs/FlowsApi.md#getflowinstance) | **Get** /flows/{flowInstanceId} | Get Flow Instance.
-*FlowsApi* | [**GetTask**](docs/FlowsApi.md#gettask) | **Get** /flows/tasks/{taskId} | Get Task
-*FlowsApi* | [**ListFlowInstances**](docs/FlowsApi.md#listflowinstances) | **Get** /flows/ | List Flow Instances.
-*FlowsApi* | [**ListTasks**](docs/FlowsApi.md#listtasks) | **Get** /flows/tasks | List Tasks.
+*FlowsApi* | [**CreateTask**](docs/FlowsApi.md#createtask) | **Post** /flows/tasks | Create a Task
+*FlowsApi* | [**GetFlowInstance**](docs/FlowsApi.md#getflowinstance) | **Get** /flows/{flowInstanceId} | Get Flow Instance
+*FlowsApi* | [**GetTask**](docs/FlowsApi.md#gettask) | **Get** /flows/tasks/{taskId} | Get a Task
+*FlowsApi* | [**ListFlowInstances**](docs/FlowsApi.md#listflowinstances) | **Get** /flows/ | List Flow Instances
+*FlowsApi* | [**ListTasks**](docs/FlowsApi.md#listtasks) | **Get** /flows/tasks | List Tasks
 *HealthApi* | [**HealthAlive**](docs/HealthApi.md#healthalive) | **Get** /health/alive | Check aliveness
 *HealthApi* | [**HealthReady**](docs/HealthApi.md#healthready) | **Get** /health/ready | Check readiness
+*InsightsApi* | [**InsightDiscovery**](docs/InsightsApi.md#insightdiscovery) | **Post** /insights/discover | Send classication data to ML server.
 *InternalApi* | [**EvaluateResource**](docs/InternalApi.md#evaluateresource) | **Get** /resources/{appID}/{resourceTypes}/{id}/.evaluate | test a resource against a rules filter and return an explanation of what needs to be patched
 *InternalApi* | [**RemoveBrokenRefs**](docs/InternalApi.md#removebrokenrefs) | **Post** /internal/internal/remove-broken-refs | Returns a summary of all broken references in resources in the system
 *InternalApi* | [**RemoveExpiredRefs**](docs/InternalApi.md#removeexpiredrefs) | **Post** /internal/internal/remove-expired-refs | Returns a summary of all expired references in resources in the system.
-*JobsApi* | [**GetJob**](docs/JobsApi.md#getjob) | **Get** /jobs/{id} | Info for a specific job.
-*JobsApi* | [**ListJobs**](docs/JobsApi.md#listjobs) | **Get** /jobs/ | List jobs.
-*JobsApi* | [**PatchJob**](docs/JobsApi.md#patchjob) | **Patch** /jobs/{id} | Patch (update) a specific job.
+*JobsApi* | [**GetJob**](docs/JobsApi.md#getjob) | **Get** /jobs/{id} | Get a Job
+*JobsApi* | [**ListJobs**](docs/JobsApi.md#listjobs) | **Get** /jobs/ | List Jobs
+*JobsApi* | [**PatchJob**](docs/JobsApi.md#patchjob) | **Patch** /jobs/{id} | Update a Job
 *LoginApi* | [**GetLoginFlow**](docs/LoginApi.md#getloginflow) | **Get** /auth/self-service/login/flows | Info for a specific login flow.
 *MappersApi* | [**CreateMapper**](docs/MappersApi.md#createmapper) | **Post** /mappers/ | Create a mapper
-*MappersApi* | [**GetMapper**](docs/MappersApi.md#getmapper) | **Get** /mappers/{id} | Info for a specific mapper.
-*MappersApi* | [**ListMappers**](docs/MappersApi.md#listmappers) | **Get** /mappers/ | List mappers.
-*MappersApi* | [**PatchMapper**](docs/MappersApi.md#patchmapper) | **Patch** /mappers/{id} | Patch (update) a specific mapper.
-*MappersApi* | [**ReplaceMapper**](docs/MappersApi.md#replacemapper) | **Put** /mappers/{id} | Replace a mapper
+*MappersApi* | [**GetMapper**](docs/MappersApi.md#getmapper) | **Get** /mappers/{id} | Get a Mapper
+*MappersApi* | [**ListMappers**](docs/MappersApi.md#listmappers) | **Get** /mappers/ | List Mappers
+*MappersApi* | [**PatchMapper**](docs/MappersApi.md#patchmapper) | **Patch** /mappers/{id} | Update a Mapper
+*MappersApi* | [**ReplaceMapper**](docs/MappersApi.md#replacemapper) | **Put** /mappers/{id} | Replace a Mapper
+*MiningApi* | [**ExportClassificationData**](docs/MiningApi.md#exportclassificationdata) | **Post** /mining/export-classification-data | Send classication data to ML server.
+*Oauth2Api* | [**ListOAUTH2AuthorizationServers**](docs/Oauth2Api.md#listoauth2authorizationservers) | **Get** /oauth2/auhtorization-servers/ | List OAUTH 2.0 Authorization Servers.
+*Oauth2Api* | [**ListOAUTH2Clients**](docs/Oauth2Api.md#listoauth2clients) | **Get** /oauth2/clients/ | List OAUTH 2.0 Clients.
 *PortalApi* | [**PortalFindRequest**](docs/PortalApi.md#portalfindrequest) | **Post** /portal/.gsearch | Make a portal specific resources search
 *PortalApi* | [**PortalRequest**](docs/PortalApi.md#portalrequest) | **Post** /portal/request | Make a portal request
-*ResourceTypesApi* | [**CreateResourceType**](docs/ResourceTypesApi.md#createresourcetype) | **Post** /resource-types/ | Create a resource type
-*ResourceTypesApi* | [**GetResourceType**](docs/ResourceTypesApi.md#getresourcetype) | **Get** /resource-types/{id} | Info for a specific resource type.
-*ResourceTypesApi* | [**ListResourceTypes**](docs/ResourceTypesApi.md#listresourcetypes) | **Get** /resource-types/ | List resource types.
-*ResourceTypesApi* | [**ReplaceResourceType**](docs/ResourceTypesApi.md#replaceresourcetype) | **Put** /resource-types/{id} | Replace an existing resource type
-*ResourcesApi* | [**CorrelateResources**](docs/ResourcesApi.md#correlateresources) | **Post** /resources/.correlate | correlate resources.
-*ResourcesApi* | [**CreateResource**](docs/ResourcesApi.md#createresource) | **Post** /resources/{appID}/{resourceTypes} | Create a new resource.
-*ResourcesApi* | [**CreateResourceAsync**](docs/ResourcesApi.md#createresourceasync) | **Post** /resources/{appID}/{resourceTypes}/.async | Create a single resource asynchonously.
-*ResourcesApi* | [**DeleteResourceById**](docs/ResourcesApi.md#deleteresourcebyid) | **Delete** /resources/{appID}/{resourceTypes}/{id} | Delete a single resource.
-*ResourcesApi* | [**DeleteResourceByIdAsync**](docs/ResourcesApi.md#deleteresourcebyidasync) | **Delete** /resources/{appID}/{resourceTypes}/{id}/.async | Delete a single resource asynchonously.
-*ResourcesApi* | [**DesiredResource**](docs/ResourcesApi.md#desiredresource) | **Get** /resources/{appID}/{resourceTypes}/{id}/.desired/ | Get a desired state of a resource, taking into account roles and business rules.
-*ResourcesApi* | [**DiffResources**](docs/ResourcesApi.md#diffresources) | **Post** /resources/ | Diffing resources
-*ResourcesApi* | [**GetResourceById**](docs/ResourcesApi.md#getresourcebyid) | **Get** /resources/{appID}/{resourceTypes}/{id} | Info for a specific resource.
-*ResourcesApi* | [**ListResources**](docs/ResourcesApi.md#listresources) | **Get** /resources/ | Listing resources.
-*ResourcesApi* | [**ListResourcesByAppAndType**](docs/ResourcesApi.md#listresourcesbyappandtype) | **Get** /resources/{appID}/{resourceTypes} | Listing resources for a specific type.
-*ResourcesApi* | [**MapResources**](docs/ResourcesApi.md#mapresources) | **Post** /resources/.map | map resources.
-*ResourcesApi* | [**PatchResource**](docs/ResourcesApi.md#patchresource) | **Patch** /resources/{appID}/{resourceTypes}/{id} | Patch an existing resource.
-*ResourcesApi* | [**PatchResourceAsync**](docs/ResourcesApi.md#patchresourceasync) | **Patch** /resources/{appID}/{resourceTypes}/{id}/.async | Patch a single resource asynchonously.
-*ResourcesApi* | [**ReplaceResource**](docs/ResourcesApi.md#replaceresource) | **Put** /resources/{appID}/{resourceTypes}/{id} | Replace an existing resource.
-*ResourcesApi* | [**ReplaceResourceAsync**](docs/ResourcesApi.md#replaceresourceasync) | **Put** /resources/{appID}/{resourceTypes}/{id}/.async | Replace a single resource asynchonously.
-*ResourcesApi* | [**ResourceRules**](docs/ResourcesApi.md#resourcerules) | **Post** /resources/{appID}/{resourceTypes}/{id}/.rules | get all rules that match a filter and also apply on a resource, if all requested patches were applied.
-*ResourcesApi* | [**TestResource**](docs/ResourcesApi.md#testresource) | **Get** /resources/{appID}/{resourceTypes}/{id}/.test | test a resource against a filter
-*RulesApi* | [**CreateRule**](docs/RulesApi.md#createrule) | **Post** /rules/ | Create a rule
-*RulesApi* | [**DeleteRule**](docs/RulesApi.md#deleterule) | **Delete** /rules/{id} | Delete a Rule.
-*RulesApi* | [**GetRule**](docs/RulesApi.md#getrule) | **Get** /rules/{id} | Info for a specific Rule.
-*RulesApi* | [**ListRules**](docs/RulesApi.md#listrules) | **Get** /rules/ | List rules.
-*RulesApi* | [**ReplaceRule**](docs/RulesApi.md#replacerule) | **Put** /rules/{id} | Replace a specific Rule.
-*SchemasApi* | [**CreateJSONSchema**](docs/SchemasApi.md#createjsonschema) | **Post** /json-schemas/ | create JSON Schema.
+*ResourceTypesApi* | [**CreateResourceType**](docs/ResourceTypesApi.md#createresourcetype) | **Post** /resource-types/ | Create a Resource Type
+*ResourceTypesApi* | [**GetResourceType**](docs/ResourceTypesApi.md#getresourcetype) | **Get** /resource-types/{id} | Get a Resource Type
+*ResourceTypesApi* | [**ListResourceTypes**](docs/ResourceTypesApi.md#listresourcetypes) | **Get** /resource-types/ | List Resource Types
+*ResourceTypesApi* | [**ReplaceResourceType**](docs/ResourceTypesApi.md#replaceresourcetype) | **Put** /resource-types/{id} | Replace a Resource Type
+*ResourcesApi* | [**CorrelateResources**](docs/ResourcesApi.md#correlateresources) | **Post** /resources/.correlate | Correlate Resources
+*ResourcesApi* | [**CreateResource**](docs/ResourcesApi.md#createresource) | **Post** /resources/{appID}/{resourceTypes} | Create a Resource
+*ResourcesApi* | [**CreateResourceAsync**](docs/ResourcesApi.md#createresourceasync) | **Post** /resources/{appID}/{resourceTypes}/.async | Create a Resource Asynchonously
+*ResourcesApi* | [**DeleteResourceById**](docs/ResourcesApi.md#deleteresourcebyid) | **Delete** /resources/{appID}/{resourceTypes}/{id} | Delete a Resource
+*ResourcesApi* | [**DeleteResourceByIdAsync**](docs/ResourcesApi.md#deleteresourcebyidasync) | **Delete** /resources/{appID}/{resourceTypes}/{id}/.async | Delete a Resource Asynchonously
+*ResourcesApi* | [**DesiredResource**](docs/ResourcesApi.md#desiredresource) | **Get** /resources/{appID}/{resourceTypes}/{id}/.desired/ | Get Desired Resource
+*ResourcesApi* | [**DiffResources**](docs/ResourcesApi.md#diffresources) | **Post** /resources/ | Diffing Resources
+*ResourcesApi* | [**GetResourceById**](docs/ResourcesApi.md#getresourcebyid) | **Get** /resources/{appID}/{resourceTypes}/{id} | Get a Resource
+*ResourcesApi* | [**ListResources**](docs/ResourcesApi.md#listresources) | **Get** /resources/ | List Resources
+*ResourcesApi* | [**ListResourcesByAppAndType**](docs/ResourcesApi.md#listresourcesbyappandtype) | **Get** /resources/{appID}/{resourceTypes} | List Resources for a Type
+*ResourcesApi* | [**MapResources**](docs/ResourcesApi.md#mapresources) | **Post** /resources/.map | Map Resources
+*ResourcesApi* | [**PatchResource**](docs/ResourcesApi.md#patchresource) | **Patch** /resources/{appID}/{resourceTypes}/{id} | Update a Resource
+*ResourcesApi* | [**PatchResourceAsync**](docs/ResourcesApi.md#patchresourceasync) | **Patch** /resources/{appID}/{resourceTypes}/{id}/.async | Update a Resource Asynchonously
+*ResourcesApi* | [**ReplaceResource**](docs/ResourcesApi.md#replaceresource) | **Put** /resources/{appID}/{resourceTypes}/{id} | Replace a Resource
+*ResourcesApi* | [**ReplaceResourceAsync**](docs/ResourcesApi.md#replaceresourceasync) | **Put** /resources/{appID}/{resourceTypes}/{id}/.async | Replace a Resource Asynchonously
+*ResourcesApi* | [**ResourceRules**](docs/ResourcesApi.md#resourcerules) | **Post** /resources/{appID}/{resourceTypes}/{id}/.rules | List rules applying on a Resource
+*ResourcesApi* | [**TestResource**](docs/ResourcesApi.md#testresource) | **Get** /resources/{appID}/{resourceTypes}/{id}/.test | Test a Resource Against a Filter
+*RulesApi* | [**CreateRule**](docs/RulesApi.md#createrule) | **Post** /rules/ | Create a Rule
+*RulesApi* | [**DeleteRule**](docs/RulesApi.md#deleterule) | **Delete** /rules/{id} | Delete a Rule
+*RulesApi* | [**GetRule**](docs/RulesApi.md#getrule) | **Get** /rules/{id} | Get a Rule
+*RulesApi* | [**ListRules**](docs/RulesApi.md#listrules) | **Get** /rules/ | List Rules
+*RulesApi* | [**ReplaceRule**](docs/RulesApi.md#replacerule) | **Put** /rules/{id} | Replace a Rule
+*SchemasApi* | [**CreateJSONSchema**](docs/SchemasApi.md#createjsonschema) | **Post** /json-schemas/ | Create JSON Schema
 *SchemasApi* | [**CreateSCIMSchema**](docs/SchemasApi.md#createscimschema) | **Post** /scim-schemas/ | Create a SCIM Schema
-*SchemasApi* | [**GetJSONSchema**](docs/SchemasApi.md#getjsonschema) | **Get** /json-schemas/{id} | Info for a specific JSON Schema.
-*SchemasApi* | [**GetSCIMSchema**](docs/SchemasApi.md#getscimschema) | **Get** /scim-schemas/{id} | Info for a specific SCIM Schema.
-*SchemasApi* | [**ReplaceJSONSchema**](docs/SchemasApi.md#replacejsonschema) | **Put** /json-schemas/{id} | replace specific JSON Schema.
-*SchemasApi* | [**ReplaceSCIMSchema**](docs/SchemasApi.md#replacescimschema) | **Put** /scim-schemas/{id} | Replace an existing SCIM Schema
-*SecretsApi* | [**GetSecret**](docs/SecretsApi.md#getsecret) | **Get** /secrets/{path} | Info for a specific secret.
-*SecretsApi* | [**PutSecret**](docs/SecretsApi.md#putsecret) | **Put** /secrets/{path} | Insert or replace a secret.
+*SchemasApi* | [**GetJSONSchema**](docs/SchemasApi.md#getjsonschema) | **Get** /json-schemas/{id} | Get a JSON Schema
+*SchemasApi* | [**GetSCIMSchema**](docs/SchemasApi.md#getscimschema) | **Get** /scim-schemas/{id} | Get a SCIM Schema
+*SchemasApi* | [**ReplaceJSONSchema**](docs/SchemasApi.md#replacejsonschema) | **Put** /json-schemas/{id} | replace a JSON Schema
+*SchemasApi* | [**ReplaceSCIMSchema**](docs/SchemasApi.md#replacescimschema) | **Put** /scim-schemas/{id} | Replace a SCIM Schema
+*SecretsApi* | [**GetSecret**](docs/SecretsApi.md#getsecret) | **Get** /secrets/{path} | Get a Secret
+*SecretsApi* | [**PutSecret**](docs/SecretsApi.md#putsecret) | **Put** /secrets/{path} | Put a Secret
 *SessionsApi* | [**SessionRevoke**](docs/SessionsApi.md#sessionrevoke) | **Delete** /auth/sessions/revoke | Invalidates a session
-*SessionsApi* | [**Whoami**](docs/SessionsApi.md#whoami) | **Get** /auth/sessions/whoami | Check who the current HTTP session belongs to.
+*SessionsApi* | [**Whoami**](docs/SessionsApi.md#whoami) | **Get** /auth/sessions/whoami | Check who the current HTTP session belongs to
 
 
 ## Documentation For Models
@@ -216,6 +220,9 @@ Class | Method | HTTP request | Description
  - [InlineResponse200](docs/InlineResponse200.md)
  - [InlineResponse2001](docs/InlineResponse2001.md)
  - [InlineResponse2002](docs/InlineResponse2002.md)
+ - [Insight](docs/Insight.md)
+ - [InsightActions](docs/InsightActions.md)
+ - [InsightList](docs/InsightList.md)
  - [JSONSchema](docs/JSONSchema.md)
  - [Job](docs/Job.md)
  - [JobsList](docs/JobsList.md)
@@ -232,6 +239,10 @@ Class | Method | HTTP request | Description
  - [MappersList](docs/MappersList.md)
  - [MappersListAllOf](docs/MappersListAllOf.md)
  - [Meta](docs/Meta.md)
+ - [OAuth2AuthServer](docs/OAuth2AuthServer.md)
+ - [OAuth2Client](docs/OAuth2Client.md)
+ - [Oauth2ClientList](docs/Oauth2ClientList.md)
+ - [Oauth2ClientListAllOf](docs/Oauth2ClientListAllOf.md)
  - [PatchOP](docs/PatchOP.md)
  - [PatchRequest](docs/PatchRequest.md)
  - [PatchesList](docs/PatchesList.md)

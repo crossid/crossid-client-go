@@ -25,7 +25,7 @@ type HealthResponse struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHealthResponse(status string, ) *HealthResponse {
+func NewHealthResponse(status string) *HealthResponse {
 	this := HealthResponse{}
 	this.Status = status
 	return &this
@@ -73,7 +73,7 @@ func (o *HealthResponse) SetErrors(v map[string]string) {
 
 // GetStatus returns the Status field value
 func (o *HealthResponse) GetStatus() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

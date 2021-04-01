@@ -12,6 +12,7 @@
 package cidclient
 
 import (
+	"bytes"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -55,7 +56,7 @@ func (r ApiCorrelateResourcesRequest) Execute() (ChangeLog, *_nethttp.Response, 
 }
 
 /*
- * CorrelateResources correlate resources.
+ * CorrelateResources Correlate Resources
  * Correlate resources into other resources by filter
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiCorrelateResourcesRequest
@@ -129,6 +130,7 @@ func (a *ResourcesApiService) CorrelateResourcesExecute(r ApiCorrelateResourcesR
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -220,7 +222,7 @@ func (r ApiCreateResourceRequest) Execute() (Resource, *_nethttp.Response, error
 }
 
 /*
- * CreateResource Create a new resource.
+ * CreateResource Create a Resource
  * This endpoint creates a new resource. The resource may be created locally on store or provisioned to the remote app, depends on application configuration.
 
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -301,6 +303,7 @@ func (a *ResourcesApiService) CreateResourceExecute(r ApiCreateResourceRequest) 
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -397,7 +400,7 @@ func (r ApiCreateResourceAsyncRequest) Execute() (Job, *_nethttp.Response, error
 }
 
 /*
- * CreateResourceAsync Create a single resource asynchonously.
+ * CreateResourceAsync Create a Resource Asynchonously
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param appID The id of the app the resource belongs to.
  * @param resourceTypes the type of the resource.
@@ -479,6 +482,7 @@ func (a *ResourcesApiService) CreateResourceAsyncExecute(r ApiCreateResourceAsyn
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -576,7 +580,7 @@ func (r ApiDeleteResourceByIdRequest) Execute() (*_nethttp.Response, error) {
 }
 
 /*
- * DeleteResourceById Delete a single resource.
+ * DeleteResourceById Delete a Resource
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param appID The id of the app the resource belongs to.
  * @param resourceTypes the type of the resource.
@@ -654,6 +658,7 @@ func (a *ResourcesApiService) DeleteResourceByIdExecute(r ApiDeleteResourceByIdR
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}
@@ -747,7 +752,7 @@ func (r ApiDeleteResourceByIdAsyncRequest) Execute() (Job, *_nethttp.Response, e
 }
 
 /*
- * DeleteResourceByIdAsync Delete a single resource asynchonously.
+ * DeleteResourceByIdAsync Delete a Resource Asynchonously
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param appID The id of the app the resource belongs to.
  * @param resourceTypes the type of the resource.
@@ -830,6 +835,7 @@ func (a *ResourcesApiService) DeleteResourceByIdAsyncExecute(r ApiDeleteResource
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -917,7 +923,8 @@ func (r ApiDesiredResourceRequest) Execute() (Resource, *_nethttp.Response, erro
 }
 
 /*
- * DesiredResource Get a desired state of a resource, taking into account roles and business rules.
+ * DesiredResource Get Desired Resource
+ * Get a desired state of a resource, taking into account roles and business rules.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param appID The id of the app the resource belongs to.
  * @param resourceTypes the type of the resource.
@@ -991,6 +998,7 @@ func (a *ResourcesApiService) DesiredResourceExecute(r ApiDesiredResourceRequest
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -1080,7 +1088,7 @@ func (r ApiDiffResourcesRequest) Execute() (ResourceDiffRes, *_nethttp.Response,
 }
 
 /*
- * DiffResources Diffing resources
+ * DiffResources Diffing Resources
  * This endpoint diffs resource
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiDiffResourcesRequest
@@ -1148,6 +1156,7 @@ func (a *ResourcesApiService) DiffResourcesExecute(r ApiDiffResourcesRequest) (R
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -1235,7 +1244,7 @@ func (r ApiGetResourceByIdRequest) Execute() (Resource, *_nethttp.Response, erro
 }
 
 /*
- * GetResourceById Info for a specific resource.
+ * GetResourceById Get a Resource
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param appID The id of the app the resource belongs to.
  * @param resourceTypes the type of the resource.
@@ -1315,6 +1324,7 @@ func (a *ResourcesApiService) GetResourceByIdExecute(r ApiGetResourceByIdRequest
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -1439,7 +1449,7 @@ func (r ApiListResourcesRequest) Execute() (ResourcesList, *_nethttp.Response, e
 }
 
 /*
- * ListResources Listing resources.
+ * ListResources List Resources
  * This endpoint queries against resources across all applications and types.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiListResourcesRequest
@@ -1545,6 +1555,7 @@ func (a *ResourcesApiService) ListResourcesExecute(r ApiListResourcesRequest) (R
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -1661,7 +1672,7 @@ func (r ApiListResourcesByAppAndTypeRequest) Execute() (ResourcesList, *_nethttp
 }
 
 /*
- * ListResourcesByAppAndType Listing resources for a specific type.
+ * ListResourcesByAppAndType List Resources for a Type
  * This endpoint queries against resources of a specific resources type.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param appID The id of the app the resource belongs to.
@@ -1773,6 +1784,7 @@ func (a *ResourcesApiService) ListResourcesByAppAndTypeExecute(r ApiListResource
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -1862,7 +1874,7 @@ func (r ApiMapResourcesRequest) Execute() (ChangeLog, *_nethttp.Response, error)
 }
 
 /*
- * MapResources map resources.
+ * MapResources Map Resources
  * Map resources into other resources by filter
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiMapResourcesRequest
@@ -1936,6 +1948,7 @@ func (a *ResourcesApiService) MapResourcesExecute(r ApiMapResourcesRequest) (Cha
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -2028,7 +2041,7 @@ func (r ApiPatchResourceRequest) Execute() (Resource, *_nethttp.Response, error)
 }
 
 /*
- * PatchResource Patch an existing resource.
+ * PatchResource Update a Resource
  * This endpoint patches an existing resource.
 
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2115,6 +2128,7 @@ func (a *ResourcesApiService) PatchResourceExecute(r ApiPatchResourceRequest) (R
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -2212,7 +2226,7 @@ func (r ApiPatchResourceAsyncRequest) Execute() (Job, *_nethttp.Response, error)
 }
 
 /*
- * PatchResourceAsync Patch a single resource asynchonously.
+ * PatchResourceAsync Update a Resource Asynchonously
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param appID The id of the app the resource belongs to.
  * @param resourceTypes the type of the resource.
@@ -2300,6 +2314,7 @@ func (a *ResourcesApiService) PatchResourceAsyncExecute(r ApiPatchResourceAsyncR
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -2402,7 +2417,7 @@ func (r ApiReplaceResourceRequest) Execute() (Resource, *_nethttp.Response, erro
 }
 
 /*
- * ReplaceResource Replace an existing resource.
+ * ReplaceResource Replace a Resource
  * This endpoint replaces an existing resource.
 
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2486,6 +2501,7 @@ func (a *ResourcesApiService) ReplaceResourceExecute(r ApiReplaceResourceRequest
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -2583,7 +2599,7 @@ func (r ApiReplaceResourceAsyncRequest) Execute() (Job, *_nethttp.Response, erro
 }
 
 /*
- * ReplaceResourceAsync Replace a single resource asynchonously.
+ * ReplaceResourceAsync Replace a Resource Asynchonously
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param appID The id of the app the resource belongs to.
  * @param resourceTypes the type of the resource.
@@ -2668,6 +2684,7 @@ func (a *ResourcesApiService) ReplaceResourceAsyncExecute(r ApiReplaceResourceAs
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -2760,7 +2777,9 @@ func (r ApiResourceRulesRequest) Execute() (RulesList, *_nethttp.Response, error
 }
 
 /*
- * ResourceRules get all rules that match a filter and also apply on a resource, if all requested patches were applied.
+ * ResourceRules List rules applying on a Resource
+ * List rules matching a filter and also apply on a Resource, if all requested patches were applied.
+
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param appID The id of the app the resource belongs to.
  * @param resourceTypes the type of the resource.
@@ -2836,6 +2855,7 @@ func (a *ResourcesApiService) ResourceRulesExecute(r ApiResourceRulesRequest) (R
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -2928,7 +2948,7 @@ func (r ApiTestResourceRequest) Execute() (InlineResponse2002, *_nethttp.Respons
 }
 
 /*
- * TestResource test a resource against a filter
+ * TestResource Test a Resource Against a Filter
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param appID The id of the app the resource belongs to.
  * @param resourceTypes the type of the resource.
@@ -3005,6 +3025,7 @@ func (a *ResourcesApiService) TestResourceExecute(r ApiTestResourceRequest) (Inl
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}

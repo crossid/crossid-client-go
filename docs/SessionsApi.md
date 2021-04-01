@@ -5,7 +5,7 @@ All URIs are relative to *http://dev.local.crossid.io:8000/api/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**SessionRevoke**](SessionsApi.md#SessionRevoke) | **Delete** /auth/sessions/revoke | Invalidates a session
-[**Whoami**](SessionsApi.md#Whoami) | **Get** /auth/sessions/whoami | Check who the current HTTP session belongs to.
+[**Whoami**](SessionsApi.md#Whoami) | **Get** /auth/sessions/whoami | Check who the current HTTP session belongs to
 
 
 
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 > Session Whoami(ctx).Authorization(authorization).Cookie(cookie).Execute()
 
-Check who the current HTTP session belongs to.
+Check who the current HTTP session belongs to
 
 ### Example
 
