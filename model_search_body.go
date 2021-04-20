@@ -29,7 +29,7 @@ type SearchBody struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSearchBody(searchFor string) *SearchBody {
+func NewSearchBody(searchFor string, ) *SearchBody {
 	this := SearchBody{}
 	var count int32 = 10
 	this.Count = &count
@@ -149,7 +149,7 @@ func (o *SearchBody) SetCount(v int32) {
 
 // GetSearchFor returns the SearchFor field value
 func (o *SearchBody) GetSearchFor() string {
-	if o == nil {
+	if o == nil  {
 		var ret string
 		return ret
 	}

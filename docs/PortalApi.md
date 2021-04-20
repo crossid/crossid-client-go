@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResourcesList**](ResourcesList.md)
+[**ResourcesList**](resourcesList.md)
 
 ### Authorization
 

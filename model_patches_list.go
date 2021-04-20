@@ -27,7 +27,7 @@ type PatchesList struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPatchesList(resources []DocPatch) *PatchesList {
+func NewPatchesList(resources []DocPatch, ) *PatchesList {
 	this := PatchesList{}
 	this.Resources = resources
 	return &this
@@ -139,7 +139,7 @@ func (o *PatchesList) SetTotalResults(v int64) {
 
 // GetResources returns the Resources field value
 func (o *PatchesList) GetResources() []DocPatch {
-	if o == nil {
+	if o == nil  {
 		var ret []DocPatch
 		return ret
 	}

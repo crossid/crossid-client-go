@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** |  | [optional] 
 **DisplayName** | Pointer to **string** |  | [optional] 
 **EndedAt** | Pointer to **time.Time** |  | [optional] 
-**Flow** | Pointer to [**FlowDefinitionFlow**](FlowDefinitionFlow.md) |  | [optional] 
+**Flow** | Pointer to [**FlowDefinitionFlow**](FlowDefinition_flow.md) |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
 **StartedAt** | Pointer to **time.Time** |  | [optional] 
 **Status** | Pointer to **string** |  | [optional] 

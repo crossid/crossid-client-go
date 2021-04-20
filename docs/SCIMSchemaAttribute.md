@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **ReferenceTypes** | Pointer to **[]string** | indicates the resource types thatare referenced. | [optional] 
 **Required** | Pointer to **bool** | true if this attribute is required. | [optional] 
 **Returned** | Pointer to **string** |  | [optional] 
-**Search** | Pointer to [**SCIMSchemaAttributeSearch**](SCIMSchemaAttributeSearch.md) |  | [optional] 
+**Search** | Pointer to [**SCIMSchemaAttributeSearch**](SCIMSchemaAttribute_search.md) |  | [optional] 
 **SubAttributes** | Pointer to [**[]SCIMSchemaAttribute**](SCIMSchemaAttribute.md) |  | [optional] 
 **Type** | **string** |  | 
 **Uniqueness** | Pointer to **string** |  | [optional] 

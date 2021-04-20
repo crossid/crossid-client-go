@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Oauth2ClientList**](Oauth2ClientList.md)
+[**Oauth2ClientList**](oauth2ClientList.md)
 
 ### Authorization
 

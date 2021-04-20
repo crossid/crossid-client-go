@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** |  | [optional] 
 **Keywords** | Pointer to **[]string** |  | [optional] 
 **LogoURL** | Pointer to **string** |  | [optional] 
-**Meta** | Pointer to [**ApiTokenMeta**](ApiTokenMeta.md) |  | [optional] 
+**Meta** | Pointer to [**ApiTokenMeta**](ApiToken_meta.md) |  | [optional] 
 
 ## Methods
 

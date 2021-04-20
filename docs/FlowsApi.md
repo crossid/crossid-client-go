@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FlowCancel**](FlowCancel.md)
+[**FlowCancel**](flowCancel.md)
 
 ### Authorization
 
@@ -504,7 +504,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FlowInstancesList**](FlowInstancesList.md)
+[**FlowInstancesList**](flowInstancesList.md)
 
 ### Authorization
 
@@ -583,7 +583,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TasksList**](TasksList.md)
+[**TasksList**](tasksList.md)
 
 ### Authorization
 

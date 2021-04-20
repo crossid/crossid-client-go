@@ -209,7 +209,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MappersList**](MappersList.md)
+[**MappersList**](mappersList.md)
 
 ### Authorization
 

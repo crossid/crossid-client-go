@@ -76,6 +76,7 @@ func (v *NullableBool) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
+
 type NullableInt struct {
 	value *int
 	isSet bool
@@ -111,6 +112,7 @@ func (v *NullableInt) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 
 type NullableInt32 struct {
 	value *int32
@@ -148,6 +150,7 @@ func (v *NullableInt32) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
+
 type NullableInt64 struct {
 	value *int64
 	isSet bool
@@ -183,6 +186,7 @@ func (v *NullableInt64) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 
 type NullableFloat32 struct {
 	value *float32
@@ -220,6 +224,7 @@ func (v *NullableFloat32) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
+
 type NullableFloat64 struct {
 	value *float64
 	isSet bool
@@ -256,6 +261,7 @@ func (v *NullableFloat64) UnmarshalJSON(src []byte) error {
 	return json.Unmarshal(src, &v.value)
 }
 
+
 type NullableString struct {
 	value *string
 	isSet bool
@@ -291,6 +297,7 @@ func (v *NullableString) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 
 type NullableTime struct {
 	value *time.Time

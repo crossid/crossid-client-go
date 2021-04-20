@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **InsightId** | Pointer to **string** |  | [optional] 
 **InsightModelType** | Pointer to **string** |  | [optional] 
 **Kind** | Pointer to **string** |  | [optional] 
-**Meta** | Pointer to [**ApiTokenMeta**](ApiTokenMeta.md) |  | [optional] 
+**Meta** | Pointer to [**ApiTokenMeta**](ApiToken_meta.md) |  | [optional] 
 **ModelIds** | Pointer to **[]string** |  | [optional] 
 **Payload** | Pointer to **interface{}** |  | [optional] 
 **ReadBy** | Pointer to **[]string** |  | [optional] 

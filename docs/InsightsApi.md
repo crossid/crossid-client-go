@@ -51,7 +51,7 @@ Other parameters are passed through a pointer to a apiInsightDiscoveryRequest st
 
 ### Return type
 
-[**InsightList**](InsightList.md)
+[**InsightList**](insightList.md)
 
 ### Authorization
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Config** | Pointer to [**LoginFlowMethodConfig**](LoginFlowMethodConfig.md) |  | [optional] 
+**Config** | Pointer to [**LoginFlowMethodConfig**](LoginFlowMethod_config.md) |  | [optional] 
 **Level** | Pointer to **int32** |  | [optional] 
 **Method** | Pointer to **string** |  | [optional] 
 

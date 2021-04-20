@@ -26,7 +26,7 @@ type PatchOP struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPatchOP(op string, path string, value interface{}) *PatchOP {
+func NewPatchOP(op string, path string, value interface{}, ) *PatchOP {
 	this := PatchOP{}
 	this.Op = op
 	this.Path = path
@@ -44,7 +44,7 @@ func NewPatchOPWithDefaults() *PatchOP {
 
 // GetOp returns the Op field value
 func (o *PatchOP) GetOp() string {
-	if o == nil {
+	if o == nil  {
 		var ret string
 		return ret
 	}
@@ -68,7 +68,7 @@ func (o *PatchOP) SetOp(v string) {
 
 // GetPath returns the Path field value
 func (o *PatchOP) GetPath() string {
-	if o == nil {
+	if o == nil  {
 		var ret string
 		return ret
 	}
@@ -93,7 +93,7 @@ func (o *PatchOP) SetPath(v string) {
 // GetValue returns the Value field value
 // If the value is explicit nil, the zero value for interface{} will be returned
 func (o *PatchOP) GetValue() interface{} {
-	if o == nil {
+	if o == nil  {
 		var ret interface{}
 		return ret
 	}

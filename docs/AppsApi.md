@@ -353,7 +353,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AppsList**](AppsList.md)
+[**AppsList**](appsList.md)
 
 ### Authorization
 
@@ -423,7 +423,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse200**](inline_response_200.md)
 
 ### Authorization
 

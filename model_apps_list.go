@@ -27,7 +27,7 @@ type AppsList struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAppsList(resources []App) *AppsList {
+func NewAppsList(resources []App, ) *AppsList {
 	this := AppsList{}
 	this.Resources = resources
 	return &this
@@ -139,7 +139,7 @@ func (o *AppsList) SetTotalResults(v int64) {
 
 // GetResources returns the Resources field value
 func (o *AppsList) GetResources() []App {
-	if o == nil {
+	if o == nil  {
 		var ret []App
 		return ret
 	}

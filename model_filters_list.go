@@ -27,7 +27,7 @@ type FiltersList struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFiltersList(resources []Filter) *FiltersList {
+func NewFiltersList(resources []Filter, ) *FiltersList {
 	this := FiltersList{}
 	this.Resources = resources
 	return &this
@@ -139,7 +139,7 @@ func (o *FiltersList) SetTotalResults(v int64) {
 
 // GetResources returns the Resources field value
 func (o *FiltersList) GetResources() []Filter {
-	if o == nil {
+	if o == nil  {
 		var ret []Filter
 		return ret
 	}

@@ -27,7 +27,7 @@ type FlowInstancesList struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFlowInstancesList(resources []FlowInstance) *FlowInstancesList {
+func NewFlowInstancesList(resources []FlowInstance, ) *FlowInstancesList {
 	this := FlowInstancesList{}
 	this.Resources = resources
 	return &this
@@ -139,7 +139,7 @@ func (o *FlowInstancesList) SetTotalResults(v int64) {
 
 // GetResources returns the Resources field value
 func (o *FlowInstancesList) GetResources() []FlowInstance {
-	if o == nil {
+	if o == nil  {
 		var ret []FlowInstance
 		return ret
 	}

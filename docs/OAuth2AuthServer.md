@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **ForceHTTP** | Pointer to **bool** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
 **IdTokenLifespan** | Pointer to **int64** |  | [optional] 
-**Meta** | Pointer to [**ApiTokenMeta**](ApiTokenMeta.md) |  | [optional] 
+**Meta** | Pointer to [**ApiTokenMeta**](ApiToken_meta.md) |  | [optional] 
 **RefreshTokenLifespan** | Pointer to **int64** |  | [optional] 
 **ScopeStrategy** | Pointer to **string** |  | [optional] 
 **SubjectIdentifierAlgorithmSalt** | Pointer to **string** |  | [optional] 

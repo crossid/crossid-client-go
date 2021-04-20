@@ -29,22 +29,36 @@ servers:
 security:
 - bearerAuth: []
 tags:
-- description: Jobs Endpoints
-  name: jobs
-- description: Mappers Endpoints
-  name: mappers
-- description: Resources Endpoints
-  name: resources
-- description: Changes Endpoints
-  name: changes
-- description: Filters Endpoints
-  name: filters
-- description: Secrets Endpoints
-  name: secrets
-- description: Resource Types Endpoints
-  name: resourceTypes
 - description: Audit Endpoints
   name: audit
+- description: Changes Endpoints
+  name: changes
+- description: Resource References Endpoints
+  name: refs
+- description: Secrets Endpoints
+  name: secrets
+- description: Schemas Endpoints
+  name: schemas
+- description: Resources Endpoints
+  name: resources
+- description: Filters Endpoints
+  name: filters
+- description: Flows and Tasks endpoints
+  name: flows
+- description: Data mining and role clustering Endpoints
+  name: mining
+- description: Applications Endpoints
+  name: apps
+- description: Jobs Endpoints
+  name: jobs
+- description: Portal Endpoints
+  name: portal
+- description: Mappers Endpoints
+  name: mappers
+- description: Resource Types Endpoints
+  name: resourceTypes
+- description: rules Endpoints
+  name: rules
 - description: Sessions Endpoints
   name: sessions
 - description: API Tokens Endpoints
@@ -55,22 +69,8 @@ tags:
   name: login
 - description: Node Health Endpoints
   name: health
-- description: Portal Endpoints
-  name: portal
-- description: Resource References Endpoints
-  name: refs
-- description: rules Endpoints
-  name: rules
-- description: Applications Endpoints
-  name: apps
-- description: Flows and Tasks endpoints
-  name: flows
-- description: Data mining and role clustering Endpoints
-  name: mining
 - description: Insight discovery and resolution Endpoints
   name: insights
-- description: Schemas Endpoints
-  name: schemas
 paths:
   /apps/:
     get:
@@ -9826,6 +9826,44 @@ components:
                 type: type
                 value: value
                 required: true
+          oidc:
+            method: method
+            level: 6
+            config:
+              method: method
+              action: action
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              fields:
+              - name: name
+                messages:
+                - id: 0
+                  text: text
+                  type: info
+                - id: 0
+                  text: text
+                  type: info
+                disabled: true
+                type: type
+                value: value
+                required: true
+              - name: name
+                messages:
+                - id: 0
+                  text: text
+                  type: info
+                - id: 0
+                  text: text
+                  type: info
+                disabled: true
+                type: type
+                value: value
+                required: true
         ssoChallenge: ssoChallenge
         id: id
       properties:
@@ -11061,7 +11099,47 @@ components:
               type: type
               value: value
               required: true
+        oidc:
+          method: method
+          level: 6
+          config:
+            method: method
+            action: action
+            messages:
+            - id: 0
+              text: text
+              type: info
+            - id: 0
+              text: text
+              type: info
+            fields:
+            - name: name
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              disabled: true
+              type: type
+              value: value
+              required: true
+            - name: name
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              disabled: true
+              type: type
+              value: value
+              required: true
       properties:
+        oidc:
+          $ref: '#/components/schemas/LoginFlowMethod'
         otp:
           $ref: '#/components/schemas/LoginFlowMethod'
         password:

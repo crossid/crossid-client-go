@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**JobsList**](JobsList.md)
+[**JobsList**](jobsList.md)
 
 ### Authorization
 

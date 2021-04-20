@@ -24,7 +24,7 @@ type InlineResponse2002 struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse2002(match bool) *InlineResponse2002 {
+func NewInlineResponse2002(match bool, ) *InlineResponse2002 {
 	this := InlineResponse2002{}
 	this.Match = match
 	return &this
@@ -40,7 +40,7 @@ func NewInlineResponse2002WithDefaults() *InlineResponse2002 {
 
 // GetMatch returns the Match field value
 func (o *InlineResponse2002) GetMatch() bool {
-	if o == nil {
+	if o == nil  {
 		var ret bool
 		return ret
 	}

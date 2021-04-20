@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **By** | Pointer to **string** |  | [optional] 
 **Correlation** | Pointer to **string** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
-**Meta** | Pointer to [**ApiTokenMeta**](ApiTokenMeta.md) |  | [optional] 
+**Meta** | Pointer to [**ApiTokenMeta**](ApiToken_meta.md) |  | [optional] 
 **Reason** | Pointer to **string** |  | [optional] 
 **RequestId** | Pointer to **string** |  | [optional] 
 

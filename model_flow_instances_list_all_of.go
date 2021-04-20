@@ -24,7 +24,7 @@ type FlowInstancesListAllOf struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFlowInstancesListAllOf(resources []FlowInstance) *FlowInstancesListAllOf {
+func NewFlowInstancesListAllOf(resources []FlowInstance, ) *FlowInstancesListAllOf {
 	this := FlowInstancesListAllOf{}
 	this.Resources = resources
 	return &this
@@ -40,7 +40,7 @@ func NewFlowInstancesListAllOfWithDefaults() *FlowInstancesListAllOf {
 
 // GetResources returns the Resources field value
 func (o *FlowInstancesListAllOf) GetResources() []FlowInstance {
-	if o == nil {
+	if o == nil  {
 		var ret []FlowInstance
 		return ret
 	}

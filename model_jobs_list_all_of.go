@@ -24,7 +24,7 @@ type JobsListAllOf struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewJobsListAllOf(resources []Job) *JobsListAllOf {
+func NewJobsListAllOf(resources []Job, ) *JobsListAllOf {
 	this := JobsListAllOf{}
 	this.Resources = resources
 	return &this
@@ -40,7 +40,7 @@ func NewJobsListAllOfWithDefaults() *JobsListAllOf {
 
 // GetResources returns the Resources field value
 func (o *JobsListAllOf) GetResources() []Job {
-	if o == nil {
+	if o == nil  {
 		var ret []Job
 		return ret
 	}

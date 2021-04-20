@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** |  | [optional] 
 **IdentityId** | Pointer to **string** |  | [optional] 
 **IssuedAt** | Pointer to **time.Time** |  | [optional] 
-**Meta** | Pointer to [**ApiTokenMeta**](ApiTokenMeta.md) |  | [optional] 
+**Meta** | Pointer to [**ApiTokenMeta**](ApiToken_meta.md) |  | [optional] 
 **SignedToken** | Pointer to **string** |  | [optional] 
 
 ## Methods

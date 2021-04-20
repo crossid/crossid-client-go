@@ -27,7 +27,7 @@ type TasksList struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTasksList(resources []Task) *TasksList {
+func NewTasksList(resources []Task, ) *TasksList {
 	this := TasksList{}
 	this.Resources = resources
 	return &this
@@ -139,7 +139,7 @@ func (o *TasksList) SetTotalResults(v int64) {
 
 // GetResources returns the Resources field value
 func (o *TasksList) GetResources() []Task {
-	if o == nil {
+	if o == nil  {
 		var ret []Task
 		return ret
 	}

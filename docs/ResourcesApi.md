@@ -536,7 +536,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResourceDiffRes**](ResourceDiffRes.md)
+[**ResourceDiffRes**](resourceDiffRes.md)
 
 ### Authorization
 
@@ -696,7 +696,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResourcesList**](ResourcesList.md)
+[**ResourcesList**](resourcesList.md)
 
 ### Authorization
 
@@ -786,7 +786,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResourcesList**](ResourcesList.md)
+[**ResourcesList**](resourcesList.md)
 
 ### Authorization
 
@@ -1264,7 +1264,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RulesList**](RulesList.md)
+[**RulesList**](rulesList.md)
 
 ### Authorization
 
@@ -1340,7 +1340,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**InlineResponse2002**](inline_response_200_2.md)
 
 ### Authorization
 

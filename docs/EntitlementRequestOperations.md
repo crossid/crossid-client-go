@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RequestedEntitlement** | Pointer to [**EntitlementRequestRequestedEntitlement**](EntitlementRequestRequestedEntitlement.md) |  | [optional] 
+**RequestedEntitlement** | Pointer to [**EntitlementRequestRequestedEntitlement**](EntitlementRequest_requestedEntitlement.md) |  | [optional] 
 **RequestedFor** | Pointer to **string** |  | [optional] 
 
 ## Methods
