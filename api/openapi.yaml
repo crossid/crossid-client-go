@@ -29,6 +29,22 @@ servers:
 security:
 - bearerAuth: []
 tags:
+- description: Jobs Endpoints
+  name: jobs
+- description: Mappers Endpoints
+  name: mappers
+- description: Resources Endpoints
+  name: resources
+- description: Changes Endpoints
+  name: changes
+- description: Filters Endpoints
+  name: filters
+- description: Secrets Endpoints
+  name: secrets
+- description: Resource Types Endpoints
+  name: resourceTypes
+- description: Audit Endpoints
+  name: audit
 - description: Sessions Endpoints
   name: sessions
 - description: API Tokens Endpoints
@@ -37,40 +53,24 @@ tags:
   name: authErrors
 - description: Login Endpoints
   name: login
-- description: Changes Endpoints
-  name: changes
 - description: Node Health Endpoints
   name: health
-- description: Filters Endpoints
-  name: filters
-- description: Mappers Endpoints
-  name: mappers
 - description: Portal Endpoints
   name: portal
-- description: Secrets Endpoints
-  name: secrets
-- description: Schemas Endpoints
-  name: schemas
-- description: Resources Endpoints
-  name: resources
-- description: Resource Types Endpoints
-  name: resourceTypes
-- description: rules Endpoints
-  name: rules
-- description: Audit Endpoints
-  name: audit
-- description: Data mining and role clustering Endpoints
-  name: mining
-- description: Jobs Endpoints
-  name: jobs
 - description: Resource References Endpoints
   name: refs
+- description: rules Endpoints
+  name: rules
 - description: Applications Endpoints
   name: apps
 - description: Flows and Tasks endpoints
   name: flows
+- description: Data mining and role clustering Endpoints
+  name: mining
 - description: Insight discovery and resolution Endpoints
   name: insights
+- description: Schemas Endpoints
+  name: schemas
 paths:
   /apps/:
     get:
@@ -9676,6 +9676,7 @@ components:
         methods:
           password:
             method: method
+            level: 6
             config:
               method: method
               action: action
@@ -9713,6 +9714,7 @@ components:
                 required: true
           spnego:
             method: method
+            level: 6
             config:
               method: method
               action: action
@@ -9750,6 +9752,45 @@ components:
                 required: true
           webauthn:
             method: method
+            level: 6
+            config:
+              method: method
+              action: action
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              fields:
+              - name: name
+                messages:
+                - id: 0
+                  text: text
+                  type: info
+                - id: 0
+                  text: text
+                  type: info
+                disabled: true
+                type: type
+                value: value
+                required: true
+              - name: name
+                messages:
+                - id: 0
+                  text: text
+                  type: info
+                - id: 0
+                  text: text
+                  type: info
+                disabled: true
+                type: type
+                value: value
+                required: true
+          otp:
+            method: method
+            level: 6
             config:
               method: method
               action: action
@@ -9802,6 +9843,7 @@ components:
     LoginFlowMethod:
       example:
         method: method
+        level: 6
         config:
           method: method
           action: action
@@ -9840,6 +9882,8 @@ components:
       properties:
         config:
           $ref: '#/components/schemas/LoginFlowMethod_config'
+        level:
+          type: integer
         method:
           type: string
       type: object
@@ -10402,6 +10446,7 @@ components:
         active: true
         id: QE8WQvyqF7WTfABCq5mhRi
         issuedAt: 2000-01-23T04:56:07.000+00:00
+        authLevel: 0
         expiresAt: 2000-01-23T04:56:07.000+00:00
       properties:
         active:
@@ -10410,6 +10455,8 @@ components:
         authAt:
           format: date-time
           type: string
+        authLevel:
+          type: integer
         expiresAt:
           format: date-time
           type: string
@@ -10864,6 +10911,7 @@ components:
       example:
         password:
           method: method
+          level: 6
           config:
             method: method
             action: action
@@ -10901,6 +10949,7 @@ components:
               required: true
         spnego:
           method: method
+          level: 6
           config:
             method: method
             action: action
@@ -10938,6 +10987,45 @@ components:
               required: true
         webauthn:
           method: method
+          level: 6
+          config:
+            method: method
+            action: action
+            messages:
+            - id: 0
+              text: text
+              type: info
+            - id: 0
+              text: text
+              type: info
+            fields:
+            - name: name
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              disabled: true
+              type: type
+              value: value
+              required: true
+            - name: name
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              disabled: true
+              type: type
+              value: value
+              required: true
+        otp:
+          method: method
+          level: 6
           config:
             method: method
             action: action
@@ -10974,6 +11062,8 @@ components:
               value: value
               required: true
       properties:
+        otp:
+          $ref: '#/components/schemas/LoginFlowMethod'
         password:
           $ref: '#/components/schemas/LoginFlowMethod'
         spnego:

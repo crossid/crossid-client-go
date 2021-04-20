@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Otp** | Pointer to [**LoginFlowMethod**](LoginFlowMethod.md) |  | [optional] 
 **Password** | Pointer to [**LoginFlowMethod**](LoginFlowMethod.md) |  | [optional] 
 **Spnego** | Pointer to [**LoginFlowMethod**](LoginFlowMethod.md) |  | [optional] 
 **Webauthn** | Pointer to [**LoginFlowMethod**](LoginFlowMethod.md) |  | [optional] 
@@ -26,6 +27,31 @@ will change when the set of required properties is changed
 NewLoginFlowMethodsWithDefaults instantiates a new LoginFlowMethods object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetOtp
+
+`func (o *LoginFlowMethods) GetOtp() LoginFlowMethod`
+
+GetOtp returns the Otp field if non-nil, zero value otherwise.
+
+### GetOtpOk
+
+`func (o *LoginFlowMethods) GetOtpOk() (*LoginFlowMethod, bool)`
+
+GetOtpOk returns a tuple with the Otp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOtp
+
+`func (o *LoginFlowMethods) SetOtp(v LoginFlowMethod)`
+
+SetOtp sets Otp field to given value.
+
+### HasOtp
+
+`func (o *LoginFlowMethods) HasOtp() bool`
+
+HasOtp returns a boolean if a field has been set.
 
 ### GetPassword
 

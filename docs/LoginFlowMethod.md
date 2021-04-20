@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Config** | Pointer to [**LoginFlowMethodConfig**](LoginFlowMethodConfig.md) |  | [optional] 
+**Level** | Pointer to **int32** |  | [optional] 
 **Method** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -50,6 +51,31 @@ SetConfig sets Config field to given value.
 `func (o *LoginFlowMethod) HasConfig() bool`
 
 HasConfig returns a boolean if a field has been set.
+
+### GetLevel
+
+`func (o *LoginFlowMethod) GetLevel() int32`
+
+GetLevel returns the Level field if non-nil, zero value otherwise.
+
+### GetLevelOk
+
+`func (o *LoginFlowMethod) GetLevelOk() (*int32, bool)`
+
+GetLevelOk returns a tuple with the Level field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLevel
+
+`func (o *LoginFlowMethod) SetLevel(v int32)`
+
+SetLevel sets Level field to given value.
+
+### HasLevel
+
+`func (o *LoginFlowMethod) HasLevel() bool`
+
+HasLevel returns a boolean if a field has been set.
 
 ### GetMethod
 

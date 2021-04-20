@@ -18,6 +18,7 @@ import (
 // LoginFlowMethod struct for LoginFlowMethod
 type LoginFlowMethod struct {
 	Config *LoginFlowMethodConfig `json:"config,omitempty"`
+	Level *int32 `json:"level,omitempty"`
 	Method *string `json:"method,omitempty"`
 }
 
@@ -70,6 +71,38 @@ func (o *LoginFlowMethod) SetConfig(v LoginFlowMethodConfig) {
 	o.Config = &v
 }
 
+// GetLevel returns the Level field value if set, zero value otherwise.
+func (o *LoginFlowMethod) GetLevel() int32 {
+	if o == nil || o.Level == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Level
+}
+
+// GetLevelOk returns a tuple with the Level field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *LoginFlowMethod) GetLevelOk() (*int32, bool) {
+	if o == nil || o.Level == nil {
+		return nil, false
+	}
+	return o.Level, true
+}
+
+// HasLevel returns a boolean if a field has been set.
+func (o *LoginFlowMethod) HasLevel() bool {
+	if o != nil && o.Level != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLevel gets a reference to the given int32 and assigns it to the Level field.
+func (o *LoginFlowMethod) SetLevel(v int32) {
+	o.Level = &v
+}
+
 // GetMethod returns the Method field value if set, zero value otherwise.
 func (o *LoginFlowMethod) GetMethod() string {
 	if o == nil || o.Method == nil {
@@ -106,6 +139,9 @@ func (o LoginFlowMethod) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Config != nil {
 		toSerialize["config"] = o.Config
+	}
+	if o.Level != nil {
+		toSerialize["level"] = o.Level
 	}
 	if o.Method != nil {
 		toSerialize["method"] = o.Method

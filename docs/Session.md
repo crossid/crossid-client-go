@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Active** | Pointer to **bool** |  | [optional] 
 **AuthAt** | Pointer to **time.Time** |  | [optional] 
+**AuthLevel** | Pointer to **int32** |  | [optional] 
 **ExpiresAt** | Pointer to **time.Time** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
 **Identity** | Pointer to [**SessionIdentity**](SessionIdentity.md) |  | [optional] 
@@ -80,6 +81,31 @@ SetAuthAt sets AuthAt field to given value.
 `func (o *Session) HasAuthAt() bool`
 
 HasAuthAt returns a boolean if a field has been set.
+
+### GetAuthLevel
+
+`func (o *Session) GetAuthLevel() int32`
+
+GetAuthLevel returns the AuthLevel field if non-nil, zero value otherwise.
+
+### GetAuthLevelOk
+
+`func (o *Session) GetAuthLevelOk() (*int32, bool)`
+
+GetAuthLevelOk returns a tuple with the AuthLevel field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAuthLevel
+
+`func (o *Session) SetAuthLevel(v int32)`
+
+SetAuthLevel sets AuthLevel field to given value.
+
+### HasAuthLevel
+
+`func (o *Session) HasAuthLevel() bool`
+
+HasAuthLevel returns a boolean if a field has been set.
 
 ### GetExpiresAt
 

@@ -17,6 +17,7 @@ import (
 
 // LoginFlowMethods struct for LoginFlowMethods
 type LoginFlowMethods struct {
+	Otp *LoginFlowMethod `json:"otp,omitempty"`
 	Password *LoginFlowMethod `json:"password,omitempty"`
 	Spnego *LoginFlowMethod `json:"spnego,omitempty"`
 	Webauthn *LoginFlowMethod `json:"webauthn,omitempty"`
@@ -37,6 +38,38 @@ func NewLoginFlowMethods() *LoginFlowMethods {
 func NewLoginFlowMethodsWithDefaults() *LoginFlowMethods {
 	this := LoginFlowMethods{}
 	return &this
+}
+
+// GetOtp returns the Otp field value if set, zero value otherwise.
+func (o *LoginFlowMethods) GetOtp() LoginFlowMethod {
+	if o == nil || o.Otp == nil {
+		var ret LoginFlowMethod
+		return ret
+	}
+	return *o.Otp
+}
+
+// GetOtpOk returns a tuple with the Otp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *LoginFlowMethods) GetOtpOk() (*LoginFlowMethod, bool) {
+	if o == nil || o.Otp == nil {
+		return nil, false
+	}
+	return o.Otp, true
+}
+
+// HasOtp returns a boolean if a field has been set.
+func (o *LoginFlowMethods) HasOtp() bool {
+	if o != nil && o.Otp != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetOtp gets a reference to the given LoginFlowMethod and assigns it to the Otp field.
+func (o *LoginFlowMethods) SetOtp(v LoginFlowMethod) {
+	o.Otp = &v
 }
 
 // GetPassword returns the Password field value if set, zero value otherwise.
@@ -137,6 +170,9 @@ func (o *LoginFlowMethods) SetWebauthn(v LoginFlowMethod) {
 
 func (o LoginFlowMethods) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.Otp != nil {
+		toSerialize["otp"] = o.Otp
+	}
 	if o.Password != nil {
 		toSerialize["password"] = o.Password
 	}

@@ -20,6 +20,7 @@ import (
 type Session struct {
 	Active *bool `json:"active,omitempty"`
 	AuthAt *time.Time `json:"authAt,omitempty"`
+	AuthLevel *int32 `json:"authLevel,omitempty"`
 	ExpiresAt *time.Time `json:"expiresAt,omitempty"`
 	Id *string `json:"id,omitempty"`
 	Identity *SessionIdentity `json:"identity,omitempty"`
@@ -106,6 +107,38 @@ func (o *Session) HasAuthAt() bool {
 // SetAuthAt gets a reference to the given time.Time and assigns it to the AuthAt field.
 func (o *Session) SetAuthAt(v time.Time) {
 	o.AuthAt = &v
+}
+
+// GetAuthLevel returns the AuthLevel field value if set, zero value otherwise.
+func (o *Session) GetAuthLevel() int32 {
+	if o == nil || o.AuthLevel == nil {
+		var ret int32
+		return ret
+	}
+	return *o.AuthLevel
+}
+
+// GetAuthLevelOk returns a tuple with the AuthLevel field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Session) GetAuthLevelOk() (*int32, bool) {
+	if o == nil || o.AuthLevel == nil {
+		return nil, false
+	}
+	return o.AuthLevel, true
+}
+
+// HasAuthLevel returns a boolean if a field has been set.
+func (o *Session) HasAuthLevel() bool {
+	if o != nil && o.AuthLevel != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAuthLevel gets a reference to the given int32 and assigns it to the AuthLevel field.
+func (o *Session) SetAuthLevel(v int32) {
+	o.AuthLevel = &v
 }
 
 // GetExpiresAt returns the ExpiresAt field value if set, zero value otherwise.
@@ -275,6 +308,9 @@ func (o Session) MarshalJSON() ([]byte, error) {
 	}
 	if o.AuthAt != nil {
 		toSerialize["authAt"] = o.AuthAt
+	}
+	if o.AuthLevel != nil {
+		toSerialize["authLevel"] = o.AuthLevel
 	}
 	if o.ExpiresAt != nil {
 		toSerialize["expiresAt"] = o.ExpiresAt
