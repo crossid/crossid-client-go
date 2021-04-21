@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Fields** | Pointer to [**[]LoginFlowMethodStateFields**](LoginFlowMethodStateFields.md) |  | [optional] 
 **Initialized** | Pointer to **bool** |  | [optional] 
 
 ## Methods
@@ -25,31 +24,6 @@ will change when the set of required properties is changed
 NewLoginFlowMethodStateWithDefaults instantiates a new LoginFlowMethodState object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetFields
-
-`func (o *LoginFlowMethodState) GetFields() []LoginFlowMethodStateFields`
-
-GetFields returns the Fields field if non-nil, zero value otherwise.
-
-### GetFieldsOk
-
-`func (o *LoginFlowMethodState) GetFieldsOk() (*[]LoginFlowMethodStateFields, bool)`
-
-GetFieldsOk returns a tuple with the Fields field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFields
-
-`func (o *LoginFlowMethodState) SetFields(v []LoginFlowMethodStateFields)`
-
-SetFields sets Fields field to given value.
-
-### HasFields
-
-`func (o *LoginFlowMethodState) HasFields() bool`
-
-HasFields returns a boolean if a field has been set.
 
 ### GetInitialized
 

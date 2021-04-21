@@ -15,8 +15,8 @@ import (
 	"encoding/json"
 )
 
-// LoginFlowMethodStateFields struct for LoginFlowMethodStateFields
-type LoginFlowMethodStateFields struct {
+// LoginFlowMethodConfigFields struct for LoginFlowMethodConfigFields
+type LoginFlowMethodConfigFields struct {
 	Disabled *bool `json:"disabled,omitempty"`
 	Messages *[]UserFacingMessage `json:"messages,omitempty"`
 	Name *string `json:"name,omitempty"`
@@ -25,25 +25,25 @@ type LoginFlowMethodStateFields struct {
 	Value *string `json:"value,omitempty"`
 }
 
-// NewLoginFlowMethodStateFields instantiates a new LoginFlowMethodStateFields object
+// NewLoginFlowMethodConfigFields instantiates a new LoginFlowMethodConfigFields object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLoginFlowMethodStateFields() *LoginFlowMethodStateFields {
-	this := LoginFlowMethodStateFields{}
+func NewLoginFlowMethodConfigFields() *LoginFlowMethodConfigFields {
+	this := LoginFlowMethodConfigFields{}
 	return &this
 }
 
-// NewLoginFlowMethodStateFieldsWithDefaults instantiates a new LoginFlowMethodStateFields object
+// NewLoginFlowMethodConfigFieldsWithDefaults instantiates a new LoginFlowMethodConfigFields object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewLoginFlowMethodStateFieldsWithDefaults() *LoginFlowMethodStateFields {
-	this := LoginFlowMethodStateFields{}
+func NewLoginFlowMethodConfigFieldsWithDefaults() *LoginFlowMethodConfigFields {
+	this := LoginFlowMethodConfigFields{}
 	return &this
 }
 
 // GetDisabled returns the Disabled field value if set, zero value otherwise.
-func (o *LoginFlowMethodStateFields) GetDisabled() bool {
+func (o *LoginFlowMethodConfigFields) GetDisabled() bool {
 	if o == nil || o.Disabled == nil {
 		var ret bool
 		return ret
@@ -53,7 +53,7 @@ func (o *LoginFlowMethodStateFields) GetDisabled() bool {
 
 // GetDisabledOk returns a tuple with the Disabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LoginFlowMethodStateFields) GetDisabledOk() (*bool, bool) {
+func (o *LoginFlowMethodConfigFields) GetDisabledOk() (*bool, bool) {
 	if o == nil || o.Disabled == nil {
 		return nil, false
 	}
@@ -61,7 +61,7 @@ func (o *LoginFlowMethodStateFields) GetDisabledOk() (*bool, bool) {
 }
 
 // HasDisabled returns a boolean if a field has been set.
-func (o *LoginFlowMethodStateFields) HasDisabled() bool {
+func (o *LoginFlowMethodConfigFields) HasDisabled() bool {
 	if o != nil && o.Disabled != nil {
 		return true
 	}
@@ -70,12 +70,12 @@ func (o *LoginFlowMethodStateFields) HasDisabled() bool {
 }
 
 // SetDisabled gets a reference to the given bool and assigns it to the Disabled field.
-func (o *LoginFlowMethodStateFields) SetDisabled(v bool) {
+func (o *LoginFlowMethodConfigFields) SetDisabled(v bool) {
 	o.Disabled = &v
 }
 
 // GetMessages returns the Messages field value if set, zero value otherwise.
-func (o *LoginFlowMethodStateFields) GetMessages() []UserFacingMessage {
+func (o *LoginFlowMethodConfigFields) GetMessages() []UserFacingMessage {
 	if o == nil || o.Messages == nil {
 		var ret []UserFacingMessage
 		return ret
@@ -85,7 +85,7 @@ func (o *LoginFlowMethodStateFields) GetMessages() []UserFacingMessage {
 
 // GetMessagesOk returns a tuple with the Messages field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LoginFlowMethodStateFields) GetMessagesOk() (*[]UserFacingMessage, bool) {
+func (o *LoginFlowMethodConfigFields) GetMessagesOk() (*[]UserFacingMessage, bool) {
 	if o == nil || o.Messages == nil {
 		return nil, false
 	}
@@ -93,7 +93,7 @@ func (o *LoginFlowMethodStateFields) GetMessagesOk() (*[]UserFacingMessage, bool
 }
 
 // HasMessages returns a boolean if a field has been set.
-func (o *LoginFlowMethodStateFields) HasMessages() bool {
+func (o *LoginFlowMethodConfigFields) HasMessages() bool {
 	if o != nil && o.Messages != nil {
 		return true
 	}
@@ -102,12 +102,12 @@ func (o *LoginFlowMethodStateFields) HasMessages() bool {
 }
 
 // SetMessages gets a reference to the given []UserFacingMessage and assigns it to the Messages field.
-func (o *LoginFlowMethodStateFields) SetMessages(v []UserFacingMessage) {
+func (o *LoginFlowMethodConfigFields) SetMessages(v []UserFacingMessage) {
 	o.Messages = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
-func (o *LoginFlowMethodStateFields) GetName() string {
+func (o *LoginFlowMethodConfigFields) GetName() string {
 	if o == nil || o.Name == nil {
 		var ret string
 		return ret
@@ -117,7 +117,7 @@ func (o *LoginFlowMethodStateFields) GetName() string {
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LoginFlowMethodStateFields) GetNameOk() (*string, bool) {
+func (o *LoginFlowMethodConfigFields) GetNameOk() (*string, bool) {
 	if o == nil || o.Name == nil {
 		return nil, false
 	}
@@ -125,7 +125,7 @@ func (o *LoginFlowMethodStateFields) GetNameOk() (*string, bool) {
 }
 
 // HasName returns a boolean if a field has been set.
-func (o *LoginFlowMethodStateFields) HasName() bool {
+func (o *LoginFlowMethodConfigFields) HasName() bool {
 	if o != nil && o.Name != nil {
 		return true
 	}
@@ -134,12 +134,12 @@ func (o *LoginFlowMethodStateFields) HasName() bool {
 }
 
 // SetName gets a reference to the given string and assigns it to the Name field.
-func (o *LoginFlowMethodStateFields) SetName(v string) {
+func (o *LoginFlowMethodConfigFields) SetName(v string) {
 	o.Name = &v
 }
 
 // GetRequired returns the Required field value if set, zero value otherwise.
-func (o *LoginFlowMethodStateFields) GetRequired() bool {
+func (o *LoginFlowMethodConfigFields) GetRequired() bool {
 	if o == nil || o.Required == nil {
 		var ret bool
 		return ret
@@ -149,7 +149,7 @@ func (o *LoginFlowMethodStateFields) GetRequired() bool {
 
 // GetRequiredOk returns a tuple with the Required field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LoginFlowMethodStateFields) GetRequiredOk() (*bool, bool) {
+func (o *LoginFlowMethodConfigFields) GetRequiredOk() (*bool, bool) {
 	if o == nil || o.Required == nil {
 		return nil, false
 	}
@@ -157,7 +157,7 @@ func (o *LoginFlowMethodStateFields) GetRequiredOk() (*bool, bool) {
 }
 
 // HasRequired returns a boolean if a field has been set.
-func (o *LoginFlowMethodStateFields) HasRequired() bool {
+func (o *LoginFlowMethodConfigFields) HasRequired() bool {
 	if o != nil && o.Required != nil {
 		return true
 	}
@@ -166,12 +166,12 @@ func (o *LoginFlowMethodStateFields) HasRequired() bool {
 }
 
 // SetRequired gets a reference to the given bool and assigns it to the Required field.
-func (o *LoginFlowMethodStateFields) SetRequired(v bool) {
+func (o *LoginFlowMethodConfigFields) SetRequired(v bool) {
 	o.Required = &v
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
-func (o *LoginFlowMethodStateFields) GetType() string {
+func (o *LoginFlowMethodConfigFields) GetType() string {
 	if o == nil || o.Type == nil {
 		var ret string
 		return ret
@@ -181,7 +181,7 @@ func (o *LoginFlowMethodStateFields) GetType() string {
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LoginFlowMethodStateFields) GetTypeOk() (*string, bool) {
+func (o *LoginFlowMethodConfigFields) GetTypeOk() (*string, bool) {
 	if o == nil || o.Type == nil {
 		return nil, false
 	}
@@ -189,7 +189,7 @@ func (o *LoginFlowMethodStateFields) GetTypeOk() (*string, bool) {
 }
 
 // HasType returns a boolean if a field has been set.
-func (o *LoginFlowMethodStateFields) HasType() bool {
+func (o *LoginFlowMethodConfigFields) HasType() bool {
 	if o != nil && o.Type != nil {
 		return true
 	}
@@ -198,12 +198,12 @@ func (o *LoginFlowMethodStateFields) HasType() bool {
 }
 
 // SetType gets a reference to the given string and assigns it to the Type field.
-func (o *LoginFlowMethodStateFields) SetType(v string) {
+func (o *LoginFlowMethodConfigFields) SetType(v string) {
 	o.Type = &v
 }
 
 // GetValue returns the Value field value if set, zero value otherwise.
-func (o *LoginFlowMethodStateFields) GetValue() string {
+func (o *LoginFlowMethodConfigFields) GetValue() string {
 	if o == nil || o.Value == nil {
 		var ret string
 		return ret
@@ -213,7 +213,7 @@ func (o *LoginFlowMethodStateFields) GetValue() string {
 
 // GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LoginFlowMethodStateFields) GetValueOk() (*string, bool) {
+func (o *LoginFlowMethodConfigFields) GetValueOk() (*string, bool) {
 	if o == nil || o.Value == nil {
 		return nil, false
 	}
@@ -221,7 +221,7 @@ func (o *LoginFlowMethodStateFields) GetValueOk() (*string, bool) {
 }
 
 // HasValue returns a boolean if a field has been set.
-func (o *LoginFlowMethodStateFields) HasValue() bool {
+func (o *LoginFlowMethodConfigFields) HasValue() bool {
 	if o != nil && o.Value != nil {
 		return true
 	}
@@ -230,11 +230,11 @@ func (o *LoginFlowMethodStateFields) HasValue() bool {
 }
 
 // SetValue gets a reference to the given string and assigns it to the Value field.
-func (o *LoginFlowMethodStateFields) SetValue(v string) {
+func (o *LoginFlowMethodConfigFields) SetValue(v string) {
 	o.Value = &v
 }
 
-func (o LoginFlowMethodStateFields) MarshalJSON() ([]byte, error) {
+func (o LoginFlowMethodConfigFields) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Disabled != nil {
 		toSerialize["disabled"] = o.Disabled
@@ -257,38 +257,38 @@ func (o LoginFlowMethodStateFields) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableLoginFlowMethodStateFields struct {
-	value *LoginFlowMethodStateFields
+type NullableLoginFlowMethodConfigFields struct {
+	value *LoginFlowMethodConfigFields
 	isSet bool
 }
 
-func (v NullableLoginFlowMethodStateFields) Get() *LoginFlowMethodStateFields {
+func (v NullableLoginFlowMethodConfigFields) Get() *LoginFlowMethodConfigFields {
 	return v.value
 }
 
-func (v *NullableLoginFlowMethodStateFields) Set(val *LoginFlowMethodStateFields) {
+func (v *NullableLoginFlowMethodConfigFields) Set(val *LoginFlowMethodConfigFields) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableLoginFlowMethodStateFields) IsSet() bool {
+func (v NullableLoginFlowMethodConfigFields) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableLoginFlowMethodStateFields) Unset() {
+func (v *NullableLoginFlowMethodConfigFields) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableLoginFlowMethodStateFields(val *LoginFlowMethodStateFields) *NullableLoginFlowMethodStateFields {
-	return &NullableLoginFlowMethodStateFields{value: val, isSet: true}
+func NewNullableLoginFlowMethodConfigFields(val *LoginFlowMethodConfigFields) *NullableLoginFlowMethodConfigFields {
+	return &NullableLoginFlowMethodConfigFields{value: val, isSet: true}
 }
 
-func (v NullableLoginFlowMethodStateFields) MarshalJSON() ([]byte, error) {
+func (v NullableLoginFlowMethodConfigFields) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableLoginFlowMethodStateFields) UnmarshalJSON(src []byte) error {
+func (v *NullableLoginFlowMethodConfigFields) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

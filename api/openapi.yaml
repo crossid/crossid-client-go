@@ -29,6 +29,18 @@ servers:
 security:
 - bearerAuth: []
 tags:
+- description: Portal Endpoints
+  name: portal
+- description: Changes Endpoints
+  name: changes
+- description: Schemas Endpoints
+  name: schemas
+- description: Insight discovery and resolution Endpoints
+  name: insights
+- description: Jobs Endpoints
+  name: jobs
+- description: Mappers Endpoints
+  name: mappers
 - description: Sessions Endpoints
   name: sessions
 - description: API Tokens Endpoints
@@ -39,40 +51,28 @@ tags:
   name: login
 - description: Registration Endpoints
   name: register
+- description: Filters Endpoints
+  name: filters
 - description: Flows and Tasks endpoints
   name: flows
-- description: Portal Endpoints
-  name: portal
+- description: Node Health Endpoints
+  name: health
+- description: Data mining and role clustering Endpoints
+  name: mining
+- description: Resource References Endpoints
+  name: refs
+- description: Resources Endpoints
+  name: resources
+- description: Resource Types Endpoints
+  name: resourceTypes
 - description: rules Endpoints
   name: rules
 - description: Applications Endpoints
   name: apps
-- description: Filters Endpoints
-  name: filters
-- description: Data mining and role clustering Endpoints
-  name: mining
-- description: Insight discovery and resolution Endpoints
-  name: insights
-- description: Secrets Endpoints
-  name: secrets
-- description: Resource Types Endpoints
-  name: resourceTypes
-- description: Resources Endpoints
-  name: resources
 - description: Audit Endpoints
   name: audit
-- description: Changes Endpoints
-  name: changes
-- description: Jobs Endpoints
-  name: jobs
-- description: Mappers Endpoints
-  name: mappers
-- description: Node Health Endpoints
-  name: health
-- description: Schemas Endpoints
-  name: schemas
-- description: Resource References Endpoints
-  name: refs
+- description: Secrets Endpoints
+  name: secrets
 paths:
   /apps/:
     get:
@@ -9733,6 +9733,16 @@ components:
             level: 6
             state:
               initialized: true
+            config:
+              method: method
+              action: action
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
               fields:
               - name: name
                 messages:
@@ -9758,21 +9768,21 @@ components:
                 type: type
                 value: value
                 required: true
-            config:
-              method: method
-              action: action
-              messages:
-              - id: 0
-                text: text
-                type: info
-              - id: 0
-                text: text
-                type: info
           spnego:
             method: method
             level: 6
             state:
               initialized: true
+            config:
+              method: method
+              action: action
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
               fields:
               - name: name
                 messages:
@@ -9798,21 +9808,21 @@ components:
                 type: type
                 value: value
                 required: true
-            config:
-              method: method
-              action: action
-              messages:
-              - id: 0
-                text: text
-                type: info
-              - id: 0
-                text: text
-                type: info
           webauthn:
             method: method
             level: 6
             state:
               initialized: true
+            config:
+              method: method
+              action: action
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
               fields:
               - name: name
                 messages:
@@ -9838,21 +9848,21 @@ components:
                 type: type
                 value: value
                 required: true
-            config:
-              method: method
-              action: action
-              messages:
-              - id: 0
-                text: text
-                type: info
-              - id: 0
-                text: text
-                type: info
           otp:
             method: method
             level: 6
             state:
               initialized: true
+            config:
+              method: method
+              action: action
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
               fields:
               - name: name
                 messages:
@@ -9878,21 +9888,21 @@ components:
                 type: type
                 value: value
                 required: true
-            config:
-              method: method
-              action: action
-              messages:
-              - id: 0
-                text: text
-                type: info
-              - id: 0
-                text: text
-                type: info
           oidc:
             method: method
             level: 6
             state:
               initialized: true
+            config:
+              method: method
+              action: action
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
               fields:
               - name: name
                 messages:
@@ -9918,16 +9928,6 @@ components:
                 type: type
                 value: value
                 required: true
-            config:
-              method: method
-              action: action
-              messages:
-              - id: 0
-                text: text
-                type: info
-              - id: 0
-                text: text
-                type: info
         ssoChallenge: ssoChallenge
         id: id
       properties:
@@ -9948,6 +9948,16 @@ components:
         level: 6
         state:
           initialized: true
+        config:
+          method: method
+          action: action
+          messages:
+          - id: 0
+            text: text
+            type: info
+          - id: 0
+            text: text
+            type: info
           fields:
           - name: name
             messages:
@@ -9973,16 +9983,6 @@ components:
             type: type
             value: value
             required: true
-        config:
-          method: method
-          action: action
-          messages:
-          - id: 0
-            text: text
-            type: info
-          - id: 0
-            text: text
-            type: info
       properties:
         config:
           $ref: '#/components/schemas/LoginFlowMethod_config'
@@ -11351,6 +11351,16 @@ components:
           level: 6
           state:
             initialized: true
+          config:
+            method: method
+            action: action
+            messages:
+            - id: 0
+              text: text
+              type: info
+            - id: 0
+              text: text
+              type: info
             fields:
             - name: name
               messages:
@@ -11376,21 +11386,21 @@ components:
               type: type
               value: value
               required: true
-          config:
-            method: method
-            action: action
-            messages:
-            - id: 0
-              text: text
-              type: info
-            - id: 0
-              text: text
-              type: info
         spnego:
           method: method
           level: 6
           state:
             initialized: true
+          config:
+            method: method
+            action: action
+            messages:
+            - id: 0
+              text: text
+              type: info
+            - id: 0
+              text: text
+              type: info
             fields:
             - name: name
               messages:
@@ -11416,21 +11426,21 @@ components:
               type: type
               value: value
               required: true
-          config:
-            method: method
-            action: action
-            messages:
-            - id: 0
-              text: text
-              type: info
-            - id: 0
-              text: text
-              type: info
         webauthn:
           method: method
           level: 6
           state:
             initialized: true
+          config:
+            method: method
+            action: action
+            messages:
+            - id: 0
+              text: text
+              type: info
+            - id: 0
+              text: text
+              type: info
             fields:
             - name: name
               messages:
@@ -11456,21 +11466,21 @@ components:
               type: type
               value: value
               required: true
-          config:
-            method: method
-            action: action
-            messages:
-            - id: 0
-              text: text
-              type: info
-            - id: 0
-              text: text
-              type: info
         otp:
           method: method
           level: 6
           state:
             initialized: true
+          config:
+            method: method
+            action: action
+            messages:
+            - id: 0
+              text: text
+              type: info
+            - id: 0
+              text: text
+              type: info
             fields:
             - name: name
               messages:
@@ -11496,21 +11506,21 @@ components:
               type: type
               value: value
               required: true
-          config:
-            method: method
-            action: action
-            messages:
-            - id: 0
-              text: text
-              type: info
-            - id: 0
-              text: text
-              type: info
         oidc:
           method: method
           level: 6
           state:
             initialized: true
+          config:
+            method: method
+            action: action
+            messages:
+            - id: 0
+              text: text
+              type: info
+            - id: 0
+              text: text
+              type: info
             fields:
             - name: name
               messages:
@@ -11536,16 +11546,6 @@ components:
               type: type
               value: value
               required: true
-          config:
-            method: method
-            action: action
-            messages:
-            - id: 0
-              text: text
-              type: info
-            - id: 0
-              text: text
-              type: info
       properties:
         oidc:
           $ref: '#/components/schemas/LoginFlowMethod'
@@ -11558,28 +11558,7 @@ components:
         webauthn:
           $ref: '#/components/schemas/LoginFlowMethod'
       type: object
-    LoginFlowMethod_config:
-      example:
-        method: method
-        action: action
-        messages:
-        - id: 0
-          text: text
-          type: info
-        - id: 0
-          text: text
-          type: info
-      properties:
-        action:
-          type: string
-        messages:
-          items:
-            $ref: '#/components/schemas/UserFacingMessage'
-          type: array
-        method:
-          type: string
-      type: object
-    LoginFlowMethod_state_fields:
+    LoginFlowMethod_config_fields:
       example:
         name: name
         messages:
@@ -11609,9 +11588,17 @@ components:
         value:
           type: string
       type: object
-    LoginFlowMethod_state:
+    LoginFlowMethod_config:
       example:
-        initialized: true
+        method: method
+        action: action
+        messages:
+        - id: 0
+          text: text
+          type: info
+        - id: 0
+          text: text
+          type: info
         fields:
         - name: name
           messages:
@@ -11638,10 +11625,23 @@ components:
           value: value
           required: true
       properties:
+        action:
+          type: string
         fields:
           items:
-            $ref: '#/components/schemas/LoginFlowMethod_state_fields'
+            $ref: '#/components/schemas/LoginFlowMethod_config_fields'
           type: array
+        messages:
+          items:
+            $ref: '#/components/schemas/UserFacingMessage'
+          type: array
+        method:
+          type: string
+      type: object
+    LoginFlowMethod_state:
+      example:
+        initialized: true
+      properties:
         initialized:
           type: boolean
       type: object

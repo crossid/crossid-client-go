@@ -17,7 +17,6 @@ import (
 
 // LoginFlowMethodState struct for LoginFlowMethodState
 type LoginFlowMethodState struct {
-	Fields *[]LoginFlowMethodStateFields `json:"fields,omitempty"`
 	Initialized *bool `json:"initialized,omitempty"`
 }
 
@@ -36,38 +35,6 @@ func NewLoginFlowMethodState() *LoginFlowMethodState {
 func NewLoginFlowMethodStateWithDefaults() *LoginFlowMethodState {
 	this := LoginFlowMethodState{}
 	return &this
-}
-
-// GetFields returns the Fields field value if set, zero value otherwise.
-func (o *LoginFlowMethodState) GetFields() []LoginFlowMethodStateFields {
-	if o == nil || o.Fields == nil {
-		var ret []LoginFlowMethodStateFields
-		return ret
-	}
-	return *o.Fields
-}
-
-// GetFieldsOk returns a tuple with the Fields field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *LoginFlowMethodState) GetFieldsOk() (*[]LoginFlowMethodStateFields, bool) {
-	if o == nil || o.Fields == nil {
-		return nil, false
-	}
-	return o.Fields, true
-}
-
-// HasFields returns a boolean if a field has been set.
-func (o *LoginFlowMethodState) HasFields() bool {
-	if o != nil && o.Fields != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetFields gets a reference to the given []LoginFlowMethodStateFields and assigns it to the Fields field.
-func (o *LoginFlowMethodState) SetFields(v []LoginFlowMethodStateFields) {
-	o.Fields = &v
 }
 
 // GetInitialized returns the Initialized field value if set, zero value otherwise.
@@ -104,9 +71,6 @@ func (o *LoginFlowMethodState) SetInitialized(v bool) {
 
 func (o LoginFlowMethodState) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Fields != nil {
-		toSerialize["fields"] = o.Fields
-	}
 	if o.Initialized != nil {
 		toSerialize["initialized"] = o.Initialized
 	}
