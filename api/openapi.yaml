@@ -29,20 +29,6 @@ servers:
 security:
 - bearerAuth: []
 tags:
-- description: Applications Endpoints
-  name: apps
-- description: Audit Endpoints
-  name: audit
-- description: Resource Types Endpoints
-  name: resourceTypes
-- description: Node Health Endpoints
-  name: health
-- description: Data mining and role clustering Endpoints
-  name: mining
-- description: Schemas Endpoints
-  name: schemas
-- description: Portal Endpoints
-  name: portal
 - description: Sessions Endpoints
   name: sessions
 - description: API Tokens Endpoints
@@ -53,26 +39,40 @@ tags:
   name: login
 - description: Registration Endpoints
   name: register
-- description: Changes Endpoints
-  name: changes
 - description: Filters Endpoints
   name: filters
+- description: Data mining and role clustering Endpoints
+  name: mining
+- description: Jobs Endpoints
+  name: jobs
 - description: Resource References Endpoints
   name: refs
 - description: Resources Endpoints
   name: resources
-- description: Insight discovery and resolution Endpoints
-  name: insights
-- description: rules Endpoints
-  name: rules
+- description: Resource Types Endpoints
+  name: resourceTypes
+- description: Audit Endpoints
+  name: audit
 - description: Flows and Tasks endpoints
   name: flows
+- description: Node Health Endpoints
+  name: health
+- description: Applications Endpoints
+  name: apps
+- description: Schemas Endpoints
+  name: schemas
+- description: rules Endpoints
+  name: rules
+- description: Changes Endpoints
+  name: changes
+- description: Insight discovery and resolution Endpoints
+  name: insights
 - description: Secrets Endpoints
   name: secrets
-- description: Jobs Endpoints
-  name: jobs
 - description: Mappers Endpoints
   name: mappers
+- description: Portal Endpoints
+  name: portal
 paths:
   /apps/:
     get:
@@ -10303,6 +10303,82 @@ components:
                 type: type
                 value: value
                 required: true
+          otp:
+            method: method
+            config:
+              dummy: dummy
+              method: method
+              action: action
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              fields:
+              - name: name
+                messages:
+                - id: 0
+                  text: text
+                  type: info
+                - id: 0
+                  text: text
+                  type: info
+                disabled: true
+                type: type
+                value: value
+                required: true
+              - name: name
+                messages:
+                - id: 0
+                  text: text
+                  type: info
+                - id: 0
+                  text: text
+                  type: info
+                disabled: true
+                type: type
+                value: value
+                required: true
+          oidc:
+            method: method
+            config:
+              dummy: dummy
+              method: method
+              action: action
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              fields:
+              - name: name
+                messages:
+                - id: 0
+                  text: text
+                  type: info
+                - id: 0
+                  text: text
+                  type: info
+                disabled: true
+                type: type
+                value: value
+                required: true
+              - name: name
+                messages:
+                - id: 0
+                  text: text
+                  type: info
+                - id: 0
+                  text: text
+                  type: info
+                disabled: true
+                type: type
+                value: value
+                required: true
         id: id
       properties:
         id:
@@ -11664,7 +11740,87 @@ components:
               type: type
               value: value
               required: true
+        otp:
+          method: method
+          config:
+            dummy: dummy
+            method: method
+            action: action
+            messages:
+            - id: 0
+              text: text
+              type: info
+            - id: 0
+              text: text
+              type: info
+            fields:
+            - name: name
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              disabled: true
+              type: type
+              value: value
+              required: true
+            - name: name
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              disabled: true
+              type: type
+              value: value
+              required: true
+        oidc:
+          method: method
+          config:
+            dummy: dummy
+            method: method
+            action: action
+            messages:
+            - id: 0
+              text: text
+              type: info
+            - id: 0
+              text: text
+              type: info
+            fields:
+            - name: name
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              disabled: true
+              type: type
+              value: value
+              required: true
+            - name: name
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              disabled: true
+              type: type
+              value: value
+              required: true
       properties:
+        oidc:
+          $ref: '#/components/schemas/RegistrationFlowMethod'
+        otp:
+          $ref: '#/components/schemas/RegistrationFlowMethod'
         password:
           $ref: '#/components/schemas/RegistrationFlowMethod'
         spnego:
