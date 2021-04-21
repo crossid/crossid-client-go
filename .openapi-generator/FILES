@@ -96,7 +96,8 @@ docs/LoginApi.md
 docs/LoginFlow.md
 docs/LoginFlowMethod.md
 docs/LoginFlowMethodConfig.md
-docs/LoginFlowMethodConfigFields.md
+docs/LoginFlowMethodState.md
+docs/LoginFlowMethodStateFields.md
 docs/LoginFlowMethods.md
 docs/MapResource.md
 docs/Mapper.md
@@ -219,7 +220,8 @@ model_list.go
 model_login_flow.go
 model_login_flow_method.go
 model_login_flow_method_config.go
-model_login_flow_method_config_fields.go
+model_login_flow_method_state.go
+model_login_flow_method_state_fields.go
 model_login_flow_methods.go
 model_map_resource.go
 model_mapper.go

@@ -18,7 +18,6 @@ import (
 // LoginFlowMethodConfig struct for LoginFlowMethodConfig
 type LoginFlowMethodConfig struct {
 	Action *string `json:"action,omitempty"`
-	Fields *[]LoginFlowMethodConfigFields `json:"fields,omitempty"`
 	Messages *[]UserFacingMessage `json:"messages,omitempty"`
 	Method *string `json:"method,omitempty"`
 }
@@ -70,38 +69,6 @@ func (o *LoginFlowMethodConfig) HasAction() bool {
 // SetAction gets a reference to the given string and assigns it to the Action field.
 func (o *LoginFlowMethodConfig) SetAction(v string) {
 	o.Action = &v
-}
-
-// GetFields returns the Fields field value if set, zero value otherwise.
-func (o *LoginFlowMethodConfig) GetFields() []LoginFlowMethodConfigFields {
-	if o == nil || o.Fields == nil {
-		var ret []LoginFlowMethodConfigFields
-		return ret
-	}
-	return *o.Fields
-}
-
-// GetFieldsOk returns a tuple with the Fields field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *LoginFlowMethodConfig) GetFieldsOk() (*[]LoginFlowMethodConfigFields, bool) {
-	if o == nil || o.Fields == nil {
-		return nil, false
-	}
-	return o.Fields, true
-}
-
-// HasFields returns a boolean if a field has been set.
-func (o *LoginFlowMethodConfig) HasFields() bool {
-	if o != nil && o.Fields != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetFields gets a reference to the given []LoginFlowMethodConfigFields and assigns it to the Fields field.
-func (o *LoginFlowMethodConfig) SetFields(v []LoginFlowMethodConfigFields) {
-	o.Fields = &v
 }
 
 // GetMessages returns the Messages field value if set, zero value otherwise.
@@ -172,9 +139,6 @@ func (o LoginFlowMethodConfig) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Action != nil {
 		toSerialize["action"] = o.Action
-	}
-	if o.Fields != nil {
-		toSerialize["fields"] = o.Fields
 	}
 	if o.Messages != nil {
 		toSerialize["messages"] = o.Messages

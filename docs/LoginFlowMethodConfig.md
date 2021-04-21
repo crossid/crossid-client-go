@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Action** | Pointer to **string** |  | [optional] 
-**Fields** | Pointer to [**[]LoginFlowMethodConfigFields**](LoginFlowMethodConfigFields.md) |  | [optional] 
 **Messages** | Pointer to [**[]UserFacingMessage**](UserFacingMessage.md) |  | [optional] 
 **Method** | Pointer to **string** |  | [optional] 
 
@@ -52,31 +51,6 @@ SetAction sets Action field to given value.
 `func (o *LoginFlowMethodConfig) HasAction() bool`
 
 HasAction returns a boolean if a field has been set.
-
-### GetFields
-
-`func (o *LoginFlowMethodConfig) GetFields() []LoginFlowMethodConfigFields`
-
-GetFields returns the Fields field if non-nil, zero value otherwise.
-
-### GetFieldsOk
-
-`func (o *LoginFlowMethodConfig) GetFieldsOk() (*[]LoginFlowMethodConfigFields, bool)`
-
-GetFieldsOk returns a tuple with the Fields field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFields
-
-`func (o *LoginFlowMethodConfig) SetFields(v []LoginFlowMethodConfigFields)`
-
-SetFields sets Fields field to given value.
-
-### HasFields
-
-`func (o *LoginFlowMethodConfig) HasFields() bool`
-
-HasFields returns a boolean if a field has been set.
 
 ### GetMessages
 
