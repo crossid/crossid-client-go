@@ -19,6 +19,7 @@ api_mappers.go
 api_mining.go
 api_oauth2.go
 api_portal.go
+api_register.go
 api_resource_types.go
 api_resources.go
 api_rules.go
@@ -116,6 +117,12 @@ docs/PatchesList.md
 docs/PatchesListAllOf.md
 docs/PortalApi.md
 docs/RefsReqBody.md
+docs/RegisterApi.md
+docs/RegistrationFlow.md
+docs/RegistrationFlowMethod.md
+docs/RegistrationFlowMethodConfig.md
+docs/RegistrationFlowMethodConfigFields.md
+docs/RegistrationFlowMethods.md
 docs/Resource.md
 docs/ResourceDiffReq.md
 docs/ResourceDiffRes.md
@@ -229,6 +236,11 @@ model_patch_request.go
 model_patches_list.go
 model_patches_list_all_of.go
 model_refs_req_body.go
+model_registration_flow.go
+model_registration_flow_method.go
+model_registration_flow_method_config.go
+model_registration_flow_method_config_fields.go
+model_registration_flow_methods.go
 model_resource.go
 model_resource_diff_req.go
 model_resource_diff_res.go

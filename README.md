@@ -135,6 +135,7 @@ Class | Method | HTTP request | Description
 *Oauth2Api* | [**ListOAUTH2Clients**](docs/Oauth2Api.md#listoauth2clients) | **Get** /oauth2/clients/ | List OAUTH 2.0 Clients.
 *PortalApi* | [**PortalFindRequest**](docs/PortalApi.md#portalfindrequest) | **Post** /portal/.gsearch | Make a portal specific resources search
 *PortalApi* | [**PortalRequest**](docs/PortalApi.md#portalrequest) | **Post** /portal/request | Make a portal request
+*RegisterApi* | [**GetRegistrationFlow**](docs/RegisterApi.md#getregistrationflow) | **Get** /auth/self-service/register/flows | Info for a specific registration flow.
 *ResourceTypesApi* | [**CreateResourceType**](docs/ResourceTypesApi.md#createresourcetype) | **Post** /resource-types/ | Create a Resource Type
 *ResourceTypesApi* | [**GetResourceType**](docs/ResourceTypesApi.md#getresourcetype) | **Get** /resource-types/{id} | Get a Resource Type
 *ResourceTypesApi* | [**ListResourceTypes**](docs/ResourceTypesApi.md#listresourcetypes) | **Get** /resource-types/ | List Resource Types
@@ -248,6 +249,11 @@ Class | Method | HTTP request | Description
  - [PatchesList](docs/PatchesList.md)
  - [PatchesListAllOf](docs/PatchesListAllOf.md)
  - [RefsReqBody](docs/RefsReqBody.md)
+ - [RegistrationFlow](docs/RegistrationFlow.md)
+ - [RegistrationFlowMethod](docs/RegistrationFlowMethod.md)
+ - [RegistrationFlowMethodConfig](docs/RegistrationFlowMethodConfig.md)
+ - [RegistrationFlowMethodConfigFields](docs/RegistrationFlowMethodConfigFields.md)
+ - [RegistrationFlowMethods](docs/RegistrationFlowMethods.md)
  - [Resource](docs/Resource.md)
  - [ResourceDiffReq](docs/ResourceDiffReq.md)
  - [ResourceDiffRes](docs/ResourceDiffRes.md)
