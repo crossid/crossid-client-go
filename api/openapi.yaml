@@ -29,18 +29,6 @@ servers:
 security:
 - bearerAuth: []
 tags:
-- description: Portal Endpoints
-  name: portal
-- description: Changes Endpoints
-  name: changes
-- description: Schemas Endpoints
-  name: schemas
-- description: Insight discovery and resolution Endpoints
-  name: insights
-- description: Jobs Endpoints
-  name: jobs
-- description: Mappers Endpoints
-  name: mappers
 - description: Sessions Endpoints
   name: sessions
 - description: API Tokens Endpoints
@@ -51,28 +39,40 @@ tags:
   name: login
 - description: Registration Endpoints
   name: register
-- description: Filters Endpoints
-  name: filters
+- description: Changes Endpoints
+  name: changes
 - description: Flows and Tasks endpoints
   name: flows
-- description: Node Health Endpoints
-  name: health
+- description: Secrets Endpoints
+  name: secrets
+- description: Schemas Endpoints
+  name: schemas
+- description: rules Endpoints
+  name: rules
+- description: Insight discovery and resolution Endpoints
+  name: insights
+- description: Applications Endpoints
+  name: apps
 - description: Data mining and role clustering Endpoints
   name: mining
-- description: Resource References Endpoints
-  name: refs
+- description: Jobs Endpoints
+  name: jobs
+- description: Mappers Endpoints
+  name: mappers
+- description: Portal Endpoints
+  name: portal
 - description: Resources Endpoints
   name: resources
 - description: Resource Types Endpoints
   name: resourceTypes
-- description: rules Endpoints
-  name: rules
-- description: Applications Endpoints
-  name: apps
 - description: Audit Endpoints
   name: audit
-- description: Secrets Endpoints
-  name: secrets
+- description: Filters Endpoints
+  name: filters
+- description: Node Health Endpoints
+  name: health
+- description: Resource References Endpoints
+  name: refs
 paths:
   /apps/:
     get:
@@ -1164,7 +1164,7 @@ paths:
       tags:
       - apiTokens
       x-order: 30
-  /auth/auth-errors/:
+  /auth/errors/:
     get:
       operationId: getErrors
       parameters:
@@ -9128,10 +9128,13 @@ components:
           resourceType: resourceType
           revision: 0
         appId: appId
+        active: true
         id: id
         config: ""
         logoURL: logoURL
       properties:
+        active:
+          type: boolean
         appId:
           type: string
         appLogic:
