@@ -17,6 +17,8 @@ import (
 
 // RegistrationFlowMethods struct for RegistrationFlowMethods
 type RegistrationFlowMethods struct {
+	Oidc *RegistrationFlowMethod `json:"oidc,omitempty"`
+	Otp *RegistrationFlowMethod `json:"otp,omitempty"`
 	Password *RegistrationFlowMethod `json:"password,omitempty"`
 	Spnego *RegistrationFlowMethod `json:"spnego,omitempty"`
 	Webauthn *RegistrationFlowMethod `json:"webauthn,omitempty"`
@@ -37,6 +39,70 @@ func NewRegistrationFlowMethods() *RegistrationFlowMethods {
 func NewRegistrationFlowMethodsWithDefaults() *RegistrationFlowMethods {
 	this := RegistrationFlowMethods{}
 	return &this
+}
+
+// GetOidc returns the Oidc field value if set, zero value otherwise.
+func (o *RegistrationFlowMethods) GetOidc() RegistrationFlowMethod {
+	if o == nil || o.Oidc == nil {
+		var ret RegistrationFlowMethod
+		return ret
+	}
+	return *o.Oidc
+}
+
+// GetOidcOk returns a tuple with the Oidc field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RegistrationFlowMethods) GetOidcOk() (*RegistrationFlowMethod, bool) {
+	if o == nil || o.Oidc == nil {
+		return nil, false
+	}
+	return o.Oidc, true
+}
+
+// HasOidc returns a boolean if a field has been set.
+func (o *RegistrationFlowMethods) HasOidc() bool {
+	if o != nil && o.Oidc != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetOidc gets a reference to the given RegistrationFlowMethod and assigns it to the Oidc field.
+func (o *RegistrationFlowMethods) SetOidc(v RegistrationFlowMethod) {
+	o.Oidc = &v
+}
+
+// GetOtp returns the Otp field value if set, zero value otherwise.
+func (o *RegistrationFlowMethods) GetOtp() RegistrationFlowMethod {
+	if o == nil || o.Otp == nil {
+		var ret RegistrationFlowMethod
+		return ret
+	}
+	return *o.Otp
+}
+
+// GetOtpOk returns a tuple with the Otp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RegistrationFlowMethods) GetOtpOk() (*RegistrationFlowMethod, bool) {
+	if o == nil || o.Otp == nil {
+		return nil, false
+	}
+	return o.Otp, true
+}
+
+// HasOtp returns a boolean if a field has been set.
+func (o *RegistrationFlowMethods) HasOtp() bool {
+	if o != nil && o.Otp != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetOtp gets a reference to the given RegistrationFlowMethod and assigns it to the Otp field.
+func (o *RegistrationFlowMethods) SetOtp(v RegistrationFlowMethod) {
+	o.Otp = &v
 }
 
 // GetPassword returns the Password field value if set, zero value otherwise.
@@ -137,6 +203,12 @@ func (o *RegistrationFlowMethods) SetWebauthn(v RegistrationFlowMethod) {
 
 func (o RegistrationFlowMethods) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.Oidc != nil {
+		toSerialize["oidc"] = o.Oidc
+	}
+	if o.Otp != nil {
+		toSerialize["otp"] = o.Otp
+	}
 	if o.Password != nil {
 		toSerialize["password"] = o.Password
 	}

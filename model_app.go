@@ -17,6 +17,7 @@ import (
 
 // App struct for App
 type App struct {
+	Active *bool `json:"active,omitempty"`
 	AppId *string `json:"appId,omitempty"`
 	AppLogic *string `json:"appLogic,omitempty"`
 	Config interface{} `json:"config,omitempty"`
@@ -42,6 +43,38 @@ func NewApp() *App {
 func NewAppWithDefaults() *App {
 	this := App{}
 	return &this
+}
+
+// GetActive returns the Active field value if set, zero value otherwise.
+func (o *App) GetActive() bool {
+	if o == nil || o.Active == nil {
+		var ret bool
+		return ret
+	}
+	return *o.Active
+}
+
+// GetActiveOk returns a tuple with the Active field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *App) GetActiveOk() (*bool, bool) {
+	if o == nil || o.Active == nil {
+		return nil, false
+	}
+	return o.Active, true
+}
+
+// HasActive returns a boolean if a field has been set.
+func (o *App) HasActive() bool {
+	if o != nil && o.Active != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetActive gets a reference to the given bool and assigns it to the Active field.
+func (o *App) SetActive(v bool) {
+	o.Active = &v
 }
 
 // GetAppId returns the AppId field value if set, zero value otherwise.
@@ -303,6 +336,9 @@ func (o *App) SetMeta(v ApiTokenMeta) {
 
 func (o App) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.Active != nil {
+		toSerialize["active"] = o.Active
+	}
 	if o.AppId != nil {
 		toSerialize["appId"] = o.AppId
 	}

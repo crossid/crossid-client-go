@@ -92,7 +92,7 @@ Class | Method | HTTP request | Description
 *AppsApi* | [**ReplaceApp**](docs/AppsApi.md#replaceapp) | **Put** /apps/{appId} | Replace an App
 *AuditApi* | [**GetCommit**](docs/AuditApi.md#getcommit) | **Get** /audit/commits/{id} | Get a Commit
 *AuditApi* | [**ListCommits**](docs/AuditApi.md#listcommits) | **Get** /audit/commits | List Commits
-*AuthErrorsApi* | [**GetErrors**](docs/AuthErrorsApi.md#geterrors) | **Get** /auth/auth-errors/ | Info for a specific errors.
+*AuthErrorsApi* | [**GetErrors**](docs/AuthErrorsApi.md#geterrors) | **Get** /auth/errors/ | Info for a specific errors.
 *ChangesApi* | [**ApplyChangeLog**](docs/ChangesApi.md#applychangelog) | **Post** /changes/{id}/.apply | Apply a ChangeLog
 *ChangesApi* | [**CancelChangeLog**](docs/ChangesApi.md#cancelchangelog) | **Post** /changes/{id}/.cancel | Cancel a ChangeLog.
 *ChangesApi* | [**GetChangeLog**](docs/ChangesApi.md#getchangelog) | **Get** /changes/{id} | Get a Change-Log.
@@ -233,6 +233,7 @@ Class | Method | HTTP request | Description
  - [LoginFlowMethod](docs/LoginFlowMethod.md)
  - [LoginFlowMethodConfig](docs/LoginFlowMethodConfig.md)
  - [LoginFlowMethodConfigFields](docs/LoginFlowMethodConfigFields.md)
+ - [LoginFlowMethodState](docs/LoginFlowMethodState.md)
  - [LoginFlowMethods](docs/LoginFlowMethods.md)
  - [MapResource](docs/MapResource.md)
  - [Mapper](docs/Mapper.md)
