@@ -233,7 +233,6 @@ Class | Method | HTTP request | Description
  - [LoginFlowMethod](docs/LoginFlowMethod.md)
  - [LoginFlowMethodConfig](docs/LoginFlowMethodConfig.md)
  - [LoginFlowMethodConfigFields](docs/LoginFlowMethodConfigFields.md)
- - [LoginFlowMethodState](docs/LoginFlowMethodState.md)
  - [LoginFlowMethods](docs/LoginFlowMethods.md)
  - [MapResource](docs/MapResource.md)
  - [Mapper](docs/Mapper.md)

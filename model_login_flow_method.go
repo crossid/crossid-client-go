@@ -18,9 +18,7 @@ import (
 // LoginFlowMethod struct for LoginFlowMethod
 type LoginFlowMethod struct {
 	Config *LoginFlowMethodConfig `json:"config,omitempty"`
-	Level *int32 `json:"level,omitempty"`
 	Method *string `json:"method,omitempty"`
-	State *LoginFlowMethodState `json:"state,omitempty"`
 }
 
 // NewLoginFlowMethod instantiates a new LoginFlowMethod object
@@ -72,38 +70,6 @@ func (o *LoginFlowMethod) SetConfig(v LoginFlowMethodConfig) {
 	o.Config = &v
 }
 
-// GetLevel returns the Level field value if set, zero value otherwise.
-func (o *LoginFlowMethod) GetLevel() int32 {
-	if o == nil || o.Level == nil {
-		var ret int32
-		return ret
-	}
-	return *o.Level
-}
-
-// GetLevelOk returns a tuple with the Level field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *LoginFlowMethod) GetLevelOk() (*int32, bool) {
-	if o == nil || o.Level == nil {
-		return nil, false
-	}
-	return o.Level, true
-}
-
-// HasLevel returns a boolean if a field has been set.
-func (o *LoginFlowMethod) HasLevel() bool {
-	if o != nil && o.Level != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetLevel gets a reference to the given int32 and assigns it to the Level field.
-func (o *LoginFlowMethod) SetLevel(v int32) {
-	o.Level = &v
-}
-
 // GetMethod returns the Method field value if set, zero value otherwise.
 func (o *LoginFlowMethod) GetMethod() string {
 	if o == nil || o.Method == nil {
@@ -136,51 +102,13 @@ func (o *LoginFlowMethod) SetMethod(v string) {
 	o.Method = &v
 }
 
-// GetState returns the State field value if set, zero value otherwise.
-func (o *LoginFlowMethod) GetState() LoginFlowMethodState {
-	if o == nil || o.State == nil {
-		var ret LoginFlowMethodState
-		return ret
-	}
-	return *o.State
-}
-
-// GetStateOk returns a tuple with the State field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *LoginFlowMethod) GetStateOk() (*LoginFlowMethodState, bool) {
-	if o == nil || o.State == nil {
-		return nil, false
-	}
-	return o.State, true
-}
-
-// HasState returns a boolean if a field has been set.
-func (o *LoginFlowMethod) HasState() bool {
-	if o != nil && o.State != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetState gets a reference to the given LoginFlowMethodState and assigns it to the State field.
-func (o *LoginFlowMethod) SetState(v LoginFlowMethodState) {
-	o.State = &v
-}
-
 func (o LoginFlowMethod) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Config != nil {
 		toSerialize["config"] = o.Config
 	}
-	if o.Level != nil {
-		toSerialize["level"] = o.Level
-	}
 	if o.Method != nil {
 		toSerialize["method"] = o.Method
-	}
-	if o.State != nil {
-		toSerialize["state"] = o.State
 	}
 	return json.Marshal(toSerialize)
 }
