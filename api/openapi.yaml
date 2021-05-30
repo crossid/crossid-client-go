@@ -29,12 +29,24 @@ servers:
 security:
 - bearerAuth: []
 tags:
-- description: Changes Endpoints
-  name: changes
+- description: Flows and Tasks endpoints
+  name: flows
+- description: Data mining and role clustering Endpoints
+  name: mining
+- description: Jobs Endpoints
+  name: jobs
 - description: Schemas Endpoints
   name: schemas
+- description: Resource References Endpoints
+  name: refs
+- description: Resources Endpoints
+  name: resources
 - description: Resource Types Endpoints
   name: resourceTypes
+- description: Audit Endpoints
+  name: audit
+- description: Secrets Endpoints
+  name: secrets
 - description: Sessions Endpoints
   name: sessions
 - description: API Tokens Endpoints
@@ -47,32 +59,20 @@ tags:
   name: register
 - description: Insight discovery and resolution Endpoints
   name: insights
-- description: Resources Endpoints
-  name: resources
-- description: Secrets Endpoints
-  name: secrets
 - description: Applications Endpoints
   name: apps
-- description: Data mining and role clustering Endpoints
-  name: mining
-- description: Jobs Endpoints
-  name: jobs
+- description: Filters Endpoints
+  name: filters
+- description: Node Health Endpoints
+  name: health
+- description: rules Endpoints
+  name: rules
+- description: Changes Endpoints
+  name: changes
 - description: Mappers Endpoints
   name: mappers
 - description: Portal Endpoints
   name: portal
-- description: Audit Endpoints
-  name: audit
-- description: Filters Endpoints
-  name: filters
-- description: Flows and Tasks endpoints
-  name: flows
-- description: Node Health Endpoints
-  name: health
-- description: Resource References Endpoints
-  name: refs
-- description: rules Endpoints
-  name: rules
 paths:
   /apps/:
     get:
