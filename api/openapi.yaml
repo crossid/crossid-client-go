@@ -29,24 +29,6 @@ servers:
 security:
 - bearerAuth: []
 tags:
-- description: Flows and Tasks endpoints
-  name: flows
-- description: Data mining and role clustering Endpoints
-  name: mining
-- description: Jobs Endpoints
-  name: jobs
-- description: Schemas Endpoints
-  name: schemas
-- description: Resource References Endpoints
-  name: refs
-- description: Resources Endpoints
-  name: resources
-- description: Resource Types Endpoints
-  name: resourceTypes
-- description: Audit Endpoints
-  name: audit
-- description: Secrets Endpoints
-  name: secrets
 - description: Sessions Endpoints
   name: sessions
 - description: API Tokens Endpoints
@@ -57,22 +39,42 @@ tags:
   name: login
 - description: Registration Endpoints
   name: register
-- description: Insight discovery and resolution Endpoints
-  name: insights
+- description: Verification Endpoints
+  name: verify
+- description: Changes Endpoints
+  name: changes
 - description: Applications Endpoints
   name: apps
 - description: Filters Endpoints
   name: filters
-- description: Node Health Endpoints
-  name: health
-- description: rules Endpoints
-  name: rules
-- description: Changes Endpoints
-  name: changes
-- description: Mappers Endpoints
-  name: mappers
+- description: Flows and Tasks endpoints
+  name: flows
+- description: Insight discovery and resolution Endpoints
+  name: insights
 - description: Portal Endpoints
   name: portal
+- description: Resources Endpoints
+  name: resources
+- description: Resource Types Endpoints
+  name: resourceTypes
+- description: Audit Endpoints
+  name: audit
+- description: Secrets Endpoints
+  name: secrets
+- description: rules Endpoints
+  name: rules
+- description: Node Health Endpoints
+  name: health
+- description: Schemas Endpoints
+  name: schemas
+- description: Resource References Endpoints
+  name: refs
+- description: Data mining and role clustering Endpoints
+  name: mining
+- description: Jobs Endpoints
+  name: jobs
+- description: Mappers Endpoints
+  name: mappers
 paths:
   /apps/:
     get:
@@ -1320,6 +1322,58 @@ paths:
       summary: Info for a specific registration flow.
       tags:
       - register
+  /auth/self-service/verify/flows:
+    get:
+      operationId: getVerificationFlow
+      parameters:
+      - description: The id of the flow to retrieve
+        explode: true
+        in: query
+        name: id
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerificationFlow'
+          description: Expected response to a valid request
+        "400":
+          content:
+            application/json:
+              example:
+                code: "400"
+                message: 'Bad Request: Invalid argument (invalid request payload).'
+                status: Bad Request
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: The submitted request is invalid.
+        "404":
+          content:
+            application/json:
+              example:
+                code: "404"
+                message: the requested resource could not be found.
+                status: Not Found
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: The specified resource was not found.
+        "500":
+          content:
+            application/json:
+              example:
+                code: "500"
+                message: an internal error has occurred.
+                status: Internal Error
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: An internal error has occured.
+      summary: Info for a specific verification flow.
+      tags:
+      - verify
   /auth/sessions/revoke:
     delete:
       operationId: sessionRevoke
@@ -11123,6 +11177,185 @@ components:
           - error
           type: string
       type: object
+    VerificationFlow:
+      example:
+        method: method
+        methods:
+          code:
+            method: method
+            config:
+              dummy: dummy
+              method: method
+              action: action
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              fields:
+              - name: name
+                messages:
+                - id: 0
+                  text: text
+                  type: info
+                - id: 0
+                  text: text
+                  type: info
+                disabled: true
+                type: type
+                value: value
+                required: true
+              - name: name
+                messages:
+                - id: 0
+                  text: text
+                  type: info
+                - id: 0
+                  text: text
+                  type: info
+                disabled: true
+                type: type
+                value: value
+                required: true
+        id: id
+      properties:
+        id:
+          type: string
+        method:
+          type: string
+        methods:
+          $ref: '#/components/schemas/VerificationFlow_methods'
+      type: object
+    VerificationFlowMethod:
+      example:
+        method: method
+        config:
+          dummy: dummy
+          method: method
+          action: action
+          messages:
+          - id: 0
+            text: text
+            type: info
+          - id: 0
+            text: text
+            type: info
+          fields:
+          - name: name
+            messages:
+            - id: 0
+              text: text
+              type: info
+            - id: 0
+              text: text
+              type: info
+            disabled: true
+            type: type
+            value: value
+            required: true
+          - name: name
+            messages:
+            - id: 0
+              text: text
+              type: info
+            - id: 0
+              text: text
+              type: info
+            disabled: true
+            type: type
+            value: value
+            required: true
+      properties:
+        config:
+          $ref: '#/components/schemas/VerificationFlowMethodConfig'
+        method:
+          type: string
+      type: object
+    VerificationFlowMethodConfig:
+      example:
+        dummy: dummy
+        method: method
+        action: action
+        messages:
+        - id: 0
+          text: text
+          type: info
+        - id: 0
+          text: text
+          type: info
+        fields:
+        - name: name
+          messages:
+          - id: 0
+            text: text
+            type: info
+          - id: 0
+            text: text
+            type: info
+          disabled: true
+          type: type
+          value: value
+          required: true
+        - name: name
+          messages:
+          - id: 0
+            text: text
+            type: info
+          - id: 0
+            text: text
+            type: info
+          disabled: true
+          type: type
+          value: value
+          required: true
+      properties:
+        action:
+          type: string
+        dummy:
+          type: string
+        fields:
+          items:
+            $ref: '#/components/schemas/VerificationFlowMethodConfigFields'
+          type: array
+        messages:
+          items:
+            $ref: '#/components/schemas/UserFacingMessage'
+          type: array
+        method:
+          type: string
+      type: object
+    VerificationFlowMethodConfigFields:
+      example:
+        name: name
+        messages:
+        - id: 0
+          text: text
+          type: info
+        - id: 0
+          text: text
+          type: info
+        disabled: true
+        type: type
+        value: value
+        required: true
+      properties:
+        disabled:
+          type: boolean
+        messages:
+          items:
+            $ref: '#/components/schemas/UserFacingMessage'
+          type: array
+        name:
+          type: string
+        required:
+          type: boolean
+        type:
+          type: string
+        value:
+          type: string
+      type: object
     apiTokensList:
       allOf:
       - $ref: '#/components/schemas/list'
@@ -12148,6 +12381,50 @@ components:
           type: string
         flowKey:
           type: string
+      type: object
+    VerificationFlow_methods:
+      example:
+        code:
+          method: method
+          config:
+            dummy: dummy
+            method: method
+            action: action
+            messages:
+            - id: 0
+              text: text
+              type: info
+            - id: 0
+              text: text
+              type: info
+            fields:
+            - name: name
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              disabled: true
+              type: type
+              value: value
+              required: true
+            - name: name
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              disabled: true
+              type: type
+              value: value
+              required: true
+      properties:
+        code:
+          $ref: '#/components/schemas/VerificationFlowMethod'
       type: object
     apiTokensList_allOf:
       properties:

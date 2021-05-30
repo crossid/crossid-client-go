@@ -26,6 +26,7 @@ api_rules.go
 api_schemas.go
 api_secrets.go
 api_sessions.go
+api_verify.go
 client.go
 configuration.go
 docs/ApiToken.md
@@ -168,6 +169,12 @@ docs/TaskFlow.md
 docs/TasksList.md
 docs/TasksListAllOf.md
 docs/UserFacingMessage.md
+docs/VerificationFlow.md
+docs/VerificationFlowMethod.md
+docs/VerificationFlowMethodConfig.md
+docs/VerificationFlowMethodConfigFields.md
+docs/VerificationFlowMethods.md
+docs/VerifyApi.md
 git_push.sh
 go.mod
 go.sum
@@ -288,5 +295,10 @@ model_task_flow.go
 model_tasks_list.go
 model_tasks_list_all_of.go
 model_user_facing_message.go
+model_verification_flow.go
+model_verification_flow_method.go
+model_verification_flow_method_config.go
+model_verification_flow_method_config_fields.go
+model_verification_flow_methods.go
 response.go
 utils.go
