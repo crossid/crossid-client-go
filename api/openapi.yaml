@@ -29,6 +29,12 @@ servers:
 security:
 - bearerAuth: []
 tags:
+- description: Changes Endpoints
+  name: changes
+- description: Schemas Endpoints
+  name: schemas
+- description: Resource Types Endpoints
+  name: resourceTypes
 - description: Sessions Endpoints
   name: sessions
 - description: API Tokens Endpoints
@@ -39,18 +45,12 @@ tags:
   name: login
 - description: Registration Endpoints
   name: register
-- description: Changes Endpoints
-  name: changes
-- description: Flows and Tasks endpoints
-  name: flows
-- description: Secrets Endpoints
-  name: secrets
-- description: Schemas Endpoints
-  name: schemas
-- description: rules Endpoints
-  name: rules
 - description: Insight discovery and resolution Endpoints
   name: insights
+- description: Resources Endpoints
+  name: resources
+- description: Secrets Endpoints
+  name: secrets
 - description: Applications Endpoints
   name: apps
 - description: Data mining and role clustering Endpoints
@@ -61,18 +61,18 @@ tags:
   name: mappers
 - description: Portal Endpoints
   name: portal
-- description: Resources Endpoints
-  name: resources
-- description: Resource Types Endpoints
-  name: resourceTypes
 - description: Audit Endpoints
   name: audit
 - description: Filters Endpoints
   name: filters
+- description: Flows and Tasks endpoints
+  name: flows
 - description: Node Health Endpoints
   name: health
 - description: Resource References Endpoints
   name: refs
+- description: rules Endpoints
+  name: rules
 paths:
   /apps/:
     get:
@@ -2356,6 +2356,79 @@ paths:
       summary: List replaces in change logs
       tags:
       - changes
+  /event-logs/{id}:
+    get:
+      operationId: getEventLog
+      parameters:
+      - description: The id of the log to retrieve.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventLog'
+          description: Expected response to a valid request
+        "400":
+          content:
+            application/json:
+              example:
+                code: "400"
+                message: 'Bad Request: Invalid argument (invalid request payload).'
+                status: Bad Request
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: The submitted request is invalid.
+        "401":
+          content:
+            application/json:
+              example:
+                code: "401"
+                message: client is not authenticated.
+                status: Unauthorized
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Client is not authenticated.
+        "403":
+          content:
+            application/json:
+              example:
+                code: "403"
+                message: the request action is forbidden.
+                status: Forbidden
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Client is not authorized to perform the requested action.
+        "404":
+          content:
+            application/json:
+              example:
+                code: "404"
+                message: the requested resource could not be found.
+                status: Not Found
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: The specified resource was not found.
+        "500":
+          content:
+            application/json:
+              example:
+                code: "500"
+                message: an internal error has occurred.
+                status: Internal Error
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: An internal error has occured.
+      summary: Get an event log
+      tags:
+      - audit
+      x-order: 20
   /filters/:
     get:
       operationId: listFilters
@@ -9483,6 +9556,57 @@ components:
         status:
           type: string
       type: object
+    EventLog:
+      example:
+        actor:
+          identifier: identifier
+          displayName: displayName
+          type: type
+        result:
+          status: status
+        severity: severity
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        displayName: displayName
+        requestId: requestId
+        client:
+          geo:
+            country: country
+            city: city
+            location:
+              lat: 0.8008281904610115
+              long: 6.027456183070403
+            subDivision: subDivision
+            state: state
+          ip: ip
+          userAgent:
+            os: os
+            browser: browser
+            raw: raw
+            type: type
+            device: device
+        id: id
+        type: type
+      properties:
+        actor:
+          $ref: '#/components/schemas/EventLog_actor'
+        client:
+          $ref: '#/components/schemas/EventLog_client'
+        createdAt:
+          format: date-time
+          type: string
+        displayName:
+          type: string
+        id:
+          type: string
+        requestId:
+          type: string
+        result:
+          $ref: '#/components/schemas/EventLog_result'
+        severity:
+          type: string
+        type:
+          type: string
+      type: object
     Filter:
       example:
         filter: filter
@@ -11321,6 +11445,101 @@ components:
         requestedEntitlement:
           $ref: '#/components/schemas/EntitlementRequest_requestedEntitlement'
         requestedFor:
+          type: string
+      type: object
+    EventLog_actor:
+      example:
+        identifier: identifier
+        displayName: displayName
+        type: type
+      properties:
+        displayName:
+          type: string
+        identifier:
+          type: string
+        type:
+          type: string
+      type: object
+    EventLog_client_geo_location:
+      example:
+        lat: 0.8008281904610115
+        long: 6.027456183070403
+      properties:
+        lat:
+          type: number
+        long:
+          type: number
+      type: object
+    EventLog_client_geo:
+      example:
+        country: country
+        city: city
+        location:
+          lat: 0.8008281904610115
+          long: 6.027456183070403
+        subDivision: subDivision
+        state: state
+      properties:
+        city:
+          type: string
+        country:
+          type: string
+        location:
+          $ref: '#/components/schemas/EventLog_client_geo_location'
+        state:
+          type: string
+        subDivision:
+          type: string
+      type: object
+    EventLog_client_userAgent:
+      example:
+        os: os
+        browser: browser
+        raw: raw
+        type: type
+        device: device
+      properties:
+        browser:
+          type: string
+        device:
+          type: string
+        os:
+          type: string
+        raw:
+          type: string
+        type:
+          type: string
+      type: object
+    EventLog_client:
+      example:
+        geo:
+          country: country
+          city: city
+          location:
+            lat: 0.8008281904610115
+            long: 6.027456183070403
+          subDivision: subDivision
+          state: state
+        ip: ip
+        userAgent:
+          os: os
+          browser: browser
+          raw: raw
+          type: type
+          device: device
+      properties:
+        geo:
+          $ref: '#/components/schemas/EventLog_client_geo'
+        ip:
+          type: string
+        userAgent:
+          $ref: '#/components/schemas/EventLog_client_userAgent'
+      type: object
+    EventLog_result:
+      example:
+        status: status
+      properties:
+        status:
           type: string
       type: object
     FlowDefinition_flow:

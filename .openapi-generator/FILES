@@ -63,6 +63,13 @@ docs/EntitlementRequest.md
 docs/EntitlementRequestOperations.md
 docs/EntitlementRequestRequestedEntitlement.md
 docs/Error.md
+docs/EventLog.md
+docs/EventLogActor.md
+docs/EventLogClient.md
+docs/EventLogClientGeo.md
+docs/EventLogClientGeoLocation.md
+docs/EventLogClientUserAgent.md
+docs/EventLogResult.md
 docs/Filter.md
 docs/FiltersApi.md
 docs/FiltersList.md
@@ -194,6 +201,13 @@ model_entitlement_request.go
 model_entitlement_request_operations.go
 model_entitlement_request_requested_entitlement.go
 model_error.go
+model_event_log.go
+model_event_log_actor.go
+model_event_log_client.go
+model_event_log_client_geo.go
+model_event_log_client_geo_location.go
+model_event_log_client_user_agent.go
+model_event_log_result.go
 model_filter.go
 model_filters_list.go
 model_filters_list_all_of.go
