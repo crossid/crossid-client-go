@@ -81,8 +81,6 @@ type APIClient struct {
 
 	PortalApi *PortalApiService
 
-	RegisterApi *RegisterApiService
-
 	ResourceTypesApi *ResourceTypesApiService
 
 	ResourcesApi *ResourcesApiService
@@ -128,7 +126,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.MiningApi = (*MiningApiService)(&c.common)
 	c.Oauth2Api = (*Oauth2ApiService)(&c.common)
 	c.PortalApi = (*PortalApiService)(&c.common)
-	c.RegisterApi = (*RegisterApiService)(&c.common)
 	c.ResourceTypesApi = (*ResourceTypesApiService)(&c.common)
 	c.ResourcesApi = (*ResourcesApiService)(&c.common)
 	c.RulesApi = (*RulesApiService)(&c.common)
@@ -167,7 +164,7 @@ func selectHeaderAccept(accepts []string) string {
 	return strings.Join(accepts, ",")
 }
 
-// contains is a case insensitive match, finding needle in a haystack
+// contains is a case insenstive match, finding needle in a haystack
 func contains(haystack []string, needle string) bool {
 	for _, a := range haystack {
 		if strings.ToLower(a) == strings.ToLower(needle) {

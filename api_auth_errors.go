@@ -73,7 +73,7 @@ func (a *AuthErrorsApiService) GetErrorsExecute(r ApiGetErrorsRequest) (AuthErro
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/errors/"
+	localVarPath := localBasePath + "/auth/auth-errors/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

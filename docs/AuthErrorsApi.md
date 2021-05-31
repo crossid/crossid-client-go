@@ -4,7 +4,7 @@ All URIs are relative to *http://dev.local.crossid.io:8000/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetErrors**](AuthErrorsApi.md#GetErrors) | **Get** /auth/errors/ | Info for a specific errors.
+[**GetErrors**](AuthErrorsApi.md#GetErrors) | **Get** /auth/auth-errors/ | Info for a specific errors.
 
 
 

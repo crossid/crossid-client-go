@@ -17,11 +17,9 @@ import (
 
 // LoginFlowMethods struct for LoginFlowMethods
 type LoginFlowMethods struct {
-	Oidc *LoginFlowMethod `json:"oidc,omitempty"`
 	Otp *LoginFlowMethod `json:"otp,omitempty"`
 	Password *LoginFlowMethod `json:"password,omitempty"`
 	Spnego *LoginFlowMethod `json:"spnego,omitempty"`
-	Totp *LoginFlowMethod `json:"totp,omitempty"`
 	Webauthn *LoginFlowMethod `json:"webauthn,omitempty"`
 }
 
@@ -40,38 +38,6 @@ func NewLoginFlowMethods() *LoginFlowMethods {
 func NewLoginFlowMethodsWithDefaults() *LoginFlowMethods {
 	this := LoginFlowMethods{}
 	return &this
-}
-
-// GetOidc returns the Oidc field value if set, zero value otherwise.
-func (o *LoginFlowMethods) GetOidc() LoginFlowMethod {
-	if o == nil || o.Oidc == nil {
-		var ret LoginFlowMethod
-		return ret
-	}
-	return *o.Oidc
-}
-
-// GetOidcOk returns a tuple with the Oidc field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *LoginFlowMethods) GetOidcOk() (*LoginFlowMethod, bool) {
-	if o == nil || o.Oidc == nil {
-		return nil, false
-	}
-	return o.Oidc, true
-}
-
-// HasOidc returns a boolean if a field has been set.
-func (o *LoginFlowMethods) HasOidc() bool {
-	if o != nil && o.Oidc != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetOidc gets a reference to the given LoginFlowMethod and assigns it to the Oidc field.
-func (o *LoginFlowMethods) SetOidc(v LoginFlowMethod) {
-	o.Oidc = &v
 }
 
 // GetOtp returns the Otp field value if set, zero value otherwise.
@@ -170,38 +136,6 @@ func (o *LoginFlowMethods) SetSpnego(v LoginFlowMethod) {
 	o.Spnego = &v
 }
 
-// GetTotp returns the Totp field value if set, zero value otherwise.
-func (o *LoginFlowMethods) GetTotp() LoginFlowMethod {
-	if o == nil || o.Totp == nil {
-		var ret LoginFlowMethod
-		return ret
-	}
-	return *o.Totp
-}
-
-// GetTotpOk returns a tuple with the Totp field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *LoginFlowMethods) GetTotpOk() (*LoginFlowMethod, bool) {
-	if o == nil || o.Totp == nil {
-		return nil, false
-	}
-	return o.Totp, true
-}
-
-// HasTotp returns a boolean if a field has been set.
-func (o *LoginFlowMethods) HasTotp() bool {
-	if o != nil && o.Totp != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetTotp gets a reference to the given LoginFlowMethod and assigns it to the Totp field.
-func (o *LoginFlowMethods) SetTotp(v LoginFlowMethod) {
-	o.Totp = &v
-}
-
 // GetWebauthn returns the Webauthn field value if set, zero value otherwise.
 func (o *LoginFlowMethods) GetWebauthn() LoginFlowMethod {
 	if o == nil || o.Webauthn == nil {
@@ -236,9 +170,6 @@ func (o *LoginFlowMethods) SetWebauthn(v LoginFlowMethod) {
 
 func (o LoginFlowMethods) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Oidc != nil {
-		toSerialize["oidc"] = o.Oidc
-	}
 	if o.Otp != nil {
 		toSerialize["otp"] = o.Otp
 	}
@@ -247,9 +178,6 @@ func (o LoginFlowMethods) MarshalJSON() ([]byte, error) {
 	}
 	if o.Spnego != nil {
 		toSerialize["spnego"] = o.Spnego
-	}
-	if o.Totp != nil {
-		toSerialize["totp"] = o.Totp
 	}
 	if o.Webauthn != nil {
 		toSerialize["webauthn"] = o.Webauthn

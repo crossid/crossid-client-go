@@ -5,7 +5,6 @@ All URIs are relative to *http://dev.local.crossid.io:8000/api/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetCommit**](AuditApi.md#GetCommit) | **Get** /audit/commits/{id} | Get a Commit
-[**GetEventLog**](AuditApi.md#GetEventLog) | **Get** /event-logs/{id} | Get an event log
 [**ListCommits**](AuditApi.md#ListCommits) | **Get** /audit/commits | List Commits
 
 
@@ -63,74 +62,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Commit**](Commit.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GetEventLog
-
-> EventLog GetEventLog(ctx, id).Execute()
-
-Get an event log
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    id := "id_example" // string | The id of the log to retrieve.
-
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AuditApi.GetEventLog(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AuditApi.GetEventLog``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetEventLog`: EventLog
-    fmt.Fprintf(os.Stdout, "Response from `AuditApi.GetEventLog`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | The id of the log to retrieve. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetEventLogRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**EventLog**](EventLog.md)
 
 ### Authorization
 
