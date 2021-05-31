@@ -4,9 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Oidc** | Pointer to [**LoginFlowMethod**](LoginFlowMethod.md) |  | [optional] 
 **Otp** | Pointer to [**LoginFlowMethod**](LoginFlowMethod.md) |  | [optional] 
 **Password** | Pointer to [**LoginFlowMethod**](LoginFlowMethod.md) |  | [optional] 
 **Spnego** | Pointer to [**LoginFlowMethod**](LoginFlowMethod.md) |  | [optional] 
+**Totp** | Pointer to [**LoginFlowMethod**](LoginFlowMethod.md) |  | [optional] 
 **Webauthn** | Pointer to [**LoginFlowMethod**](LoginFlowMethod.md) |  | [optional] 
 
 ## Methods
@@ -27,6 +29,31 @@ will change when the set of required properties is changed
 NewLoginFlowMethodsWithDefaults instantiates a new LoginFlowMethods object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetOidc
+
+`func (o *LoginFlowMethods) GetOidc() LoginFlowMethod`
+
+GetOidc returns the Oidc field if non-nil, zero value otherwise.
+
+### GetOidcOk
+
+`func (o *LoginFlowMethods) GetOidcOk() (*LoginFlowMethod, bool)`
+
+GetOidcOk returns a tuple with the Oidc field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOidc
+
+`func (o *LoginFlowMethods) SetOidc(v LoginFlowMethod)`
+
+SetOidc sets Oidc field to given value.
+
+### HasOidc
+
+`func (o *LoginFlowMethods) HasOidc() bool`
+
+HasOidc returns a boolean if a field has been set.
 
 ### GetOtp
 
@@ -102,6 +129,31 @@ SetSpnego sets Spnego field to given value.
 `func (o *LoginFlowMethods) HasSpnego() bool`
 
 HasSpnego returns a boolean if a field has been set.
+
+### GetTotp
+
+`func (o *LoginFlowMethods) GetTotp() LoginFlowMethod`
+
+GetTotp returns the Totp field if non-nil, zero value otherwise.
+
+### GetTotpOk
+
+`func (o *LoginFlowMethods) GetTotpOk() (*LoginFlowMethod, bool)`
+
+GetTotpOk returns a tuple with the Totp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotp
+
+`func (o *LoginFlowMethods) SetTotp(v LoginFlowMethod)`
+
+SetTotp sets Totp field to given value.
+
+### HasTotp
+
+`func (o *LoginFlowMethods) HasTotp() bool`
+
+HasTotp returns a boolean if a field has been set.
 
 ### GetWebauthn
 

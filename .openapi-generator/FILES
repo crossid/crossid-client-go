@@ -19,6 +19,7 @@ api_mappers.go
 api_mining.go
 api_oauth2.go
 api_portal.go
+api_register.go
 api_resource_types.go
 api_resources.go
 api_rules.go
@@ -62,6 +63,13 @@ docs/EntitlementRequest.md
 docs/EntitlementRequestOperations.md
 docs/EntitlementRequestRequestedEntitlement.md
 docs/Error.md
+docs/EventLog.md
+docs/EventLogActor.md
+docs/EventLogClient.md
+docs/EventLogClientGeo.md
+docs/EventLogClientGeoLocation.md
+docs/EventLogClientUserAgent.md
+docs/EventLogResult.md
 docs/Filter.md
 docs/FiltersApi.md
 docs/FiltersList.md
@@ -96,6 +104,7 @@ docs/LoginFlow.md
 docs/LoginFlowMethod.md
 docs/LoginFlowMethodConfig.md
 docs/LoginFlowMethodConfigFields.md
+docs/LoginFlowMethodState.md
 docs/LoginFlowMethods.md
 docs/MapResource.md
 docs/Mapper.md
@@ -116,6 +125,12 @@ docs/PatchesList.md
 docs/PatchesListAllOf.md
 docs/PortalApi.md
 docs/RefsReqBody.md
+docs/RegisterApi.md
+docs/RegistrationFlow.md
+docs/RegistrationFlowMethod.md
+docs/RegistrationFlowMethodConfig.md
+docs/RegistrationFlowMethodConfigFields.md
+docs/RegistrationFlowMethods.md
 docs/Resource.md
 docs/ResourceDiffReq.md
 docs/ResourceDiffRes.md
@@ -186,6 +201,13 @@ model_entitlement_request.go
 model_entitlement_request_operations.go
 model_entitlement_request_requested_entitlement.go
 model_error.go
+model_event_log.go
+model_event_log_actor.go
+model_event_log_client.go
+model_event_log_client_geo.go
+model_event_log_client_geo_location.go
+model_event_log_client_user_agent.go
+model_event_log_result.go
 model_filter.go
 model_filters_list.go
 model_filters_list_all_of.go
@@ -213,6 +235,7 @@ model_login_flow.go
 model_login_flow_method.go
 model_login_flow_method_config.go
 model_login_flow_method_config_fields.go
+model_login_flow_method_state.go
 model_login_flow_methods.go
 model_map_resource.go
 model_mapper.go
@@ -229,6 +252,11 @@ model_patch_request.go
 model_patches_list.go
 model_patches_list_all_of.go
 model_refs_req_body.go
+model_registration_flow.go
+model_registration_flow_method.go
+model_registration_flow_method_config.go
+model_registration_flow_method_config_fields.go
+model_registration_flow_methods.go
 model_resource.go
 model_resource_diff_req.go
 model_resource_diff_res.go

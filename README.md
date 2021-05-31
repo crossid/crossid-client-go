@@ -91,8 +91,9 @@ Class | Method | HTTP request | Description
 *AppsApi* | [**PingApp**](docs/AppsApi.md#pingapp) | **Post** /apps/{appId}/.ping | Check App Health
 *AppsApi* | [**ReplaceApp**](docs/AppsApi.md#replaceapp) | **Put** /apps/{appId} | Replace an App
 *AuditApi* | [**GetCommit**](docs/AuditApi.md#getcommit) | **Get** /audit/commits/{id} | Get a Commit
+*AuditApi* | [**GetEventLog**](docs/AuditApi.md#geteventlog) | **Get** /event-logs/{id} | Get an event log
 *AuditApi* | [**ListCommits**](docs/AuditApi.md#listcommits) | **Get** /audit/commits | List Commits
-*AuthErrorsApi* | [**GetErrors**](docs/AuthErrorsApi.md#geterrors) | **Get** /auth/auth-errors/ | Info for a specific errors.
+*AuthErrorsApi* | [**GetErrors**](docs/AuthErrorsApi.md#geterrors) | **Get** /auth/errors/ | Info for a specific errors.
 *ChangesApi* | [**ApplyChangeLog**](docs/ChangesApi.md#applychangelog) | **Post** /changes/{id}/.apply | Apply a ChangeLog
 *ChangesApi* | [**CancelChangeLog**](docs/ChangesApi.md#cancelchangelog) | **Post** /changes/{id}/.cancel | Cancel a ChangeLog.
 *ChangesApi* | [**GetChangeLog**](docs/ChangesApi.md#getchangelog) | **Get** /changes/{id} | Get a Change-Log.
@@ -135,6 +136,7 @@ Class | Method | HTTP request | Description
 *Oauth2Api* | [**ListOAUTH2Clients**](docs/Oauth2Api.md#listoauth2clients) | **Get** /oauth2/clients/ | List OAUTH 2.0 Clients.
 *PortalApi* | [**PortalFindRequest**](docs/PortalApi.md#portalfindrequest) | **Post** /portal/.gsearch | Make a portal specific resources search
 *PortalApi* | [**PortalRequest**](docs/PortalApi.md#portalrequest) | **Post** /portal/request | Make a portal request
+*RegisterApi* | [**GetRegistrationFlow**](docs/RegisterApi.md#getregistrationflow) | **Get** /auth/self-service/register/flows | Info for a specific registration flow.
 *ResourceTypesApi* | [**CreateResourceType**](docs/ResourceTypesApi.md#createresourcetype) | **Post** /resource-types/ | Create a Resource Type
 *ResourceTypesApi* | [**GetResourceType**](docs/ResourceTypesApi.md#getresourcetype) | **Get** /resource-types/{id} | Get a Resource Type
 *ResourceTypesApi* | [**ListResourceTypes**](docs/ResourceTypesApi.md#listresourcetypes) | **Get** /resource-types/ | List Resource Types
@@ -205,6 +207,13 @@ Class | Method | HTTP request | Description
  - [EntitlementRequestOperations](docs/EntitlementRequestOperations.md)
  - [EntitlementRequestRequestedEntitlement](docs/EntitlementRequestRequestedEntitlement.md)
  - [Error](docs/Error.md)
+ - [EventLog](docs/EventLog.md)
+ - [EventLogActor](docs/EventLogActor.md)
+ - [EventLogClient](docs/EventLogClient.md)
+ - [EventLogClientGeo](docs/EventLogClientGeo.md)
+ - [EventLogClientGeoLocation](docs/EventLogClientGeoLocation.md)
+ - [EventLogClientUserAgent](docs/EventLogClientUserAgent.md)
+ - [EventLogResult](docs/EventLogResult.md)
  - [Filter](docs/Filter.md)
  - [FiltersList](docs/FiltersList.md)
  - [FiltersListAllOf](docs/FiltersListAllOf.md)
@@ -232,6 +241,7 @@ Class | Method | HTTP request | Description
  - [LoginFlowMethod](docs/LoginFlowMethod.md)
  - [LoginFlowMethodConfig](docs/LoginFlowMethodConfig.md)
  - [LoginFlowMethodConfigFields](docs/LoginFlowMethodConfigFields.md)
+ - [LoginFlowMethodState](docs/LoginFlowMethodState.md)
  - [LoginFlowMethods](docs/LoginFlowMethods.md)
  - [MapResource](docs/MapResource.md)
  - [Mapper](docs/Mapper.md)
@@ -248,6 +258,11 @@ Class | Method | HTTP request | Description
  - [PatchesList](docs/PatchesList.md)
  - [PatchesListAllOf](docs/PatchesListAllOf.md)
  - [RefsReqBody](docs/RefsReqBody.md)
+ - [RegistrationFlow](docs/RegistrationFlow.md)
+ - [RegistrationFlowMethod](docs/RegistrationFlowMethod.md)
+ - [RegistrationFlowMethodConfig](docs/RegistrationFlowMethodConfig.md)
+ - [RegistrationFlowMethodConfigFields](docs/RegistrationFlowMethodConfigFields.md)
+ - [RegistrationFlowMethods](docs/RegistrationFlowMethods.md)
  - [Resource](docs/Resource.md)
  - [ResourceDiffReq](docs/ResourceDiffReq.md)
  - [ResourceDiffRes](docs/ResourceDiffRes.md)

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Active** | Pointer to **bool** |  | [optional] 
 **AppId** | Pointer to **string** |  | [optional] 
 **AppLogic** | Pointer to **string** |  | [optional] 
 **Config** | Pointer to **interface{}** |  | [optional] 
@@ -31,6 +32,31 @@ will change when the set of required properties is changed
 NewAppWithDefaults instantiates a new App object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetActive
+
+`func (o *App) GetActive() bool`
+
+GetActive returns the Active field if non-nil, zero value otherwise.
+
+### GetActiveOk
+
+`func (o *App) GetActiveOk() (*bool, bool)`
+
+GetActiveOk returns a tuple with the Active field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetActive
+
+`func (o *App) SetActive(v bool)`
+
+SetActive sets Active field to given value.
+
+### HasActive
+
+`func (o *App) HasActive() bool`
+
+HasActive returns a boolean if a field has been set.
 
 ### GetAppId
 

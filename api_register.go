@@ -24,31 +24,31 @@ var (
 	_ _context.Context
 )
 
-// AuthErrorsApiService AuthErrorsApi service
-type AuthErrorsApiService service
+// RegisterApiService RegisterApi service
+type RegisterApiService service
 
-type ApiGetErrorsRequest struct {
+type ApiGetRegistrationFlowRequest struct {
 	ctx _context.Context
-	ApiService *AuthErrorsApiService
-	error_ *string
+	ApiService *RegisterApiService
+	id *string
 }
 
-func (r ApiGetErrorsRequest) Error_(error_ string) ApiGetErrorsRequest {
-	r.error_ = &error_
+func (r ApiGetRegistrationFlowRequest) Id(id string) ApiGetRegistrationFlowRequest {
+	r.id = &id
 	return r
 }
 
-func (r ApiGetErrorsRequest) Execute() (AuthErrors, *_nethttp.Response, error) {
-	return r.ApiService.GetErrorsExecute(r)
+func (r ApiGetRegistrationFlowRequest) Execute() (RegistrationFlow, *_nethttp.Response, error) {
+	return r.ApiService.GetRegistrationFlowExecute(r)
 }
 
 /*
- * GetErrors Info for a specific errors.
+ * GetRegistrationFlow Info for a specific registration flow.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGetErrorsRequest
+ * @return ApiGetRegistrationFlowRequest
  */
-func (a *AuthErrorsApiService) GetErrors(ctx _context.Context) ApiGetErrorsRequest {
-	return ApiGetErrorsRequest{
+func (a *RegisterApiService) GetRegistrationFlow(ctx _context.Context) ApiGetRegistrationFlowRequest {
+	return ApiGetRegistrationFlowRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -56,33 +56,33 @@ func (a *AuthErrorsApiService) GetErrors(ctx _context.Context) ApiGetErrorsReque
 
 /*
  * Execute executes the request
- * @return AuthErrors
+ * @return RegistrationFlow
  */
-func (a *AuthErrorsApiService) GetErrorsExecute(r ApiGetErrorsRequest) (AuthErrors, *_nethttp.Response, error) {
+func (a *RegisterApiService) GetRegistrationFlowExecute(r ApiGetRegistrationFlowRequest) (RegistrationFlow, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  AuthErrors
+		localVarReturnValue  RegistrationFlow
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthErrorsApiService.GetErrors")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegisterApiService.GetRegistrationFlow")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/auth/errors/"
+	localVarPath := localBasePath + "/auth/self-service/register/flows"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
-	if r.error_ == nil {
-		return localVarReturnValue, nil, reportError("error_ is required and must be specified")
+	if r.id == nil {
+		return localVarReturnValue, nil, reportError("id is required and must be specified")
 	}
 
-	localVarQueryParams.Add("error", parameterToString(*r.error_, ""))
+	localVarQueryParams.Add("id", parameterToString(*r.id, ""))
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

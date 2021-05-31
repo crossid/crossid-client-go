@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Config** | Pointer to [**LoginFlowMethodConfig**](LoginFlowMethodConfig.md) |  | [optional] 
 **Level** | Pointer to **int32** |  | [optional] 
 **Method** | Pointer to **string** |  | [optional] 
+**State** | Pointer to [**LoginFlowMethodState**](LoginFlowMethodState.md) |  | [optional] 
 
 ## Methods
 
@@ -101,6 +102,31 @@ SetMethod sets Method field to given value.
 `func (o *LoginFlowMethod) HasMethod() bool`
 
 HasMethod returns a boolean if a field has been set.
+
+### GetState
+
+`func (o *LoginFlowMethod) GetState() LoginFlowMethodState`
+
+GetState returns the State field if non-nil, zero value otherwise.
+
+### GetStateOk
+
+`func (o *LoginFlowMethod) GetStateOk() (*LoginFlowMethodState, bool)`
+
+GetStateOk returns a tuple with the State field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetState
+
+`func (o *LoginFlowMethod) SetState(v LoginFlowMethodState)`
+
+SetState sets State field to given value.
+
+### HasState
+
+`func (o *LoginFlowMethod) HasState() bool`
+
+HasState returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

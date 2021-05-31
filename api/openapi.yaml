@@ -29,22 +29,34 @@ servers:
 security:
 - bearerAuth: []
 tags:
-- description: Jobs Endpoints
-  name: jobs
-- description: Mappers Endpoints
-  name: mappers
-- description: Resources Endpoints
-  name: resources
+- description: Applications Endpoints
+  name: apps
+- description: Insight discovery and resolution Endpoints
+  name: insights
+- description: Schemas Endpoints
+  name: schemas
+- description: rules Endpoints
+  name: rules
 - description: Changes Endpoints
   name: changes
-- description: Filters Endpoints
-  name: filters
-- description: Secrets Endpoints
-  name: secrets
-- description: Resource Types Endpoints
-  name: resourceTypes
+- description: Flows and Tasks endpoints
+  name: flows
+- description: Data mining and role clustering Endpoints
+  name: mining
+- description: Jobs Endpoints
+  name: jobs
+- description: Resource References Endpoints
+  name: refs
+- description: Resources Endpoints
+  name: resources
 - description: Audit Endpoints
   name: audit
+- description: Node Health Endpoints
+  name: health
+- description: Mappers Endpoints
+  name: mappers
+- description: Secrets Endpoints
+  name: secrets
 - description: Sessions Endpoints
   name: sessions
 - description: API Tokens Endpoints
@@ -53,24 +65,14 @@ tags:
   name: authErrors
 - description: Login Endpoints
   name: login
-- description: Node Health Endpoints
-  name: health
+- description: Registration Endpoints
+  name: register
+- description: Filters Endpoints
+  name: filters
 - description: Portal Endpoints
   name: portal
-- description: Resource References Endpoints
-  name: refs
-- description: rules Endpoints
-  name: rules
-- description: Applications Endpoints
-  name: apps
-- description: Flows and Tasks endpoints
-  name: flows
-- description: Data mining and role clustering Endpoints
-  name: mining
-- description: Insight discovery and resolution Endpoints
-  name: insights
-- description: Schemas Endpoints
-  name: schemas
+- description: Resource Types Endpoints
+  name: resourceTypes
 paths:
   /apps/:
     get:
@@ -1162,7 +1164,7 @@ paths:
       tags:
       - apiTokens
       x-order: 30
-  /auth/auth-errors/:
+  /auth/errors/:
     get:
       operationId: getErrors
       parameters:
@@ -1266,6 +1268,58 @@ paths:
       summary: Info for a specific login flow.
       tags:
       - login
+  /auth/self-service/register/flows:
+    get:
+      operationId: getRegistrationFlow
+      parameters:
+      - description: The id of the flow to retrieve
+        explode: true
+        in: query
+        name: id
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegistrationFlow'
+          description: Expected response to a valid request
+        "400":
+          content:
+            application/json:
+              example:
+                code: "400"
+                message: 'Bad Request: Invalid argument (invalid request payload).'
+                status: Bad Request
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: The submitted request is invalid.
+        "404":
+          content:
+            application/json:
+              example:
+                code: "404"
+                message: the requested resource could not be found.
+                status: Not Found
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: The specified resource was not found.
+        "500":
+          content:
+            application/json:
+              example:
+                code: "500"
+                message: an internal error has occurred.
+                status: Internal Error
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: An internal error has occured.
+      summary: Info for a specific registration flow.
+      tags:
+      - register
   /auth/sessions/revoke:
     delete:
       operationId: sessionRevoke
@@ -2302,6 +2356,79 @@ paths:
       summary: List replaces in change logs
       tags:
       - changes
+  /event-logs/{id}:
+    get:
+      operationId: getEventLog
+      parameters:
+      - description: The id of the log to retrieve.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventLog'
+          description: Expected response to a valid request
+        "400":
+          content:
+            application/json:
+              example:
+                code: "400"
+                message: 'Bad Request: Invalid argument (invalid request payload).'
+                status: Bad Request
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: The submitted request is invalid.
+        "401":
+          content:
+            application/json:
+              example:
+                code: "401"
+                message: client is not authenticated.
+                status: Unauthorized
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Client is not authenticated.
+        "403":
+          content:
+            application/json:
+              example:
+                code: "403"
+                message: the request action is forbidden.
+                status: Forbidden
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Client is not authorized to perform the requested action.
+        "404":
+          content:
+            application/json:
+              example:
+                code: "404"
+                message: the requested resource could not be found.
+                status: Not Found
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: The specified resource was not found.
+        "500":
+          content:
+            application/json:
+              example:
+                code: "500"
+                message: an internal error has occurred.
+                status: Internal Error
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: An internal error has occured.
+      summary: Get an event log
+      tags:
+      - audit
+      x-order: 20
   /filters/:
     get:
       operationId: listFilters
@@ -9074,10 +9201,13 @@ components:
           resourceType: resourceType
           revision: 0
         appId: appId
+        active: true
         id: id
         config: ""
         logoURL: logoURL
       properties:
+        active:
+          type: boolean
         appId:
           type: string
         appLogic:
@@ -9426,6 +9556,57 @@ components:
         status:
           type: string
       type: object
+    EventLog:
+      example:
+        actor:
+          identifier: identifier
+          displayName: displayName
+          type: type
+        result:
+          status: status
+        severity: severity
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        displayName: displayName
+        requestId: requestId
+        client:
+          geo:
+            country: country
+            city: city
+            location:
+              lat: 0.8008281904610115
+              long: 6.027456183070403
+            subDivision: subDivision
+            state: state
+          ip: ip
+          userAgent:
+            os: os
+            browser: browser
+            raw: raw
+            type: type
+            device: device
+        id: id
+        type: type
+      properties:
+        actor:
+          $ref: '#/components/schemas/EventLog_actor'
+        client:
+          $ref: '#/components/schemas/EventLog_client'
+        createdAt:
+          format: date-time
+          type: string
+        displayName:
+          type: string
+        id:
+          type: string
+        requestId:
+          type: string
+        result:
+          $ref: '#/components/schemas/EventLog_result'
+        severity:
+          type: string
+        type:
+          type: string
+      type: object
     Filter:
       example:
         filter: filter
@@ -9674,9 +9855,51 @@ components:
         method: method
         forced: true
         methods:
+          totp:
+            method: method
+            level: 6
+            state:
+              initialized: true
+            config:
+              method: method
+              action: action
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              fields:
+              - name: name
+                messages:
+                - id: 0
+                  text: text
+                  type: info
+                - id: 0
+                  text: text
+                  type: info
+                disabled: true
+                type: type
+                value: value
+                required: true
+              - name: name
+                messages:
+                - id: 0
+                  text: text
+                  type: info
+                - id: 0
+                  text: text
+                  type: info
+                disabled: true
+                type: type
+                value: value
+                required: true
           password:
             method: method
             level: 6
+            state:
+              initialized: true
             config:
               method: method
               action: action
@@ -9715,6 +9938,8 @@ components:
           spnego:
             method: method
             level: 6
+            state:
+              initialized: true
             config:
               method: method
               action: action
@@ -9753,6 +9978,8 @@ components:
           webauthn:
             method: method
             level: 6
+            state:
+              initialized: true
             config:
               method: method
               action: action
@@ -9791,6 +10018,48 @@ components:
           otp:
             method: method
             level: 6
+            state:
+              initialized: true
+            config:
+              method: method
+              action: action
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              fields:
+              - name: name
+                messages:
+                - id: 0
+                  text: text
+                  type: info
+                - id: 0
+                  text: text
+                  type: info
+                disabled: true
+                type: type
+                value: value
+                required: true
+              - name: name
+                messages:
+                - id: 0
+                  text: text
+                  type: info
+                - id: 0
+                  text: text
+                  type: info
+                disabled: true
+                type: type
+                value: value
+                required: true
+          oidc:
+            method: method
+            level: 6
+            state:
+              initialized: true
             config:
               method: method
               action: action
@@ -9844,6 +10113,8 @@ components:
       example:
         method: method
         level: 6
+        state:
+          initialized: true
         config:
           method: method
           action: action
@@ -9886,6 +10157,8 @@ components:
           type: integer
         method:
           type: string
+        state:
+          $ref: '#/components/schemas/LoginFlowMethod_state'
       type: object
     MapResource:
       example:
@@ -10092,6 +10365,337 @@ components:
         Revision:
           format: int64
           type: integer
+      type: object
+    RegistrationFlow:
+      example:
+        method: method
+        methods:
+          password:
+            method: method
+            config:
+              dummy: dummy
+              method: method
+              action: action
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              fields:
+              - name: name
+                messages:
+                - id: 0
+                  text: text
+                  type: info
+                - id: 0
+                  text: text
+                  type: info
+                disabled: true
+                type: type
+                value: value
+                required: true
+              - name: name
+                messages:
+                - id: 0
+                  text: text
+                  type: info
+                - id: 0
+                  text: text
+                  type: info
+                disabled: true
+                type: type
+                value: value
+                required: true
+          spnego:
+            method: method
+            config:
+              dummy: dummy
+              method: method
+              action: action
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              fields:
+              - name: name
+                messages:
+                - id: 0
+                  text: text
+                  type: info
+                - id: 0
+                  text: text
+                  type: info
+                disabled: true
+                type: type
+                value: value
+                required: true
+              - name: name
+                messages:
+                - id: 0
+                  text: text
+                  type: info
+                - id: 0
+                  text: text
+                  type: info
+                disabled: true
+                type: type
+                value: value
+                required: true
+          webauthn:
+            method: method
+            config:
+              dummy: dummy
+              method: method
+              action: action
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              fields:
+              - name: name
+                messages:
+                - id: 0
+                  text: text
+                  type: info
+                - id: 0
+                  text: text
+                  type: info
+                disabled: true
+                type: type
+                value: value
+                required: true
+              - name: name
+                messages:
+                - id: 0
+                  text: text
+                  type: info
+                - id: 0
+                  text: text
+                  type: info
+                disabled: true
+                type: type
+                value: value
+                required: true
+          otp:
+            method: method
+            config:
+              dummy: dummy
+              method: method
+              action: action
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              fields:
+              - name: name
+                messages:
+                - id: 0
+                  text: text
+                  type: info
+                - id: 0
+                  text: text
+                  type: info
+                disabled: true
+                type: type
+                value: value
+                required: true
+              - name: name
+                messages:
+                - id: 0
+                  text: text
+                  type: info
+                - id: 0
+                  text: text
+                  type: info
+                disabled: true
+                type: type
+                value: value
+                required: true
+          oidc:
+            method: method
+            config:
+              dummy: dummy
+              method: method
+              action: action
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              fields:
+              - name: name
+                messages:
+                - id: 0
+                  text: text
+                  type: info
+                - id: 0
+                  text: text
+                  type: info
+                disabled: true
+                type: type
+                value: value
+                required: true
+              - name: name
+                messages:
+                - id: 0
+                  text: text
+                  type: info
+                - id: 0
+                  text: text
+                  type: info
+                disabled: true
+                type: type
+                value: value
+                required: true
+        id: id
+      properties:
+        id:
+          type: string
+        method:
+          type: string
+        methods:
+          $ref: '#/components/schemas/RegistrationFlow_methods'
+      type: object
+    RegistrationFlowMethod:
+      example:
+        method: method
+        config:
+          dummy: dummy
+          method: method
+          action: action
+          messages:
+          - id: 0
+            text: text
+            type: info
+          - id: 0
+            text: text
+            type: info
+          fields:
+          - name: name
+            messages:
+            - id: 0
+              text: text
+              type: info
+            - id: 0
+              text: text
+              type: info
+            disabled: true
+            type: type
+            value: value
+            required: true
+          - name: name
+            messages:
+            - id: 0
+              text: text
+              type: info
+            - id: 0
+              text: text
+              type: info
+            disabled: true
+            type: type
+            value: value
+            required: true
+      properties:
+        config:
+          $ref: '#/components/schemas/RegistrationFlowMethodConfig'
+        method:
+          type: string
+      type: object
+    RegistrationFlowMethodConfig:
+      example:
+        dummy: dummy
+        method: method
+        action: action
+        messages:
+        - id: 0
+          text: text
+          type: info
+        - id: 0
+          text: text
+          type: info
+        fields:
+        - name: name
+          messages:
+          - id: 0
+            text: text
+            type: info
+          - id: 0
+            text: text
+            type: info
+          disabled: true
+          type: type
+          value: value
+          required: true
+        - name: name
+          messages:
+          - id: 0
+            text: text
+            type: info
+          - id: 0
+            text: text
+            type: info
+          disabled: true
+          type: type
+          value: value
+          required: true
+      properties:
+        action:
+          type: string
+        dummy:
+          type: string
+        fields:
+          items:
+            $ref: '#/components/schemas/RegistrationFlowMethodConfigFields'
+          type: array
+        messages:
+          items:
+            $ref: '#/components/schemas/UserFacingMessage'
+          type: array
+        method:
+          type: string
+      type: object
+    RegistrationFlowMethodConfigFields:
+      example:
+        name: name
+        messages:
+        - id: 0
+          text: text
+          type: info
+        - id: 0
+          text: text
+          type: info
+        disabled: true
+        type: type
+        value: value
+        required: true
+      properties:
+        disabled:
+          type: boolean
+        messages:
+          items:
+            $ref: '#/components/schemas/UserFacingMessage'
+          type: array
+        name:
+          type: string
+        required:
+          type: boolean
+        type:
+          type: string
+        value:
+          type: string
       type: object
     Resource:
       additionalProperties: true
@@ -10883,6 +11487,101 @@ components:
         requestedFor:
           type: string
       type: object
+    EventLog_actor:
+      example:
+        identifier: identifier
+        displayName: displayName
+        type: type
+      properties:
+        displayName:
+          type: string
+        identifier:
+          type: string
+        type:
+          type: string
+      type: object
+    EventLog_client_geo_location:
+      example:
+        lat: 0.8008281904610115
+        long: 6.027456183070403
+      properties:
+        lat:
+          type: number
+        long:
+          type: number
+      type: object
+    EventLog_client_geo:
+      example:
+        country: country
+        city: city
+        location:
+          lat: 0.8008281904610115
+          long: 6.027456183070403
+        subDivision: subDivision
+        state: state
+      properties:
+        city:
+          type: string
+        country:
+          type: string
+        location:
+          $ref: '#/components/schemas/EventLog_client_geo_location'
+        state:
+          type: string
+        subDivision:
+          type: string
+      type: object
+    EventLog_client_userAgent:
+      example:
+        os: os
+        browser: browser
+        raw: raw
+        type: type
+        device: device
+      properties:
+        browser:
+          type: string
+        device:
+          type: string
+        os:
+          type: string
+        raw:
+          type: string
+        type:
+          type: string
+      type: object
+    EventLog_client:
+      example:
+        geo:
+          country: country
+          city: city
+          location:
+            lat: 0.8008281904610115
+            long: 6.027456183070403
+          subDivision: subDivision
+          state: state
+        ip: ip
+        userAgent:
+          os: os
+          browser: browser
+          raw: raw
+          type: type
+          device: device
+      properties:
+        geo:
+          $ref: '#/components/schemas/EventLog_client_geo'
+        ip:
+          type: string
+        userAgent:
+          $ref: '#/components/schemas/EventLog_client_userAgent'
+      type: object
+    EventLog_result:
+      example:
+        status: status
+      properties:
+        status:
+          type: string
+      type: object
     FlowDefinition_flow:
       example:
         displayName: displayName
@@ -10909,9 +11608,51 @@ components:
       type: object
     LoginFlow_methods:
       example:
+        totp:
+          method: method
+          level: 6
+          state:
+            initialized: true
+          config:
+            method: method
+            action: action
+            messages:
+            - id: 0
+              text: text
+              type: info
+            - id: 0
+              text: text
+              type: info
+            fields:
+            - name: name
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              disabled: true
+              type: type
+              value: value
+              required: true
+            - name: name
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              disabled: true
+              type: type
+              value: value
+              required: true
         password:
           method: method
           level: 6
+          state:
+            initialized: true
           config:
             method: method
             action: action
@@ -10950,6 +11691,8 @@ components:
         spnego:
           method: method
           level: 6
+          state:
+            initialized: true
           config:
             method: method
             action: action
@@ -10988,6 +11731,8 @@ components:
         webauthn:
           method: method
           level: 6
+          state:
+            initialized: true
           config:
             method: method
             action: action
@@ -11026,6 +11771,48 @@ components:
         otp:
           method: method
           level: 6
+          state:
+            initialized: true
+          config:
+            method: method
+            action: action
+            messages:
+            - id: 0
+              text: text
+              type: info
+            - id: 0
+              text: text
+              type: info
+            fields:
+            - name: name
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              disabled: true
+              type: type
+              value: value
+              required: true
+            - name: name
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              disabled: true
+              type: type
+              value: value
+              required: true
+        oidc:
+          method: method
+          level: 6
+          state:
+            initialized: true
           config:
             method: method
             action: action
@@ -11062,11 +11849,15 @@ components:
               value: value
               required: true
       properties:
+        oidc:
+          $ref: '#/components/schemas/LoginFlowMethod'
         otp:
           $ref: '#/components/schemas/LoginFlowMethod'
         password:
           $ref: '#/components/schemas/LoginFlowMethod'
         spnego:
+          $ref: '#/components/schemas/LoginFlowMethod'
+        totp:
           $ref: '#/components/schemas/LoginFlowMethod'
         webauthn:
           $ref: '#/components/schemas/LoginFlowMethod'
@@ -11151,6 +11942,13 @@ components:
         method:
           type: string
       type: object
+    LoginFlowMethod_state:
+      example:
+        initialized: true
+      properties:
+        initialized:
+          type: boolean
+      type: object
     Mapper_variables:
       example:
         name: name
@@ -11160,6 +11958,210 @@ components:
           type: string
         name:
           type: string
+      type: object
+    RegistrationFlow_methods:
+      example:
+        password:
+          method: method
+          config:
+            dummy: dummy
+            method: method
+            action: action
+            messages:
+            - id: 0
+              text: text
+              type: info
+            - id: 0
+              text: text
+              type: info
+            fields:
+            - name: name
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              disabled: true
+              type: type
+              value: value
+              required: true
+            - name: name
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              disabled: true
+              type: type
+              value: value
+              required: true
+        spnego:
+          method: method
+          config:
+            dummy: dummy
+            method: method
+            action: action
+            messages:
+            - id: 0
+              text: text
+              type: info
+            - id: 0
+              text: text
+              type: info
+            fields:
+            - name: name
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              disabled: true
+              type: type
+              value: value
+              required: true
+            - name: name
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              disabled: true
+              type: type
+              value: value
+              required: true
+        webauthn:
+          method: method
+          config:
+            dummy: dummy
+            method: method
+            action: action
+            messages:
+            - id: 0
+              text: text
+              type: info
+            - id: 0
+              text: text
+              type: info
+            fields:
+            - name: name
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              disabled: true
+              type: type
+              value: value
+              required: true
+            - name: name
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              disabled: true
+              type: type
+              value: value
+              required: true
+        otp:
+          method: method
+          config:
+            dummy: dummy
+            method: method
+            action: action
+            messages:
+            - id: 0
+              text: text
+              type: info
+            - id: 0
+              text: text
+              type: info
+            fields:
+            - name: name
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              disabled: true
+              type: type
+              value: value
+              required: true
+            - name: name
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              disabled: true
+              type: type
+              value: value
+              required: true
+        oidc:
+          method: method
+          config:
+            dummy: dummy
+            method: method
+            action: action
+            messages:
+            - id: 0
+              text: text
+              type: info
+            - id: 0
+              text: text
+              type: info
+            fields:
+            - name: name
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              disabled: true
+              type: type
+              value: value
+              required: true
+            - name: name
+              messages:
+              - id: 0
+                text: text
+                type: info
+              - id: 0
+                text: text
+                type: info
+              disabled: true
+              type: type
+              value: value
+              required: true
+      properties:
+        oidc:
+          $ref: '#/components/schemas/RegistrationFlowMethod'
+        otp:
+          $ref: '#/components/schemas/RegistrationFlowMethod'
+        password:
+          $ref: '#/components/schemas/RegistrationFlowMethod'
+        spnego:
+          $ref: '#/components/schemas/RegistrationFlowMethod'
+        webauthn:
+          $ref: '#/components/schemas/RegistrationFlowMethod'
       type: object
     ResourceType_schemaExtensions:
       example:
