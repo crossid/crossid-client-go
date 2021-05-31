@@ -24,7 +24,7 @@ type RefsReqBody struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRefsReqBody(limitAppIds []string, ) *RefsReqBody {
+func NewRefsReqBody(limitAppIds []string) *RefsReqBody {
 	this := RefsReqBody{}
 	this.LimitAppIds = limitAppIds
 	return &this
@@ -40,7 +40,7 @@ func NewRefsReqBodyWithDefaults() *RefsReqBody {
 
 // GetLimitAppIds returns the LimitAppIds field value
 func (o *RefsReqBody) GetLimitAppIds() []string {
-	if o == nil  {
+	if o == nil {
 		var ret []string
 		return ret
 	}

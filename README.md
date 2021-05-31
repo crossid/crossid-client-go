@@ -173,7 +173,6 @@ Class | Method | HTTP request | Description
 *SecretsApi* | [**PutSecret**](docs/SecretsApi.md#putsecret) | **Put** /secrets/{path} | Put a Secret
 *SessionsApi* | [**SessionRevoke**](docs/SessionsApi.md#sessionrevoke) | **Delete** /auth/sessions/revoke | Invalidates a session
 *SessionsApi* | [**Whoami**](docs/SessionsApi.md#whoami) | **Get** /auth/sessions/whoami | Check who the current HTTP session belongs to
-*VerifyApi* | [**GetVerificationFlow**](docs/VerifyApi.md#getverificationflow) | **Get** /auth/self-service/verify/flows | Info for a specific verification flow.
 
 
 ## Documentation For Models
@@ -295,11 +294,6 @@ Class | Method | HTTP request | Description
  - [TasksList](docs/TasksList.md)
  - [TasksListAllOf](docs/TasksListAllOf.md)
  - [UserFacingMessage](docs/UserFacingMessage.md)
- - [VerificationFlow](docs/VerificationFlow.md)
- - [VerificationFlowMethod](docs/VerificationFlowMethod.md)
- - [VerificationFlowMethodConfig](docs/VerificationFlowMethodConfig.md)
- - [VerificationFlowMethodConfigFields](docs/VerificationFlowMethodConfigFields.md)
- - [VerificationFlowMethods](docs/VerificationFlowMethods.md)
 
 
 ## Documentation For Authorization

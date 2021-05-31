@@ -277,7 +277,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RulesList**](rulesList.md)
+[**RulesList**](RulesList.md)
 
 ### Authorization
 

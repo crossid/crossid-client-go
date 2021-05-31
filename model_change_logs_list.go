@@ -27,7 +27,7 @@ type ChangeLogsList struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewChangeLogsList(resources []ChangeLog, ) *ChangeLogsList {
+func NewChangeLogsList(resources []ChangeLog) *ChangeLogsList {
 	this := ChangeLogsList{}
 	this.Resources = resources
 	return &this
@@ -139,7 +139,7 @@ func (o *ChangeLogsList) SetTotalResults(v int64) {
 
 // GetResources returns the Resources field value
 func (o *ChangeLogsList) GetResources() []ChangeLog {
-	if o == nil  {
+	if o == nil {
 		var ret []ChangeLog
 		return ret
 	}

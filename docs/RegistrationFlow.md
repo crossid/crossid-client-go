@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **Method** | Pointer to **string** |  | [optional] 
-**Methods** | Pointer to [**RegistrationFlowMethods**](RegistrationFlow_methods.md) |  | [optional] 
+**Methods** | Pointer to [**RegistrationFlowMethods**](RegistrationFlowMethods.md) |  | [optional] 
 
 ## Methods
 

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **AuthLevel** | Pointer to **int32** |  | [optional] 
 **ExpiresAt** | Pointer to **time.Time** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
-**Identity** | Pointer to [**SessionIdentity**](Session_identity.md) |  | [optional] 
+**Identity** | Pointer to [**SessionIdentity**](SessionIdentity.md) |  | [optional] 
 **IdentityId** | Pointer to **string** |  | [optional] 
 **IssuedAt** | Pointer to **time.Time** |  | [optional] 
 

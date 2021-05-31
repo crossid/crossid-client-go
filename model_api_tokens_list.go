@@ -27,7 +27,7 @@ type ApiTokensList struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiTokensList(resources []ApiToken, ) *ApiTokensList {
+func NewApiTokensList(resources []ApiToken) *ApiTokensList {
 	this := ApiTokensList{}
 	this.Resources = resources
 	return &this
@@ -139,7 +139,7 @@ func (o *ApiTokensList) SetTotalResults(v int64) {
 
 // GetResources returns the Resources field value
 func (o *ApiTokensList) GetResources() []ApiToken {
-	if o == nil  {
+	if o == nil {
 		var ret []ApiToken
 		return ret
 	}

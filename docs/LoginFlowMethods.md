@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Otp** | Pointer to [**LoginFlowMethod**](LoginFlowMethod.md) |  | [optional] 
 **Password** | Pointer to [**LoginFlowMethod**](LoginFlowMethod.md) |  | [optional] 
 **Spnego** | Pointer to [**LoginFlowMethod**](LoginFlowMethod.md) |  | [optional] 
+**Totp** | Pointer to [**LoginFlowMethod**](LoginFlowMethod.md) |  | [optional] 
 **Webauthn** | Pointer to [**LoginFlowMethod**](LoginFlowMethod.md) |  | [optional] 
 
 ## Methods
@@ -128,6 +129,31 @@ SetSpnego sets Spnego field to given value.
 `func (o *LoginFlowMethods) HasSpnego() bool`
 
 HasSpnego returns a boolean if a field has been set.
+
+### GetTotp
+
+`func (o *LoginFlowMethods) GetTotp() LoginFlowMethod`
+
+GetTotp returns the Totp field if non-nil, zero value otherwise.
+
+### GetTotpOk
+
+`func (o *LoginFlowMethods) GetTotpOk() (*LoginFlowMethod, bool)`
+
+GetTotpOk returns a tuple with the Totp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotp
+
+`func (o *LoginFlowMethods) SetTotp(v LoginFlowMethod)`
+
+SetTotp sets Totp field to given value.
+
+### HasTotp
+
+`func (o *LoginFlowMethods) HasTotp() bool`
+
+HasTotp returns a boolean if a field has been set.
 
 ### GetWebauthn
 

@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Actor** | Pointer to [**EventLogActor**](EventLog_actor.md) |  | [optional] 
-**Client** | Pointer to [**EventLogClient**](EventLog_client.md) |  | [optional] 
+**Actor** | Pointer to [**EventLogActor**](EventLogActor.md) |  | [optional] 
+**Client** | Pointer to [**EventLogClient**](EventLogClient.md) |  | [optional] 
 **CreatedAt** | Pointer to **time.Time** |  | [optional] 
 **DisplayName** | Pointer to **string** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
 **RequestId** | Pointer to **string** |  | [optional] 
-**Result** | Pointer to [**EventLogResult**](EventLog_result.md) |  | [optional] 
+**Result** | Pointer to [**EventLogResult**](EventLogResult.md) |  | [optional] 
 **Severity** | Pointer to **string** |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] 
 

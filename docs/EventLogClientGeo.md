@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **City** | Pointer to **string** |  | [optional] 
 **Country** | Pointer to **string** |  | [optional] 
-**Location** | Pointer to [**EventLogClientGeoLocation**](EventLog_client_geo_location.md) |  | [optional] 
+**Location** | Pointer to [**EventLogClientGeoLocation**](EventLogClientGeoLocation.md) |  | [optional] 
 **State** | Pointer to **string** |  | [optional] 
 **SubDivision** | Pointer to **string** |  | [optional] 
 

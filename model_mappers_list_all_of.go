@@ -24,7 +24,7 @@ type MappersListAllOf struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMappersListAllOf(resources []Mapper, ) *MappersListAllOf {
+func NewMappersListAllOf(resources []Mapper) *MappersListAllOf {
 	this := MappersListAllOf{}
 	this.Resources = resources
 	return &this
@@ -40,7 +40,7 @@ func NewMappersListAllOfWithDefaults() *MappersListAllOf {
 
 // GetResources returns the Resources field value
 func (o *MappersListAllOf) GetResources() []Mapper {
-	if o == nil  {
+	if o == nil {
 		var ret []Mapper
 		return ret
 	}

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Forced** | Pointer to **bool** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
 **Method** | Pointer to **string** |  | [optional] 
-**Methods** | Pointer to [**LoginFlowMethods**](LoginFlow_methods.md) |  | [optional] 
+**Methods** | Pointer to [**LoginFlowMethods**](LoginFlowMethods.md) |  | [optional] 
 **SsoChallenge** | Pointer to **string** |  | [optional] 
 
 ## Methods

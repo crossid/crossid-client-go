@@ -24,7 +24,7 @@ type Oauth2ClientListAllOf struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOauth2ClientListAllOf(resources []OAuth2Client, ) *Oauth2ClientListAllOf {
+func NewOauth2ClientListAllOf(resources []OAuth2Client) *Oauth2ClientListAllOf {
 	this := Oauth2ClientListAllOf{}
 	this.Resources = resources
 	return &this
@@ -40,7 +40,7 @@ func NewOauth2ClientListAllOfWithDefaults() *Oauth2ClientListAllOf {
 
 // GetResources returns the Resources field value
 func (o *Oauth2ClientListAllOf) GetResources() []OAuth2Client {
-	if o == nil  {
+	if o == nil {
 		var ret []OAuth2Client
 		return ret
 	}

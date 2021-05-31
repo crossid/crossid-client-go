@@ -295,7 +295,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResourceList**](resourceList.md)
+[**ResourceList**](ResourceList.md)
 
 ### Authorization
 
@@ -374,7 +374,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ChangeLogsList**](changeLogsList.md)
+[**ChangeLogsList**](ChangeLogsList.md)
 
 ### Authorization
 
@@ -452,7 +452,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResourceList**](resourceList.md)
+[**ResourceList**](ResourceList.md)
 
 ### Authorization
 
@@ -530,7 +530,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PatchesList**](patchesList.md)
+[**PatchesList**](PatchesList.md)
 
 ### Authorization
 
@@ -608,7 +608,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResourceList**](resourceList.md)
+[**ResourceList**](ResourceList.md)
 
 ### Authorization
 

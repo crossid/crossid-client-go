@@ -45,7 +45,7 @@ type SCIMSchemaAttribute struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSCIMSchemaAttribute(name string, type_ string, ) *SCIMSchemaAttribute {
+func NewSCIMSchemaAttribute(name string, type_ string) *SCIMSchemaAttribute {
 	this := SCIMSchemaAttribute{}
 	this.Name = name
 	this.Type = type_
@@ -222,7 +222,7 @@ func (o *SCIMSchemaAttribute) SetMutability(v string) {
 
 // GetName returns the Name field value
 func (o *SCIMSchemaAttribute) GetName() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -438,7 +438,7 @@ func (o *SCIMSchemaAttribute) SetSubAttributes(v []SCIMSchemaAttribute) {
 
 // GetType returns the Type field value
 func (o *SCIMSchemaAttribute) GetType() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

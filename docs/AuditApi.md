@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommitsList**](commitsList.md)
+[**CommitsList**](CommitsList.md)
 
 ### Authorization
 

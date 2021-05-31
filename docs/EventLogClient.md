@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Geo** | Pointer to [**EventLogClientGeo**](EventLog_client_geo.md) |  | [optional] 
+**Geo** | Pointer to [**EventLogClientGeo**](EventLogClientGeo.md) |  | [optional] 
 **Ip** | Pointer to **string** |  | [optional] 
-**UserAgent** | Pointer to [**EventLogClientUserAgent**](EventLog_client_userAgent.md) |  | [optional] 
+**UserAgent** | Pointer to [**EventLogClientUserAgent**](EventLogClientUserAgent.md) |  | [optional] 
 
 ## Methods
 

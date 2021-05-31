@@ -27,7 +27,7 @@ type SecretsList struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSecretsList(resources []Secret, ) *SecretsList {
+func NewSecretsList(resources []Secret) *SecretsList {
 	this := SecretsList{}
 	this.Resources = resources
 	return &this
@@ -139,7 +139,7 @@ func (o *SecretsList) SetTotalResults(v int64) {
 
 // GetResources returns the Resources field value
 func (o *SecretsList) GetResources() []Secret {
-	if o == nil  {
+	if o == nil {
 		var ret []Secret
 		return ret
 	}

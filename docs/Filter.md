@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **DisplayName** | Pointer to **string** |  | [optional] 
 **Filter** | Pointer to **string** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
-**Meta** | Pointer to [**ApiTokenMeta**](ApiToken_meta.md) |  | [optional] 
+**Meta** | Pointer to [**ApiTokenMeta**](ApiTokenMeta.md) |  | [optional] 
 **Table** | Pointer to **string** |  | [optional] 
 **Template** | Pointer to **bool** |  | [optional] 
 

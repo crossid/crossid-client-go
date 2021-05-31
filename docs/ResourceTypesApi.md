@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResourceTypesList**](resourceTypesList.md)
+[**ResourceTypesList**](ResourceTypesList.md)
 
 ### Authorization
 

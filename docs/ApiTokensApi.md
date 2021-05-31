@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ApiTokensList**](apiTokensList.md)
+[**ApiTokensList**](ApiTokensList.md)
 
 ### Authorization
 

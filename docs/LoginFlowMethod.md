@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Config** | Pointer to [**LoginFlowMethodConfig**](LoginFlowMethod_config.md) |  | [optional] 
+**Config** | Pointer to [**LoginFlowMethodConfig**](LoginFlowMethodConfig.md) |  | [optional] 
 **Level** | Pointer to **int32** |  | [optional] 
 **Method** | Pointer to **string** |  | [optional] 
-**State** | Pointer to [**LoginFlowMethodState**](LoginFlowMethod_state.md) |  | [optional] 
+**State** | Pointer to [**LoginFlowMethodState**](LoginFlowMethodState.md) |  | [optional] 
 
 ## Methods
 
