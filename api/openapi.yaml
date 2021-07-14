@@ -18,7 +18,7 @@ externalDocs:
   description: Find out more about CrossID
   url: https://www.crossid.io/developer
 servers:
-- description: Development
+- description: Development server
   url: http://{tenant}.local.crossid.io:{port}/api/v1
   variables:
     port:
